@@ -1,0 +1,43 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Importation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-9 d-flex align-items-stretch wd " data-aos="fade-up">
+    <div class="info-box" style="padding:0;">
+        <section class="about-lists">
+            <div class="container">
+
+                <div class="row no-gutters">
+                    <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="5">
+                        <span>Importation des etudiants</span>
+                        <h3>jjjjjjjjj</h3>
+                        <p>ici ici</p>
+                        @using (Html.BeginForm(new { enctype="multipart/form-data"}))
+                        {
+                            <input type="file" name="file" required />
+                            <input type="submit" />
+                        }
+                    </div>
+                    <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="10">
+                        <span>Importation des enseignants</span>
+                        @using (Html.BeginForm("ImportEnseignantAsyn", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <input type="file" name="file" required />
+                            <input type="submit" />
+                        }
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+
+

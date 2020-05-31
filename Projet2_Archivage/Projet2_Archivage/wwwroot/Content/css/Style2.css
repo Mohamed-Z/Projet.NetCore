@@ -65,7 +65,7 @@ a img {
 
 #espace_search {
     width: 100%;
-    height: 100%;
+    height: 500px;
     background-color : gainsboro;
 }
 
@@ -83,3 +83,4 @@ a img {
         color: gray;
     }
 
+ 

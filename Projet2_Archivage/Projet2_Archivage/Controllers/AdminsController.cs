@@ -222,6 +222,10 @@ namespace Projet2_Archivage.Controllers
         {
             int? id = HttpContext.Session.GetInt32("admin_id");
             Admin admin = db.admins.Find(id);
+            if (HttpContext.Session.GetString("succes") == null)
+            {
+               HttpContext.Session.SetString("succes", "null");
+            }
             return View(admin);
         }
 
@@ -236,6 +240,22 @@ namespace Projet2_Archivage.Controllers
                 await file.CopyToAsync(stream);
             }
             InsertExcelData(filepath, filename);
+            HttpContext.Session.SetString("succes", "enseignant");
+            return RedirectToAction("Importation");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> ImportEtudiantAsyn(IFormFile file)
+        {
+            string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
+            string filepath = "/ExcelFolder/" + filename;
+            var fullpath = this._environment.ContentRootPath + "/ExcelFolder/" + filename;
+            using (var stream = new FileStream(fullpath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+            InsertExcelData2(filepath, filename);
+            HttpContext.Session.SetString("succes", "etudiant");
             return RedirectToAction("Importation");
         }
 
@@ -266,6 +286,36 @@ namespace Projet2_Archivage.Controllers
             objbulk.ColumnMappings.Add("nom", "nom");
             objbulk.ColumnMappings.Add("prenom", "prenom");
             objbulk.ColumnMappings.Add("email", "email");
+            con.Open();
+            objbulk.WriteToServer(dt);
+            con.Close();
+        }
+
+        private void InsertExcelData2(string filepath, string filename)
+        {
+            string fullpath = this._environment.ContentRootPath + "/ExcelFolder/" + filename;
+            ExcelConn(fullpath);
+            string query = string.Format("Select * from [{0}]", "Feuil1$");
+            OleDbCommand Ecom = new OleDbCommand(query, Econ);
+
+            Econ.Open();
+            DataSet ds = new DataSet();
+            OleDbDataAdapter oda = new OleDbDataAdapter(query, Econ);
+            Econ.Close();
+
+            oda.Fill(ds);
+            DataTable dt = ds.Tables[0];
+
+            SqlBulkCopy objbulk = new SqlBulkCopy(con);
+
+            objbulk.DestinationTableName = "etudiants";
+            objbulk.ColumnMappings.Add("cne", "cne");
+            objbulk.ColumnMappings.Add("nom", "nom");
+            objbulk.ColumnMappings.Add("prenom", "prenom");
+            objbulk.ColumnMappings.Add("email", "email");
+            objbulk.ColumnMappings.Add("tel", "tel");
+            objbulk.ColumnMappings.Add("cin", "cin");
+            objbulk.ColumnMappings.Add("id_fil", "id_fil");
             con.Open();
             objbulk.WriteToServer(dt);
             con.Close();

@@ -10,7 +10,7 @@ using Projet2_Archivage.Models;
 namespace Projet2_Archivage.Migrations
 {
     [DbContext(typeof(ArchiveContext))]
-    [Migration("20200529155034_Initial")]
+    [Migration("20200531021959_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,7 +90,7 @@ namespace Projet2_Archivage.Migrations
 
                     b.Property<string>("nom");
 
-                    b.Property<double>("note");
+                    b.Property<double?>("note");
 
                     b.Property<string>("prenom");
 

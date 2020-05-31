@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "Espace_Etudiant";
+    Layout = "~/Views/Shared/_MonLayout.cshtml";
+}
+
+<h2>Espace_Etudiant</h2>
+@model Projet2_Archivage.Models.Etudiant
+
+
+<div style="height:800px;width:800px;border-color:black">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" asp-action="connexion" method="post">Espace Etudiant</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="Creer_Groupe">Groupe Gestion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="Information_De_stage ">information de stage</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="Deconnexion">Deconnexion</a>
+        </li>
+    </ul>
+    <div class="container border mb-2 p-3 border">
+
+        <div style="height:600px;width:600px">
+
+
+            @ViewBag.groupe
+            <form>
+                <div class="form-group">
+                    <label value="username" class="control-label">prenom</label>
+                    <input asp-for="@Model.prenom" class="form-control" />
+                    <span asp-validation-for="cne" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label value="username" class="control-label">nom</label>
+                    <input asp-for="@Model.nom" class="form-control" />
+                    <span asp-validation-for="cne" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label value="username" class="control-label">email</label>
+                    <input asp-for="@Model.email" class="form-control" />
+                    <span asp-validation-for="cne" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label value="password" class="control-label">password</label>
+
+                    <input type="password" name="password" class="form-control" />
+                    <input type="submit" value="check" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

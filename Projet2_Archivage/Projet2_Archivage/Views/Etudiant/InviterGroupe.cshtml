@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewData["Title"] = "InviterGroupe";
+}
+
+<h2>InviterGroupe</h2>
+
+@model IEnumerable<Projet2_Archivage.Models.GroupeMembre>
+@{
+    ViewBag.Title = "Création de Groupe";
+    Layout = "~/Views/Shared/_MonLayout.cshtml";
+}
+<div style="height:800px;width:800px;border-color:black">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" asp-action="Espace_Etudiant" method="get">Espace Etudiant</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="Information_De_stage ">information de stage</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="Deconnexion">Deconnexion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Deconnexion</a>
+        </li>
+    </ul>
+    <div class="container border mb-2 p-3 border">
+        
+
+
+
+        </div><br />
+
+        <h2 align="center">Créer votre groupe</h2><br />
+        <div class="container p-3 m-2">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 align="center">Etudiants de ce groupe</h5>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Etat</th>
+                        </tr>
+
+                        @foreach (var mm in Model)
+                        {
+                        <tr>
+                            <td>@mm.Etudiant.nom</td>
+                            <td>@mm.Etudiant.prenom</td>
+                            <td>@mm.Etudiant.tel</td>
+
+                        </tr>
+                        }
+                    </table>
+                </div>
+                <div class="col-md-6">
+                     
+                        <form asp-action="AddToGroup" method="post">
+                            <h5 align="center">Inviter des étudiants</h5>
+                            <select class="selectpicker" name="invitedEtudiant">
+                                @foreach (var Etudiant in @ViewBag.e)
+                                {
+                                    <option value="@Etudiant.cne">@Etudiant.nom</option>
+                                }
+                            </select>
+
+                            <br />
+                            <div align="center">
+                                @ViewBag.etat
+                                @ViewBag.groupp
+                                @ViewBag.cne
+                                <button class="btn btn-primary" name="x" value="ajouter">Inviter</button>
+                            </div>
+
+
+                        </form>
+                </div>
+
+                </div>
+
+            </div><br /><br />
+            <small>N.B: vous ne pouvez déposer un projet jusqu'à ce que tous les membres invités ont accepté leur demande d'invitation et seulement une fois .</small><br /><br />
+            <div align="center" style="border:double">
+                @Html.ActionLink("Archiver un projet", "Archiver", "etudiant")
+            </div>
+        </div>
+
+
+        

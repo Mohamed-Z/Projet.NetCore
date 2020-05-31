@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Information_De_stage";
+}
+
+<h2>Information_De_stage</h2>
+@model Societe
+
+<div style="height:800px;width:800px;border-color:black">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" asp-action="connexion" method="post">Espace Etudiant</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="Creer_Groupe">Groupe Gestion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="Information_De_stage ">information de stage</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="Deconnexion">Deconnexion</a>
+        </li>
+    </ul>
+    <div class="container border mb-2 p-3 border">
+
+        <div style="height:600px;width:600px">
+
+
+           
+            <form asp-action="Information_De_stage" method="post" enctype = "multipart/form-data">
+                <div class="form-group">
+                    <label class="control-label">nom societé</label>
+                    <input asp-for="@Model.nom" class="form-control" />
+                    <span asp-validation-for="nom" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">sujet </label>
+                    <input asp-for="@Model.sujet" class="form-control" />
+                    <span asp-validation-for="sujet" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">description</label>
+                    <textarea asp-for="@Model.description" class="form-control"></textarea>
+                    <span asp-validation-for="description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">nom encadrant</label>
+                    <input asp-for="@Model.nom_enc" class="form-control" />
+                    <span asp-validation-for="nom_enc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">numero de tele</label>
+                    <input asp-for="@Model.tel_enc" class="form-control" />
+                    <span asp-validation-for="tel_enc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">email</label>
+
+                    <input type="text" asp-for="@Model.email_enc" class="form-control" />
+                    
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Choisissez le fichier de votre projet</label>
+                    <input type="file" name="file" id="file" /><br><br>
+                    <input type="submit" class="form-control" value="valider" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

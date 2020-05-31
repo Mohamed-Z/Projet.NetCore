@@ -1,0 +1,25 @@
+﻿
+
+@model Projet2_Archivage.Models.Etudiant
+@{
+    ViewData["Title"] = "connexion";
+    Layout = "~/Views/Shared/_MonLayout.cshtml";
+}
+@ViewBag.nom
+<h2>connexion</h2>
+<div style="height:600px;width:600px" >
+    <form asp-action="connexion" method="post">
+        <div class="form-group">
+            <label value="username" class="control-label">username</label>
+            <input asp-for="cne" class="form-control" />
+            <span asp-validation-for="cne" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label value="password" class="control-label">password</label>
+
+            <input type="password" name="password" class="form-control" />
+            <input type="submit" value="check" />
+        </div>
+    </form>
+</div>
+

@@ -35,6 +35,6 @@ namespace Projet2_Archivage.Models
         public virtual Filiere Filiere { get; set; }
 
 
-        public double note { get; set; }
+        public Nullable<double> note { get; set; }
     }
 }

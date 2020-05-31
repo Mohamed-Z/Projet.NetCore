@@ -88,7 +88,7 @@ namespace Projet2_Archivage.Migrations
 
                     b.Property<string>("nom");
 
-                    b.Property<double>("note");
+                    b.Property<double?>("note");
 
                     b.Property<string>("prenom");
 

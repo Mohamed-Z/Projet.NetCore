@@ -112,7 +112,7 @@ namespace Projet2_Archivage.Migrations
                     tel = table.Column<string>(nullable: true),
                     cin = table.Column<string>(nullable: true),
                     id_fil = table.Column<int>(nullable: true),
-                    note = table.Column<double>(nullable: false)
+                    note = table.Column<double>(nullable: true)
                 },
                 constraints: table =>
                 {

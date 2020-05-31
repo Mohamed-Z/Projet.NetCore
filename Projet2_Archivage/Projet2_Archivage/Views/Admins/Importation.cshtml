@@ -1,5 +1,4 @@
-﻿
-
+﻿@using Microsoft.AspNetCore.Http
 
 @{
     ViewBag.Title = "Importation";
@@ -12,22 +11,52 @@
             <div class="container">
 
                 <div class="row no-gutters">
-                    <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="5">
-                        <span>Importation des etudiants</span>
-                        <h3>jjjjjjjjj</h3>
-                        <p>ici ici</p>
-                        @using (Html.BeginForm(new { enctype="multipart/form-data"}))
-                        {
-                            <input type="file" name="file" required />
-                            <input type="submit" />
-                        }
-                    </div>
                     <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="10">
                         <span>Importation des enseignants</span>
+                        <br />
                         @using (Html.BeginForm("ImportEnseignantAsyn", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
-                            <input type="file" name="file" required />
-                            <input type="submit" />
+
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" name="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" required/>
+                                    <label class="custom-file-label" for="inputGroupFile03">Choisir un fichier</label>
+                                </div>
+                            </div>
+
+                            <input type="submit" class="btn btn-primary" value="Valider" />
+
+                            <br />
+                            <br />
+                            if (Context.Session.GetString("succes").Equals("enseignant"))
+                            {
+                                <p style="color:green"><i class="fas fa-check-circle"></i>  L'importation de la liste d'enseignants a réussi.</p>
+                                Context.Session.SetString("succes", "null");
+                            }
+                        }
+                    </div>
+
+                    <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="5">
+                        <span>Importation des etudiants</span>
+                        <br />
+                        @using (Html.BeginForm("ImportEtudiantAsyn", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" name="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon03" required/>
+                                    <label class="custom-file-label" for="inputGroupFile03">Choisir un fichier</label>
+                                </div>
+                            </div>
+
+                            <input type="submit" class="btn btn-primary" value="Valider" />
+
+                            <br />
+                            <br />
+                            if (Context.Session.GetString("succes").Equals("etudiant"))
+                            {
+                                <p style="color:green"><i class="fas fa-check-circle"></i>  L'importation de la liste d'etudiants a réussi.</p>
+                                Context.Session.SetString("succes", "null");
+                            }
                         }
                     </div>
                 </div>
@@ -37,7 +66,16 @@
     </div>
 </div>
 
+<script>
+    $("input[type=file]").change(function () {
+        var fieldVal = $(this).val();
 
+        // Change the node's value by removing the fake path (Chrome)
+        fieldVal = fieldVal.replace("C:\\fakepath\\", "");
 
-
-
+        if (fieldVal != undefined || fieldVal != "") {
+            $(this).next(".custom-file-label").attr('data-content', fieldVal);
+            $(this).next(".custom-file-label").text(fieldVal);
+        }
+    });
+</script>

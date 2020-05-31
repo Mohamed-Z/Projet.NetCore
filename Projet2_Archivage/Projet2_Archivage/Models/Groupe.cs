@@ -34,6 +34,5 @@ namespace Projet2_Archivage.Models
         public virtual Societe Societe { get; set; }
 
         public string date_stnc { get; set; }
-        public double note_grp { get; set; }
     }
 }

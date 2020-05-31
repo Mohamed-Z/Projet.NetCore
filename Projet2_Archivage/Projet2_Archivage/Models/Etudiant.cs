@@ -33,5 +33,8 @@ namespace Projet2_Archivage.Models
         [ForeignKey("Filiere")]
         public Nullable<int> id_fil { get; set; }
         public virtual Filiere Filiere { get; set; }
+
+
+        public double note { get; set; }
     }
 }

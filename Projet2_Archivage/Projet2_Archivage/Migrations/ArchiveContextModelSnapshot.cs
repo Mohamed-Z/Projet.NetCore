@@ -88,6 +88,8 @@ namespace Projet2_Archivage.Migrations
 
                     b.Property<string>("nom");
 
+                    b.Property<double>("note");
+
                     b.Property<string>("prenom");
 
                     b.Property<string>("tel");
@@ -154,8 +156,6 @@ namespace Projet2_Archivage.Migrations
                     b.Property<int?>("id_filiere");
 
                     b.Property<int?>("id_soc");
-
-                    b.Property<double>("note_grp");
 
                     b.HasKey("id_grp");
 

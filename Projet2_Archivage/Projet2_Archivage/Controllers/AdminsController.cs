@@ -1,152 +1,274 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using Projet2_Archivage.Models;
+using System.Data.OleDb;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Projet2_Archivage.Controllers
 {
     public class AdminsController : Controller
     {
-        private readonly ArchiveContext _context;
+        private readonly ArchiveContext db;
+        private readonly IConfiguration _configuration;
+        OleDbConnection Econ;
+        private IHostingEnvironment _environment;
+        SqlConnection con;
 
-        public AdminsController(ArchiveContext context)
+        public AdminsController(ArchiveContext context, IConfiguration config, IHostingEnvironment envir)
         {
-            _context = context;
+            db = context;
+            _configuration = config;
+            _environment = envir;
+            string str = _configuration.GetConnectionString("ArchiveContext");
+            con = new SqlConnection(str);
         }
 
-        // GET: Admins
-        public async Task<IActionResult> Index()
+        private string GenerateJSONWebToken(Admin adminInfo)
         {
-            return View(await _context.admins.ToListAsync());
-        }
-
-        // GET: Admins/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var admin = await _context.admins
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var admin = db.admins.Where(x => x.email == adminInfo.email && x.password == adminInfo.password).SingleOrDefault();
             if (admin == null)
             {
-                return NotFound();
+                return null;
             }
-
-            return View(admin);
+            var signingKey = Convert.FromBase64String(_configuration["Jwt:Key"]);
+            var expiryDuration = int.Parse(_configuration["Jwt:ExpiryDuration"]);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Issuer = null,
+                Audience = null,
+                IssuedAt = DateTime.UtcNow,
+                NotBefore = DateTime.UtcNow,
+                Expires = DateTime.UtcNow.AddMinutes(expiryDuration),
+                Subject = new ClaimsIdentity(new List<Claim>
+                {
+                    new Claim("adminid",admin.Id.ToString()),
+                    new Claim("nom",admin.nom),
+                    new Claim("prenom",admin.prenom),
+                }),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(signingKey), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var jwtTokenHandler = new JwtSecurityTokenHandler();
+            var jwtToken = jwtTokenHandler.CreateJwtSecurityToken(tokenDescriptor);
+            var token = jwtTokenHandler.WriteToken(jwtToken);
+            return token;
         }
 
-        // GET: Admins/Create
-        public IActionResult Create()
+        [HttpGet]
+        public ActionResult Connexion()
+        {
+            ViewBag.erreur = "";
+            ViewBag.msg = "";
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Connexion(string email, string password)
+        {
+            /*
+            Admin admin = new Admin{ email = email, password = password };
+
+            var jwtToken = GenerateJSONWebToken(admin);
+
+            if (jwtToken != null)
+            {
+                HttpContext.Session.SetString("alerts", "true");
+                HttpContext.Session.SetString("JWToken", jwtToken);
+                return RedirectToAction("EspaceAdmin");
+            }
+            */
+
+            var x = db.admins.Where(y => y.email == email && y.password == password);
+            foreach (Admin a in x)
+            {
+                if (a.email == email && a.password == password)
+                {
+                    HttpContext.Session.SetString("alerts", "true");
+                    HttpContext.Session.SetInt32("admin_id", a.Id);
+                    return RedirectToAction("EspaceAdmin");
+                }
+            }
+            ViewBag.erreur = "is-invalid";
+            ViewBag.msg = "Email ou mot de passe incorrect !";
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Inscription()
         {
             return View();
         }
 
-        // POST: Admins/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,nom,prenom,email,password,confirmation")] Admin admin)
+        public ActionResult Inscription(Admin admin)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(admin);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                db.admins.Add(admin);
+                db.SaveChanges();
+                HttpContext.Session.SetString("alerts","true");
+                /*
+                var jwtToken = GenerateJSONWebToken(admin);
+                HttpContext.Session.SetString("JWToken", jwtToken);
+                */
+                HttpContext.Session.SetInt32("admin_id", admin.Id);
+                return RedirectToAction("EspaceAdmin");
             }
-            return View(admin);
+            return View();
         }
 
-        // GET: Admins/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+    
+        public ActionResult EspaceAdmin()
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            /*
+            var adminNom = HttpContext.User.Claims.Where(x => x.Type == "nom").SingleOrDefault();
+            var adminPrenom = HttpContext.User.Claims.Where(x => x.Type == "prenom").SingleOrDefault();
 
-            var admin = await _context.admins.FindAsync(id);
-            if (admin == null)
-            {
-                return NotFound();
-            }
+            Admin admin = new Admin { nom = adminNom.Value, prenom = adminPrenom.Value };
+            */
+            int? id = HttpContext.Session.GetInt32("admin_id");
+            Admin admin = db.admins.Find(id);
             return View(admin);
         }
 
-        // POST: Admins/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        public ActionResult Deconnexion()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Connexion");
+        }
+
+        [HttpGet]
+        public ActionResult Modifier()
+        {
+            int? id = HttpContext.Session.GetInt32("admin_id");
+            Admin admin = db.admins.Find(id);
+            return View(admin);
+        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,nom,prenom,email,password,confirmation")] Admin admin)
+        public ActionResult Modifier(Admin admin)
         {
-            if (id != admin.Id)
-            {
-                return NotFound();
-            }
-
+            int? id = HttpContext.Session.GetInt32("admin_id");
+            Admin a = db.admins.Find(id);
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(admin);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AdminExists(admin.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                a.nom = admin.nom;
+                a.prenom = admin.prenom;
+                a.email = admin.email;
+                a.password = admin.password;
+                a.confirmation = admin.confirmation;
+                db.SaveChanges();
             }
+            
             return View(admin);
         }
 
-        // GET: Admins/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        
+        public PartialViewResult AfficherDetailsUser()
+        {/*
+            string word = Request.Form["search"];
+            string rech = Request.Form["rech"];
+            if (word == "")
+            {
+                word = "00000000000000";
+            }
+            if (rech == null)
+            {
+                rech = "description";
+            }
+
+            SearchModelUser sm = new SearchModelUser();
+
+            sm.searchBy(rech, word);
+            
+
+            return PartialView("_AfficherDetailsUser", sm);*/
+            return PartialView("_AfficherDetailsAdmin");
+        }
+        /*
+        public ActionResult Get(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            Models.File file = db.files.Find(id);
 
-            var admin = await _context.admins
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (admin == null)
-            {
-                return NotFound();
-            }
+            //If file exists....
 
+            MemoryStream ms = new MemoryStream(file.Content, 0, 0, true, true);
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "inline;filename=" + file.Name);
+            Response.Buffer = true;
+            Response.Clear();
+            Response.OutputStream.Write(ms.GetBuffer(), 0, ms.GetBuffer().Length);
+            Response.OutputStream.Flush();
+            Response.End();
+            return new FileStreamResult(Response.OutputStream, "application/pdf");
+        }
+        */
+
+        public ActionResult Importation()
+        {
+            int? id = HttpContext.Session.GetInt32("admin_id");
+            Admin admin = db.admins.Find(id);
             return View(admin);
         }
 
-        // POST: Admins/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        public async Task<ActionResult> ImportEnseignantAsyn(IFormFile file)
         {
-            var admin = await _context.admins.FindAsync(id);
-            _context.admins.Remove(admin);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
+            string filepath = "/ExcelFolder/" + filename;
+            var fullpath = this._environment.ContentRootPath + "/ExcelFolder/" + filename;
+            using (var stream = new FileStream(fullpath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+            InsertExcelData(filepath, filename);
+            return RedirectToAction("Importation");
         }
 
-        private bool AdminExists(int id)
+        private void ExcelConn(string filepath)
         {
-            return _context.admins.Any(e => e.Id == id);
+            string constr = string.Format(@"Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=""Excel 12.0 Xml;HDR=YES;""", filepath);
+            Econ = new OleDbConnection(constr);
+        }
+
+        private void InsertExcelData(string filepath,string filename)
+        {
+            string fullpath = this._environment.ContentRootPath + "/ExcelFolder/" + filename;
+            ExcelConn(fullpath);
+            string query = string.Format("Select * from [{0}]", "Feuil1$");
+            OleDbCommand Ecom = new OleDbCommand(query, Econ);
+
+            Econ.Open();
+            DataSet ds = new DataSet();
+            OleDbDataAdapter oda = new OleDbDataAdapter(query, Econ);
+            Econ.Close();
+
+            oda.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            
+            SqlBulkCopy objbulk = new SqlBulkCopy(con);
+
+            objbulk.DestinationTableName = "enseignants";
+            objbulk.ColumnMappings.Add("nom", "nom");
+            objbulk.ColumnMappings.Add("prenom", "prenom");
+            objbulk.ColumnMappings.Add("email", "email");
+            con.Open();
+            objbulk.WriteToServer(dt);
+            con.Close();
         }
     }
 }

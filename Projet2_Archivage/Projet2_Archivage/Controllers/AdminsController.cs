@@ -120,7 +120,7 @@ namespace Projet2_Archivage.Controllers
             {
                 db.admins.Add(admin);
                 db.SaveChanges();
-                HttpContext.Session.SetString("alerts","true");
+                HttpContext.Session.SetString("alerts", "true");
                 /*
                 var jwtToken = GenerateJSONWebToken(admin);
                 HttpContext.Session.SetString("JWToken", jwtToken);
@@ -131,7 +131,7 @@ namespace Projet2_Archivage.Controllers
             return View();
         }
 
-    
+
         public ActionResult EspaceAdmin()
         {
             /*
@@ -142,6 +142,11 @@ namespace Projet2_Archivage.Controllers
             */
             int? id = HttpContext.Session.GetInt32("admin_id");
             Admin admin = db.admins.Find(id);
+            ViewBag.search = "clicked";
+            ViewBag.deconnect = "";
+            ViewBag.edit = "";
+            ViewBag.import = "";
+            ViewBag.affect = "";
             return View(admin);
         }
 
@@ -156,6 +161,11 @@ namespace Projet2_Archivage.Controllers
         {
             int? id = HttpContext.Session.GetInt32("admin_id");
             Admin admin = db.admins.Find(id);
+            ViewBag.search = "";
+            ViewBag.deconnect = "";
+            ViewBag.edit = "clicked";
+            ViewBag.import = "";
+            ViewBag.affect = "";
             return View(admin);
         }
 
@@ -173,11 +183,15 @@ namespace Projet2_Archivage.Controllers
                 a.confirmation = admin.confirmation;
                 db.SaveChanges();
             }
-            
+            ViewBag.search = "";
+            ViewBag.deconnect = "";
+            ViewBag.edit = "clicked";
+            ViewBag.import = "";
+            ViewBag.affect = "";
             return View(admin);
         }
 
-        
+
         public PartialViewResult AfficherDetailsUser()
         {/*
             string word = Request.Form["search"];
@@ -224,8 +238,13 @@ namespace Projet2_Archivage.Controllers
             Admin admin = db.admins.Find(id);
             if (HttpContext.Session.GetString("succes") == null)
             {
-               HttpContext.Session.SetString("succes", "null");
+                HttpContext.Session.SetString("succes", "null");
             }
+            ViewBag.search = "";
+            ViewBag.deconnect = "";
+            ViewBag.edit = "";
+            ViewBag.import = "clicked";
+            ViewBag.affect = "";
             return View(admin);
         }
 
@@ -265,7 +284,7 @@ namespace Projet2_Archivage.Controllers
             Econ = new OleDbConnection(constr);
         }
 
-        private void InsertExcelData(string filepath,string filename)
+        private void InsertExcelData(string filepath, string filename)
         {
             string fullpath = this._environment.ContentRootPath + "/ExcelFolder/" + filename;
             ExcelConn(fullpath);
@@ -279,7 +298,7 @@ namespace Projet2_Archivage.Controllers
 
             oda.Fill(ds);
             DataTable dt = ds.Tables[0];
-            
+
             SqlBulkCopy objbulk = new SqlBulkCopy(con);
 
             objbulk.DestinationTableName = "enseignants";

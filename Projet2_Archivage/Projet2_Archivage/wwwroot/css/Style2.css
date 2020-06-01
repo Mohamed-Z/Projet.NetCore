@@ -21,7 +21,7 @@
         font-size: 20px;
         color: #8d99ae;
         display: block;
-        border-bottom: 1px solid #818181;
+        border-bottom: 1px solid #8d99ae;
         width: 90%;
         text-align: start;
     }
@@ -107,4 +107,15 @@ a img {
 
 .blu {
     background: #37517e;
+}
+
+div.cntr{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clu {
+    background: #e5e5e5;
 }

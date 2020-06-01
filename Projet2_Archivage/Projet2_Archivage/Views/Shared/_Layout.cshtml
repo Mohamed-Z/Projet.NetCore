@@ -51,13 +51,10 @@
                         <ul>
                             <li><a href="#">Drop Down 1</a></li>
                             <li class="drop-down">
-                                <a href="#">Deep Drop Down</a>
+                                <a href="#">Espace Admin</a>
                                 <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
+                                    <li><a href="~/Admins/Connexion">Connexion</a></li>
+                                    <li><a href="~/Admins/Inscription">Inscription</a></li>
                                 </ul>
                             </li>
                             <li><a href="#">Drop Down 2</a></li>
@@ -74,14 +71,7 @@
         </div>
     </header><!-- End Header -->
 
-
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-
+    @RenderBody()
 
     <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
     <div id="preloader"></div>

@@ -5,77 +5,76 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="col-lg-9 d-flex align-items-stretch wd " data-aos="fade-up">
-    <div class="info-box" style="padding:0;">
-        <section class="about-lists">
-            <div class="container">
+<div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="10">
+    <div class="info d-flex justify-content-center wi" style="padding:15px;">
+        <div class="section-title  col-lg-10 flxs">
+            <h2>Importation des enseignants</h2>
+            @using (Html.BeginForm("ImportEnseignantAsyn", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
 
-                <div class="row no-gutters">
-                    <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="10">
-                        <span>Importation des enseignants</span>
-                        <br />
-                        @using (Html.BeginForm("ImportEnseignantAsyn", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                        {
-
-                            <div class="input-group mb-3">
-                                <div class="custom-file">
-                                    <input type="file" name="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" required />
-                                    <label class="custom-file-label" for="inputGroupFile03"><i class="far fa-file-excel"></i> Choisir un fichier</label>
-                                </div>
-                            </div>
-
-                            <input type="submit" class="btn btn-primary" value="Valider" />
-
-                            <br />
-                            <br />
-                            if (Context.Session.GetString("succes").Equals("enseignant"))
-                            {
-                                <p style="color:green"><i class="fas fa-check-circle"></i>  L'importation de la liste d'enseignants a réussi.</p>
-                                Context.Session.SetString("succes", "null");
-                            }
-                        }
-                    </div>
-
-                    <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="5">
-                        <span>Importation des etudiants</span>
-                        <br />
-                        @using (Html.BeginForm("ImportEtudiantAsyn", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
-                        {
-                            <div class="input-group mb-3">
-                                <div class="custom-file">
-                                    <input type="file" name="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon03" required />
-                                    <label class="custom-file-label" for="inputGroupFile03"><i class="far fa-file-excel"></i> Choisir un fichier</label>
-                                </div>
-                            </div>
-
-                            <input type="submit" class="btn btn-primary" value="Valider" />
-
-                            <br />
-                            <br />
-                            if (Context.Session.GetString("succes").Equals("etudiant"))
-                            {
-                                <p style="color:green"><i class="fas fa-check-circle"></i>  L'importation de la liste d'etudiants a réussi.</p>
-                                Context.Session.SetString("succes", "null");
-                            }
-                        }
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" name="file" class="custom-file-input" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03" required />
+                        <label class="custom-file-label" for="inputGroupFile03"><i class="far fa-file-excel"></i> Choisir un fichier</label>
                     </div>
                 </div>
 
-            </div>
-        </section>
+                <input type="submit" class="btn btn-primary" value="Valider" />
+
+                <br />
+                <br />
+                if (Context.Session.GetString("succes").Equals("enseignant"))
+                {
+                    <p style="color:green"><i class="fas fa-check-circle"></i>  L'importation de la liste d'enseignants a réussi.</p>
+                    Context.Session.SetString("succes", "null");
+                }
+            }
+        </div>
     </div>
 </div>
+<br />
+<div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="15">
+    <div class="info d-flex justify-content-center wi" style="padding:15px;">
+        <div class="section-title  col-lg-10 flxs">
+            <h2>Importation des etudiant</h2>
+            @using (Html.BeginForm("ImportEtudiantAsyn", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" name="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon03" required />
+                        <label class="custom-file-label" for="inputGroupFile03"><i class="far fa-file-excel"></i> Choisir un fichier</label>
+                    </div>
+                </div>
 
-<script>
-    $("input[type=file]").change(function () {
-        var fieldVal = $(this).val();
+                <input type="submit" class="btn btn-primary" value="Valider" />
 
-        // Change the node's value by removing the fake path (Chrome)
-        fieldVal = fieldVal.replace("C:\\fakepath\\", "");
+                <br />
+                <br />
+                if (Context.Session.GetString("succes").Equals("etudiant"))
+                {
+                    <p style="color:green"><i class="fas fa-check-circle"></i>  L'importation de la liste d'etudiants a réussi.</p>
+                    Context.Session.SetString("succes", "null");
+                }
+            }
 
-        if (fieldVal != undefined || fieldVal != "") {
-            $(this).next(".custom-file-label").attr('data-content', fieldVal);
-            $(this).next(".custom-file-label").text(fieldVal);
-        }
-    });
-</script>
+            </div>
+        </div>
+    </div>
+
+
+
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script>
+                $("input[type=file]").change(function () {
+                    var fieldVal = $(this).val();
+
+                    // Change the node's value by removing the fake path (Chrome)
+                    fieldVal = fieldVal.replace("C:\\fakepath\\", "");
+
+                    if (fieldVal != undefined || fieldVal != "") {
+                        $(this).next(".custom-file-label").attr('data-content', fieldVal);
+                        $(this).next(".custom-file-label").text(fieldVal);
+                    }
+                });
+            </script>

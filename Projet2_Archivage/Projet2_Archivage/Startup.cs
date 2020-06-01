@@ -91,7 +91,7 @@ namespace Projet2_Archivage
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Admins}/{action=Connexion}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
             app.Use(async (context, next) =>

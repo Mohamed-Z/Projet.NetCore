@@ -15195,23 +15195,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC\\.nuget\\packages\\": {},
+    "C:\\Users\\moham\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\Desktop\\adminpr\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
+      "projectUniqueName": "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
       "projectName": "Projet2_Archivage",
-      "projectPath": "C:\\Users\\PC\\Desktop\\adminpr\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
-      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\Desktop\\adminpr\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\obj\\",
+      "projectPath": "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
+      "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -15271,7 +15271,7 @@
             "version": "[1.1.5, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
-            "include": "Runtime, Build, Native, ContentFiles, Analyzers",
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.2, )"

@@ -35,9 +35,14 @@ namespace Projet2_Archivage
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddSession();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(9000);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
-            services.AddSession(s => s.IdleTimeout = TimeSpan.FromMinutes(30));
+          //  services.AddSession(s => s.IdleTimeout = TimeSpan.FromMinutes(30));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

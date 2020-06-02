@@ -6,24 +6,23 @@
 }
 
     <div class="we">
-        <form data-ajax="true" data-ajax-mode="replace" data-ajax-update="#espace_search" asp-action="AfficherDetailsUser" asp-controller="Admins" method="post">
+        <form>
 
             <nav class="navbar navbar-dark bg-dark navbar-expand justify-content-between">
 
                 <div class="justify-content-between d-inline-flex col-6">
                     <input name="search" class="form-control mr-sm-2" type="search" placeholder="Taper votre recherche ici" aria-label="Chercher">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Chercher</button>
+                    <input type="button" value="Chercher" class="btn btn-outline-success my-2 my-sm-0" id="ajax">
                 </div>
                 <div class="d-inline-flex justify-content-between col-4">
-
                     <select id="inputState" name="rech" class="custom-select col-12">
                         <option selected disabled value="">Rechercher par</option>
                         <option value="etudiant">Etudiant</option>
                         <option value="encadrant">Encadrant</option>
                         <option value="sujet">Sujet</option>
                         <option value="description">Description</option>
-                        <option value="filiere">Filiere</option>
-                        <option value="type">Type</option>
+                        <option value="filiere">Filière</option>
+                        <option value="type">Société</option>
                     </select>
                 </div>
             </nav>
@@ -37,6 +36,16 @@
        
    
 
-   
+   <script>
+       $("#ajax").click(function () {
+           $.ajax({
+               type: "POST",
+               url: "/Admins/AfficherDetailsUser",
+               success: function (result) {
+                   $("#espace_search").html(result);
+               }
+           });
+       });
+   </script>
 
 

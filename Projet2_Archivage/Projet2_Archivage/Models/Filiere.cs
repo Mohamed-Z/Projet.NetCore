@@ -10,11 +10,13 @@ namespace Projet2_Archivage.Models
     {
         public virtual ICollection<Etudiant> etudiants { get; set; }
         public virtual ICollection<Groupe> groupes { get; set; }
+        public virtual ICollection<Enseignant> enseignants { get; set; }
 
         public Filiere()
         {
             this.etudiants = new HashSet<Etudiant>();
             this.groupes = new HashSet<Groupe>();
+            this.enseignants = new HashSet<Enseignant>();
         }
 
         [Key]

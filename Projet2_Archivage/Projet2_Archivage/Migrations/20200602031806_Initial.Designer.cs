@@ -10,7 +10,7 @@ using Projet2_Archivage.Models;
 namespace Projet2_Archivage.Migrations
 {
     [DbContext(typeof(ArchiveContext))]
-    [Migration("20200531021959_Initial")]
+    [Migration("20200602031806_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,7 +29,8 @@ namespace Projet2_Archivage.Migrations
 
                     b.Property<string>("confirmation");
 
-                    b.Property<string>("email");
+                    b.Property<string>("email")
+                        .IsRequired();
 
                     b.Property<string>("nom")
                         .IsRequired();
@@ -69,11 +70,15 @@ namespace Projet2_Archivage.Migrations
 
                     b.Property<string>("email");
 
+                    b.Property<int?>("fil_id");
+
                     b.Property<string>("nom");
 
                     b.Property<string>("prenom");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("fil_id");
 
                     b.ToTable("enseignants");
                 });
@@ -215,6 +220,8 @@ namespace Projet2_Archivage.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("id_f");
+
                     b.ToTable("societes");
                 });
 
@@ -224,11 +231,20 @@ namespace Projet2_Archivage.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("date_depot");
+
                     b.Property<string>("nom_type");
 
                     b.HasKey("id_type");
 
                     b.ToTable("type_Files");
+                });
+
+            modelBuilder.Entity("Projet2_Archivage.Models.Enseignant", b =>
+                {
+                    b.HasOne("Projet2_Archivage.Models.Filiere", "Filiere")
+                        .WithMany("enseignants")
+                        .HasForeignKey("fil_id");
                 });
 
             modelBuilder.Entity("Projet2_Archivage.Models.Etudiant", b =>
@@ -273,6 +289,14 @@ namespace Projet2_Archivage.Migrations
                     b.HasOne("Projet2_Archivage.Models.Etudiant", "Etudiant")
                         .WithMany("GroupeMembres")
                         .HasForeignKey("id_et");
+                });
+
+            modelBuilder.Entity("Projet2_Archivage.Models.Societe", b =>
+                {
+                    b.HasOne("Projet2_Archivage.Models.File", "File")
+                        .WithMany()
+                        .HasForeignKey("id_f")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

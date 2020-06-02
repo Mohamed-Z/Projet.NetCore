@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "9d09a15faf9cada09eda6df095cd9d8f33cf325b"
+    "signature": "39d2661389270a9e52bd70a051a3f8476c14a04b"
   },
   "compilationOptions": {
     "defines": [
@@ -41,7 +41,8 @@
           "Microsoft.jQuery.Unobtrusive.Ajax": "3.2.6",
           "System.Collections": "4.3.0",
           "System.Data.OleDb": "4.7.1",
-          "System.IdentityModel.Tokens.Jwt": "6.6.0"
+          "System.IdentityModel.Tokens.Jwt": "6.6.0",
+          "jQuery.Ajax.Unobtrusive": "2.0.20710"
         },
         "runtime": {
           "Projet2_Archivage.dll": {}
@@ -51,6 +52,11 @@
         }
       },
       "jQuery/1.8.0": {},
+      "jQuery.Ajax.Unobtrusive/2.0.20710": {
+        "dependencies": {
+          "Microsoft.jQuery.Unobtrusive.Ajax": "3.2.6"
+        }
+      },
       "Microsoft.AspNetCore.App/2.1.1": {
         "dependencies": {
           "Microsoft.AspNet.WebApi.Client": "5.2.6",
@@ -4361,6 +4367,13 @@
       "sha512": "sha512-laDFQRJrIRHT0Z0GVYklMt3bE0iu0MZFJwHwg21kt3SHb7Bj8TdNiM3K+ZdK1DzB8ZxKy8z7NkJvwMas+dmHBw==",
       "path": "jquery/1.8.0",
       "hashPath": "jquery.1.8.0.nupkg.sha512"
+    },
+    "jQuery.Ajax.Unobtrusive/2.0.20710": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Pi9soMRdzL30AMb/gXPLjTLzjYs3/Ac0S51h4M28Iyc4rYQ4ln1fZxPTEmEbnUYRZzuP2b5P2saBq9llJ1e1tg==",
+      "path": "jquery.ajax.unobtrusive/2.0.20710",
+      "hashPath": "jquery.ajax.unobtrusive.2.0.20710.nupkg.sha512"
     },
     "Microsoft.AspNetCore.App/2.1.1": {
       "type": "package",

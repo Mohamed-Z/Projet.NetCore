@@ -69,7 +69,7 @@ namespace Projet2_Archivage.Controllers
         }
 
         [HttpGet]
-        public ActionResult Connexion()
+        public IActionResult Connexion()
         {
             ViewBag.erreur = "";
             ViewBag.msg = "";
@@ -77,7 +77,7 @@ namespace Projet2_Archivage.Controllers
         }
 
         [HttpPost]
-        public ActionResult Connexion(string email, string password)
+        public IActionResult Connexion(string email, string password)
         {
             /*
             Admin admin = new Admin{ email = email, password = password };
@@ -108,13 +108,13 @@ namespace Projet2_Archivage.Controllers
         }
 
         [HttpGet]
-        public ActionResult Inscription()
+        public IActionResult Inscription()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Inscription(Admin admin)
+        public IActionResult Inscription(Admin admin)
         {
             if (ModelState.IsValid)
             {
@@ -132,7 +132,7 @@ namespace Projet2_Archivage.Controllers
         }
 
 
-        public ActionResult EspaceAdmin()
+        public IActionResult EspaceAdmin()
         {
             /*
             var adminNom = HttpContext.User.Claims.Where(x => x.Type == "nom").SingleOrDefault();
@@ -150,14 +150,14 @@ namespace Projet2_Archivage.Controllers
             return View(admin);
         }
 
-        public ActionResult Deconnexion()
+        public IActionResult Deconnexion()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Connexion");
         }
 
         [HttpGet]
-        public ActionResult Modifier()
+        public IActionResult Modifier()
         {
             int? id = HttpContext.Session.GetInt32("admin_id");
             Admin admin = db.admins.Find(id);
@@ -170,7 +170,7 @@ namespace Projet2_Archivage.Controllers
         }
 
         [HttpPost]
-        public ActionResult Modifier(Admin admin)
+        public IActionResult Modifier(Admin admin)
         {
             int? id = HttpContext.Session.GetInt32("admin_id");
             Admin a = db.admins.Find(id);
@@ -214,7 +214,7 @@ namespace Projet2_Archivage.Controllers
             return PartialView("_AfficherDetailsAdmin");
         }
         /*
-        public ActionResult Get(int id)
+        public IActionResult Get(int id)
         {
             Models.File file = db.files.Find(id);
 
@@ -232,7 +232,7 @@ namespace Projet2_Archivage.Controllers
         }
         */
 
-        public ActionResult Importation()
+        public IActionResult Importation()
         {
             int? id = HttpContext.Session.GetInt32("admin_id");
             Admin admin = db.admins.Find(id);
@@ -249,7 +249,7 @@ namespace Projet2_Archivage.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> ImportEnseignantAsyn(IFormFile file)
+        public async Task<IActionResult> ImportEnseignantAsyn(IFormFile file)
         {
             string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
             string filepath = "/ExcelFolder/" + filename;
@@ -264,7 +264,7 @@ namespace Projet2_Archivage.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> ImportEtudiantAsyn(IFormFile file)
+        public async Task<IActionResult> ImportEtudiantAsyn(IFormFile file)
         {
             string filename = Guid.NewGuid() + Path.GetExtension(file.FileName);
             string filepath = "/ExcelFolder/" + filename;
@@ -305,6 +305,7 @@ namespace Projet2_Archivage.Controllers
             objbulk.ColumnMappings.Add("nom", "nom");
             objbulk.ColumnMappings.Add("prenom", "prenom");
             objbulk.ColumnMappings.Add("email", "email");
+            objbulk.ColumnMappings.Add("fil_id", "fil_id");
             con.Open();
             objbulk.WriteToServer(dt);
             con.Close();

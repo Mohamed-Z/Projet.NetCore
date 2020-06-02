@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -34,6 +35,10 @@ namespace Projet2_Archivage.Models
 
         public string description { get; set; }
 
+
+        [ForeignKey("File")]
         public int id_f { get; set; }
+        public virtual File File { get; set; }
+        
     }
 }

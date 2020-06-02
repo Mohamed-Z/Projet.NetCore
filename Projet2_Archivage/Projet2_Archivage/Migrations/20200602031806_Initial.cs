@@ -16,7 +16,7 @@ namespace Projet2_Archivage.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     nom = table.Column<string>(nullable: false),
                     prenom = table.Column<string>(nullable: false),
-                    email = table.Column<string>(nullable: true),
+                    email = table.Column<string>(nullable: false),
                     password = table.Column<string>(maxLength: 20, nullable: false),
                     confirmation = table.Column<string>(nullable: true)
                 },
@@ -40,21 +40,6 @@ namespace Projet2_Archivage.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "enseignants",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    nom = table.Column<string>(nullable: true),
-                    prenom = table.Column<string>(nullable: true),
-                    email = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_enseignants", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "filieres",
                 columns: table => new
                 {
@@ -68,37 +53,39 @@ namespace Projet2_Archivage.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "societes",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    nom = table.Column<string>(nullable: true),
-                    tel = table.Column<string>(nullable: true),
-                    ville = table.Column<string>(nullable: true),
-                    nom_enc = table.Column<string>(nullable: true),
-                    email_enc = table.Column<string>(nullable: true),
-                    tel_enc = table.Column<string>(nullable: true),
-                    sujet = table.Column<string>(nullable: true),
-                    description = table.Column<string>(nullable: true),
-                    id_f = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_societes", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "type_Files",
                 columns: table => new
                 {
                     id_type = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    nom_type = table.Column<string>(nullable: true)
+                    nom_type = table.Column<string>(nullable: true),
+                    date_depot = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_type_Files", x => x.id_type);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "enseignants",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    nom = table.Column<string>(nullable: true),
+                    prenom = table.Column<string>(nullable: true),
+                    email = table.Column<string>(nullable: true),
+                    fil_id = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_enseignants", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_enseignants_filieres_fil_id",
+                        column: x => x.fil_id,
+                        principalTable: "filieres",
+                        principalColumn: "Id_filiere",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -150,12 +137,6 @@ namespace Projet2_Archivage.Migrations
                         column: x => x.id_filiere,
                         principalTable: "filieres",
                         principalColumn: "Id_filiere",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_groupes_societes_id_soc",
-                        column: x => x.id_soc,
-                        principalTable: "societes",
-                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -216,6 +197,38 @@ namespace Projet2_Archivage.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "societes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    nom = table.Column<string>(nullable: true),
+                    tel = table.Column<string>(nullable: true),
+                    ville = table.Column<string>(nullable: true),
+                    nom_enc = table.Column<string>(nullable: true),
+                    email_enc = table.Column<string>(nullable: true),
+                    tel_enc = table.Column<string>(nullable: true),
+                    sujet = table.Column<string>(nullable: true),
+                    description = table.Column<string>(nullable: true),
+                    id_f = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_societes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_societes_files_id_f",
+                        column: x => x.id_f,
+                        principalTable: "files",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_enseignants_fil_id",
+                table: "enseignants",
+                column: "fil_id");
+
             migrationBuilder.CreateIndex(
                 name: "IX_etudiants_id_fil",
                 table: "etudiants",
@@ -255,10 +268,35 @@ namespace Projet2_Archivage.Migrations
                 name: "IX_groupes_id_soc",
                 table: "groupes",
                 column: "id_soc");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_societes_id_f",
+                table: "societes",
+                column: "id_f");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_groupes_societes_id_soc",
+                table: "groupes",
+                column: "id_soc",
+                principalTable: "societes",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_enseignants_filieres_fil_id",
+                table: "enseignants");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_groupes_filieres_id_filiere",
+                table: "groupes");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_files_groupes_groupe_Id",
+                table: "files");
+
             migrationBuilder.DropTable(
                 name: "admins");
 
@@ -266,19 +304,16 @@ namespace Projet2_Archivage.Migrations
                 name: "calendriers");
 
             migrationBuilder.DropTable(
-                name: "files");
-
-            migrationBuilder.DropTable(
                 name: "groupeMembres");
 
             migrationBuilder.DropTable(
-                name: "type_Files");
+                name: "etudiants");
+
+            migrationBuilder.DropTable(
+                name: "filieres");
 
             migrationBuilder.DropTable(
                 name: "groupes");
-
-            migrationBuilder.DropTable(
-                name: "etudiants");
 
             migrationBuilder.DropTable(
                 name: "enseignants");
@@ -287,7 +322,10 @@ namespace Projet2_Archivage.Migrations
                 name: "societes");
 
             migrationBuilder.DropTable(
-                name: "filieres");
+                name: "files");
+
+            migrationBuilder.DropTable(
+                name: "type_Files");
         }
     }
 }

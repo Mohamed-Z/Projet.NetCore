@@ -18,6 +18,8 @@ namespace Projet2_Archivage.Models
         [Key]
         public int id_type { get; set; }
 
-        public String nom_type { get; set; }
+        public string nom_type { get; set; }
+
+        public string date_depot { get; set; }
     }
 }

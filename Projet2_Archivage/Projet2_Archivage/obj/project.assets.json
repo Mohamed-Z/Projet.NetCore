@@ -5,6 +5,12 @@
       "jQuery/1.8.0": {
         "type": "package"
       },
+      "jQuery.Ajax.Unobtrusive/2.0.20710": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.jQuery.Unobtrusive.Ajax": "2.0.20613"
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -5815,6 +5821,17 @@
         "Tools/uninstall.ps1",
         "jquery.1.8.0.nupkg.sha512",
         "jquery.nuspec"
+      ]
+    },
+    "jQuery.Ajax.Unobtrusive/2.0.20710": {
+      "sha512": "Pi9soMRdzL30AMb/gXPLjTLzjYs3/Ac0S51h4M28Iyc4rYQ4ln1fZxPTEmEbnUYRZzuP2b5P2saBq9llJ1e1tg==",
+      "type": "package",
+      "path": "jquery.ajax.unobtrusive/2.0.20710",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "jquery.ajax.unobtrusive.2.0.20710.nupkg.sha512",
+        "jquery.ajax.unobtrusive.nuspec"
       ]
     },
     "Libuv/1.10.0": {
@@ -15192,7 +15209,8 @@
       "Microsoft.jQuery.Unobtrusive.Ajax >= 3.2.6",
       "System.Collections >= 4.3.0",
       "System.Data.OleDb >= 4.7.1",
-      "System.IdentityModel.Tokens.Jwt >= 6.6.0"
+      "System.IdentityModel.Tokens.Jwt >= 6.6.0",
+      "jQuery.Ajax.Unobtrusive >= 2.0.20710"
     ]
   },
   "packageFolders": {
@@ -15313,6 +15331,10 @@
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[6.6.0, )"
+          },
+          "jQuery.Ajax.Unobtrusive": {
+            "target": "Package",
+            "version": "[2.0.20710, )"
           }
         },
         "imports": [

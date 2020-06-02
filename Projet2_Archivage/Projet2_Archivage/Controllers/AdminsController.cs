@@ -14,10 +14,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Projet2_Archivage.Models;
 using System.Data.OleDb;
-using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
+using System.Text;
 
 namespace Projet2_Archivage.Controllers
 {
@@ -192,28 +193,24 @@ namespace Projet2_Archivage.Controllers
         }
 
 
-        public PartialViewResult AfficherDetailsUser()
-        {/*
-            string word = Request.Form["search"];
-            string rech = Request.Form["rech"];
-            if (word == "")
+        public PartialViewResult AfficherDetailsAdmin(string search,string rech)
+        {
+            if (search == "")
             {
-                word = "00000000000000";
+                search = "00000000000000";
             }
             if (rech == null)
             {
                 rech = "description";
             }
 
-            SearchModelUser sm = new SearchModelUser();
+            SearchModelAdmin sm = new SearchModelAdmin(db);
 
-            sm.searchBy(rech, word);
-            
+            sm.searchBy(rech, search);
 
-            return PartialView("_AfficherDetailsUser", sm);*/
-            return PartialView("_AfficherDetailsAdmin");
+            return PartialView("_AfficherDetailsAdmin", sm);
         }
-        /*
+        
         public IActionResult Get(int id)
         {
             Models.File file = db.files.Find(id);
@@ -222,15 +219,19 @@ namespace Projet2_Archivage.Controllers
 
             MemoryStream ms = new MemoryStream(file.Content, 0, 0, true, true);
             Response.ContentType = "application/pdf";
-            Response.AddHeader("content-disposition", "inline;filename=" + file.Name);
-            Response.Buffer = true;
+            Response.Headers.Add("content-disposition", "inline;filename=" + file.Name);
             Response.Clear();
-            Response.OutputStream.Write(ms.GetBuffer(), 0, ms.GetBuffer().Length);
-            Response.OutputStream.Flush();
-            Response.End();
-            return new FileStreamResult(Response.OutputStream, "application/pdf");
+            using (var sw = new StreamWriter(Response.Body))
+            {
+                char[] chars = Encoding.ASCII.GetChars(ms.GetBuffer());
+                sw.Write(chars, 0, ms.GetBuffer().Length);
+                sw.Flush();
+            }
+            //Response.OutputStream.Write(ms.GetBuffer(), 0, ms.GetBuffer().Length);
+            //Response.OutputStream.Flush();
+            return new FileStreamResult(ms, "application/pdf");
         }
-        */
+        
 
         public IActionResult Importation()
         {

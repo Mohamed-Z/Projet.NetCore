@@ -87,6 +87,8 @@ namespace Projet2_Archivage
 
             app.UseAuthentication();
 
+            app.UseResponseBuffering();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -101,7 +103,11 @@ namespace Projet2_Archivage
                 {
                     context.Request.Headers.Add("Authorization", "Bearer " + JWToken);
                 }
-                await next();
+                if (context.Request.IsHttps)
+                {
+                    // The request will continue if it is secure.
+                    await next();
+                }
             });
 
             

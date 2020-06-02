@@ -1,0 +1,71 @@
+
+@{
+    ViewData["Title"] = "Rapport";
+    Layout = "~/Views/Shared/_MonLayout.cshtml";
+}
+
+<h2>Rapport</h2>
+
+
+
+<div class="float-right" style="border-color:black;height:400px;width:400px;">
+
+    <div class="alert alert-info" role="alert">
+        <div class="form-group">
+            <label class="control-label">Date Depot premier rapport </label>
+
+            <span class="text-danger">2020/6/2</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Date Depot deuxieme rapport</label>
+
+            <span class="text-danger">2020/ 6/15</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Date Depot troisieme rapport</label>
+
+            <span class="text-danger">2020/ 7/ 1</span>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Date Depot quatrieme rapport</label>
+
+            <span class="text-danger">2020/ 7/ 15</span>
+        </div>
+
+    </div>
+
+</div>
+
+<div style="height:800px;width:800px;border-color:black">
+
+    <ul class="nav nav-pills">
+
+        <li class="nav-item">
+            <a class="nav-link " asp-action="connexion" method="post">Espace Etudiant</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
+        </li>
+    </ul>
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.nbr
+    </div>
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.temps
+    </div>
+    <form asp-action="Rapport" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="control-label">Choisissez le fichier de votre projet</label>
+            <input type="file" name="file" id="file" /><br><br>
+            <input type="submit" class="form-control" value="valider" />
+        </div>
+    </form>
+</div>

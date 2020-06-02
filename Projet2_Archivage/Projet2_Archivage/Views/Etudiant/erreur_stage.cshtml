@@ -1,0 +1,30 @@
+
+@{
+    ViewData["Title"] = "erreur_stage";
+    Layout = "~/Views/Shared/_MonLayout.cshtml";
+}
+
+
+<div style="height:800px;width:800px;border-color:black">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link " asp-action="connexion" method="post">Espace Etudiant</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
+        </li>
+    </ul>
+    <div class="container border mb-2 p-3 border">
+
+        <div style="height:600px;width:600px">
+            <div class="alert alert-info" role="alert">
+                @ViewBag.soc
+            </div>
+            </div></div></div>

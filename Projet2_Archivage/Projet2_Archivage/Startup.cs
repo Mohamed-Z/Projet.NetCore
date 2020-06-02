@@ -87,6 +87,8 @@ namespace Projet2_Archivage
 
             app.UseAuthentication();
 
+            app.UseResponseBuffering();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

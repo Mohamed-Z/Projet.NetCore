@@ -341,5 +341,12 @@ namespace Projet2_Archivage.Controllers
             objbulk.WriteToServer(dt);
             con.Close();
         }
+
+        [HttpGet]
+        public IActionResult Affectation()
+        {
+            ViewBag.e = new SelectList(db.filieres, "Id_filiere", "Nom_filiere");
+            return View();
+        }
     }
 }

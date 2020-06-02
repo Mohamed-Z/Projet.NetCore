@@ -167,7 +167,6 @@ C:\Users\lenovo\Desktop\4eme\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\
 C:\Users\lenovo\Desktop\4eme\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.RazorTargetAssemblyInfo.cs
 C:\Users\lenovo\Desktop\4eme\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.Views.pdb
 C:\Users\lenovo\Desktop\4eme\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.csproj.CopyComplete
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Users\dell\Desktop\Archivage_Core\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Projet2_Archivage.deps.json
 C:\Users\dell\Desktop\Archivage_Core\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Projet2_Archivage.runtimeconfig.json
 C:\Users\dell\Desktop\Archivage_Core\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Projet2_Archivage.runtimeconfig.dev.json

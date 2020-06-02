@@ -11,14 +11,14 @@
             <nav class="navbar navbar-dark bg-dark navbar-expand justify-content-between">
 
                 <div class="justify-content-between d-inline-flex col-6">
-                    <input name="search" class="form-control mr-sm-2" type="search" placeholder="Taper votre recherche ici" aria-label="Chercher">
+                    <input name="search" id="search" class="form-control mr-sm-2" type="search" placeholder="Taper votre recherche ici" aria-label="Chercher">
                     <input type="button" value="Chercher" class="btn btn-outline-success my-2 my-sm-0" id="ajax">
                 </div>
                 <div class="d-inline-flex justify-content-between col-4">
-                    <select id="inputState" name="rech" class="custom-select col-12">
+                    <select id="rech" name="rech" class="custom-select col-12">
                         <option selected disabled value="">Rechercher par</option>
                         <option value="etudiant">Etudiant</option>
-                        <option value="encadrant">Encadrant</option>
+                        <option value="encadrant">Enseignant</option>
                         <option value="sujet">Sujet</option>
                         <option value="description">Description</option>
                         <option value="filiere">Filière</option>
@@ -40,7 +40,8 @@
        $("#ajax").click(function () {
            $.ajax({
                type: "POST",
-               url: "/Admins/AfficherDetailsUser",
+               url: "/Admins/AfficherDetailsAdmin",
+               data: "search="+$("#search").val()+"&rech="+$("#rech option:selected").val(),
                success: function (result) {
                    $("#espace_search").html(result);
                }

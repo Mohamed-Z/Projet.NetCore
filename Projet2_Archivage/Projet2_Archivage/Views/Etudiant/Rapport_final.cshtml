@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Rapport_final";
+}
+
+<h2>Rapport_final</h2>
+<div style="height:800px;width:800px;border-color:black">
+
+    <ul class="nav nav-pills">
+
+        <li class="nav-item">
+            <a class="nav-link " asp-action="connexion" method="post">Espace Etudiant</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
+        </li>
+    </ul>
+    <div class="alert alert-danger" role="alert">
+        @ViewBag.alert
+    </div>
+    <form asp-action="Rapport_final" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="control-label">Choisissez le rapport final  de votre projet</label>
+            <input type="file" name="file" id="file" /><br><br>
+            <input type="submit" class="form-control" value="valider" />
+        </div>
+    </form>
+</div>

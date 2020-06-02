@@ -29,30 +29,46 @@
         <div style="height:600px;width:600px">
 
 
-            @ViewBag.groupe
-            <form>
-                <div class="form-group">
-                    <label value="username" class="control-label">prenom</label>
-                    <input asp-for="@Model.prenom" class="form-control" />
-                    <span asp-validation-for="cne" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label value="username" class="control-label">nom</label>
-                    <input asp-for="@Model.nom" class="form-control" />
-                    <span asp-validation-for="cne" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label value="username" class="control-label">email</label>
-                    <input asp-for="@Model.email" class="form-control" />
-                    <span asp-validation-for="cne" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label value="password" class="control-label">password</label>
+            
+                <form>
+                    <div class="form-group">
+                        <label value="username" class="control-label">prenom</label>
+                        <input asp-for="@Model.prenom" class="form-control" readonly />
+                        <span asp-validation-for="prenom" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label value="username" class="control-label">nom</label>
+                        <input asp-for="@Model.nom" class="form-control" readonly />
+                        <span asp-validation-for="nom" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label value="username" class="control-label">email</label>
+                        <input asp-for="@Model.email" class="form-control" readonly />
+                        <span asp-validation-for="email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label value="username" class="control-label">tele</label>
+                        <input asp-for="@Model.tel" class="form-control" readonly />
+                        <span asp-validation-for="tel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label value="username" class="control-label">cin</label>
+                        <input asp-for="@Model.cin" class="form-control" readonly />
+                        <span asp-validation-for="cin" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label value="username" class="control-label">filiere</label>
+                        <input type="text" placeholder="@ViewBag.filiere" class="form-control" readonly />
 
-                    <input type="password" name="password" class="form-control" />
-                    <input type="submit" value="check" />
-                </div>
-            </form>
+
+
+
+
+
+
+
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
 </div>

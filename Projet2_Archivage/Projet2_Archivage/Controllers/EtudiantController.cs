@@ -17,6 +17,7 @@ namespace Projet2_Archivage.Controllers
     {
         ArchiveContext context;
         int ? idgrp;
+        
 
        public EtudiantController(ArchiveContext context) {
             this.context = context;
@@ -34,8 +35,10 @@ namespace Projet2_Archivage.Controllers
 
                
                 Etudiant y = context.etudiants.SingleOrDefault(p => p.cne.Equals(cne));
-
+                Filiere f = context.filieres.SingleOrDefault(e => e.Id_filiere == y.id_fil);
+                ViewBag.filiere = f.Nom_filiere;ViewBag.soc = "vous avez deja initialiser societé et fichier ";
                 return View("Espace_Etudiant", y);
+                
                
             }
             return View();
@@ -52,7 +55,17 @@ namespace Projet2_Archivage.Controllers
 
                
                 Etudiant y = context.etudiants.SingleOrDefault(p => p.cne.Equals(cne));
+                var f = context.filieres;
+                string k = "me";
+                foreach (Filiere ff in f)
+                {
+                    if (y.id_fil == ff.Id_filiere)
+                    {
+                        k = ff.Nom_filiere;
 
+                    }
+                }
+                ViewBag.filiere = k;
                 return View("Espace_Etudiant", y);
             }
 
@@ -68,7 +81,18 @@ namespace Projet2_Archivage.Controllers
                 {
 
                     HttpContext.Session.SetInt32("etudiant", x.cne);
-                    ViewBag.nom = HttpContext.Session.GetInt32("etudiant").ToString();
+                    var f = context.filieres;
+                    string k = "me";
+                    foreach (Filiere ff in f)
+                    {
+                        if (x.id_fil == ff.Id_filiere)
+                        {
+                            k = ff.Nom_filiere;
+
+                        }
+                    }
+                    ViewBag.filiere = k;
+
                     return View("Espace_Etudiant",x);
                 }
             }
@@ -85,52 +109,60 @@ namespace Projet2_Archivage.Controllers
         [HttpGet]
         public ActionResult Espace_Etudiant(Etudiant a) {
 
-            ViewBag.groupe = "vous etes pas dans un groupe pour creer un cliquer sur la gestion des groupe ";
+         
 
 
             if (HttpContext.Session.GetInt32("etudiant") != null)
             {
+               
                 var cne = HttpContext.Session.GetInt32("etudiant");
                 Etudiant x = context.etudiants.SingleOrDefault(p => p.cne==cne);
+                var f = context.filieres;
+                string k = "me";
+                foreach (Filiere ff in f)
+                {
+                    if (x.id_fil == ff.Id_filiere)
+                    {
+                        k = ff.Nom_filiere;
 
-               
+                    }
+                }
+                ViewBag.filiere = k;
 
                 return View(x);
             }
 
             else
             {
-                ViewBag.nom = "ssesion null";
+               
                 return View("connexion");
             }
         }
-
+  
+    
         public ActionResult Creer_Groupe()
         {
-             if(HttpContext.Session.GetInt32("etudiant") == null)
-            {
-                ViewBag.nom = "session null";
-                return View("connexion");
-            }
             var cne = HttpContext.Session.GetInt32("etudiant");
+           
+            Etudiant y = context.etudiants.SingleOrDefault(p => p.cne == cne);
             GroupeMembre membre = context.groupeMembres.SingleOrDefault(x => x.id_et == cne);
             if (membre != null)
             {
                 this.idgrp = membre.grp_id;
             }
 
-           if (this.idgrp == null)
+            if (this.idgrp == null)
             {
                 return View();
             }
-            
+
             var list = context.groupeMembres.Where(x => x.grp_id == idgrp).ToList();
-            var listmembre = (from Etudiant in context.etudiants select Etudiant).ToList();
+            var listmembre = (from Etudiant in context.etudiants select Etudiant).Where(x => x.id_fil == y.id_fil).ToList();
             // ViewBag.e = new SelectList(context.etudiants.Where(x => x.Filiere.Id_filiere == e.id_fil ), "cne", "nom");
             ViewBag.e = listmembre;
 
 
-            return View("InviterGroupe",list);
+            return View("InviterGroupe", list);
 
         }
 
@@ -164,7 +196,7 @@ namespace Projet2_Archivage.Controllers
 
             context.SaveChanges();
             ViewBag.grpmm = "fait";
-            var list = context.groupeMembres.Where(x => x.grp_id == idgrp).ToList();
+            var list = context.groupeMembres.Where(x => x.grp_id == this.idgrp).ToList();
             var listmembre = context.etudiants.Where(x => x.Filiere.Id_filiere == e.Filiere.Id_filiere);
             ViewBag.e = listmembre;
             return    RedirectToAction("InviterGroupe",list);
@@ -174,11 +206,6 @@ namespace Projet2_Archivage.Controllers
         [HttpGet]
         public ActionResult InviterGroupe(Groupe g)
         {
-            if (HttpContext.Session.GetInt32("etudiant") == null)
-            {
-                ViewBag.nom = "session null";
-                return View("connexion");
-            }
             var cne = HttpContext.Session.GetInt32("etudiant");
             Etudiant e = context.etudiants.SingleOrDefault(p => p.cne == cne);
             
@@ -191,7 +218,7 @@ namespace Projet2_Archivage.Controllers
           
 
             var list = context.groupeMembres.Where(x => x.grp_id == this.idgrp).ToList();
-            var listmembre =(from Etudiant in context.etudiants select Etudiant).ToList();
+            var listmembre =context.etudiants.ToList();
            // ViewBag.e = new SelectList(context.etudiants.Where(x => x.Filiere.Id_filiere == e.id_fil ), "cne", "nom");
             ViewBag.e = listmembre;
          
@@ -202,21 +229,7 @@ namespace Projet2_Archivage.Controllers
 
         }
 
-
-
-
-
-       
-
-         
-
-       
-
-
-
-
-
-
+        
 
 
         [HttpPost]
@@ -286,38 +299,81 @@ namespace Projet2_Archivage.Controllers
 
         public ActionResult Information_De_stage()
         {
+
+            var cne = HttpContext.Session.GetInt32("etudiant");
+            GroupeMembre membre = context.groupeMembres.SingleOrDefault(x => x.id_et == cne);
+            if (membre != null)
+            {
+                this.idgrp = membre.grp_id;
+            }
+
+            var groupe = context.files.Where(x => x.groupe_Id == this.idgrp );
+            foreach(Models.File f in groupe){
+                if (f.id_tp == 1) {
+                 ViewBag.soc = "vous avez deja marquer ça";
+                return View("erreur_stage"); }
+            }
+            
+                ViewBag.soc = "vous avez pas encore charger vos information";
+                return View("Information_De_stage");
+            
+           
+
+
+
+            
+        }
+
+        public ActionResult erreur_stage()
+        {
             return View();
         }
-        [HttpPost]
+
+       [HttpPost]
         public ActionResult Information_De_stage(Societe entreprise , IFormFile file)
         {
-                    Models.File sujet = new Models.File();
+            
+            var cne = HttpContext.Session.GetInt32("etudiant");
+            GroupeMembre membre = context.groupeMembres.SingleOrDefault(x => x.id_et == cne);
+            if (membre != null)
+            {
+                this.idgrp = membre.grp_id;
+            }
+
+           var groupe = context.files.Where(x => x.groupe_Id ==this.idgrp && x.id_tp == 1);
+            if(groupe != null)
+            {
+                ViewBag.soc = "vous avez deja marquer ça";
+                return View("erreur_stage");
+            }
+
+            Models.File sujet = new Models.File();
 
             //var file = Request.Files[0];
-          
-                if (file != null && file.Length > 0)
-                {
+
+            if (file != null && file.Length > 0)
+            {
 
 
 
 
 
 
-                    //new file
-                    sujet.Name = file.FileName;
-                    sujet.id_tp = 1;
-                    var memoryStream = new MemoryStream();
-                    file.CopyTo(memoryStream);
-                    sujet.Content = memoryStream.ToArray();
-                    sujet.Type = Request.ContentType;
-                    sujet.Length = (int)file.Length;
-                    DateTime localDate = DateTime.Now;
-                    sujet.date_disp = Convert.ToString(localDate);
-                    sujet.groupe_Id = this.idgrp;
-                }
+                //new file
+                sujet.Name = file.FileName;
+                sujet.id_tp = 1;
+                var memoryStream = new MemoryStream();
+                file.CopyTo(memoryStream);
+                sujet.Content = memoryStream.ToArray();
+                sujet.Type = Request.ContentType;
+                sujet.Length = (int)file.Length;
+                DateTime localDate = DateTime.Now;
+                sujet.date_disp = Convert.ToString(localDate);
+                sujet.groupe_Id = this.idgrp;
+            }
             context.files.Add(sujet);
             entreprise.id_f = sujet.Id;
-            
+
 
 
 
@@ -326,5 +382,224 @@ namespace Projet2_Archivage.Controllers
             return View(entreprise);
         }
 
-    }
-}
+
+
+
+
+        public ActionResult Rapport()
+        {
+            var cnee = HttpContext.Session.GetInt32("etudiant");
+
+            GroupeMembre membre = context.groupeMembres.SingleOrDefault(x => x.id_et == cnee);
+            if (membre != null)
+            {
+                this.idgrp = membre.grp_id;
+            }
+
+            ViewBag.i = this.idgrp;
+            var filemem = context.files.Where(x => x.groupe_Id == this.idgrp && x.id_tp != 1);
+            if (filemem == null)
+            {
+                ViewBag.nbr = "1ere upload";
+
+            }
+
+            else
+            {
+
+                int numeroderapport = 2;
+                foreach (Models.File ff in filemem)
+                {
+                    if (ff.id_tp > numeroderapport)
+                    {
+                        numeroderapport = (int)ff.id_tp;
+                        numeroderapport = numeroderapport-2 ;
+                        ViewBag.nbr = numeroderapport + "eme upload";
+                    }
+                    if (ff.id_tp == 5)
+                    {
+
+                        ViewBag.soc = "vous avez deja telecharger tous les rapports d'avancement ";
+                        return View("erreur_stage");
+
+                    }
+
+                }
+
+            }
+                return View();
+            }
+        
+
+  [HttpPost]
+        public ActionResult Rapport(IFormFile file)
+        {
+            var cnee = HttpContext.Session.GetInt32("etudiant");
+
+            GroupeMembre membre = context.groupeMembres.SingleOrDefault(x => x.id_et == cnee);
+            if (membre != null)
+            {
+                this.idgrp = membre.grp_id;
+            }
+            Models.File Rapport = new Models.File();
+
+            //var file = Request.Files[0];
+
+            if (file != null && file.Length > 0)
+            {
+
+
+
+
+                int ? id = 2;
+               
+                //new file
+                Rapport.Name = file.FileName;
+                var filesgroupe = context.files.Where(x => x.groupe_Id == this.idgrp && x.id_tp != 1);
+                int i = 2;
+              
+                
+                if (filesgroupe != null) {
+
+                    foreach (Models.File f in filesgroupe)
+                    {
+                        if (f.id_tp == i)
+                        { 
+                            
+                            id =id+1;
+                            i++;
+                            
+
+                        }
+                        if (f.id_tp == 5)
+                        {
+
+                            ViewBag.nbr = "dernier rapport d'avancement  deja telecharger ";
+                            ViewBag.soc = "vous avez deja telecharger tous les rapports d'avancement ";
+                            return View("erreur_stage");
+                        }
+                    }
+                }
+              
+              
+
+                   
+                Rapport.id_tp =id;
+
+                var memoryStream = new MemoryStream();
+                file.CopyTo(memoryStream);
+                Rapport.Content = memoryStream.ToArray();
+                Rapport.Type = Request.ContentType;
+                Rapport.Length = (int)file.Length;
+                DateTime localDate = DateTime.Now;
+                Rapport.date_disp = Convert.ToString(localDate);
+                Rapport.groupe_Id = this.idgrp;}
+
+                
+                
+               
+            context.files.Add(Rapport);
+            context.SaveChanges();
+
+            var filemem = context.files.Where(x => x.groupe_Id == this.idgrp && x.id_tp != 1);
+            if (filemem == null)
+            {
+                ViewBag.nbr = "1ere upload";
+
+            }
+          
+            else
+            {  int numeroderapport = 2;
+                foreach(Models.File ff in filemem)
+                {
+                    if (ff.id_tp > numeroderapport)
+                    {
+                        numeroderapport =(int) ff.id_tp;
+                    }
+                }
+                numeroderapport = numeroderapport - 1;
+                ViewBag.nbr = numeroderapport+"eme upload";
+            }
+            return View();
+        }
+
+
+
+        public ActionResult Rapport_final()
+        {
+            var cne = HttpContext.Session.GetInt32("etudiant");
+            GroupeMembre membre = context.groupeMembres.SingleOrDefault(x => x.id_et == cne);
+            if (membre != null)
+            {
+                this.idgrp = membre.grp_id;
+            }
+
+            var groupe = context.files.Where(x => x.groupe_Id == this.idgrp);
+            foreach (Models.File f in groupe)
+            {
+                if (f.id_tp == 6)
+                {
+                    ViewBag.soc = "vous avez deja telechargé ça ";
+                    return View("erreur_stage");
+                }
+            }
+
+            ViewBag.alert = "vous n avez pas encore telechargé votre Rapport final";
+            return View();
+
+
+
+          
+
+
+        }
+        [HttpPost]
+        public ActionResult Rapport_final(IFormFile file)
+        {
+            var cne = HttpContext.Session.GetInt32("etudiant");
+            GroupeMembre membre = context.groupeMembres.SingleOrDefault(x => x.id_et == cne);
+            if (membre != null)
+            {
+                this.idgrp = membre.grp_id;
+            }
+
+            var groupe = context.files.Where(x => x.groupe_Id == this.idgrp );
+            foreach(Models.File f in groupe) { 
+            if (f.id_tp == 6)
+            {
+                ViewBag.soc = "vous avez deja marquer ça";
+                return View("erreur_stage");
+            }
+            }
+
+            Models.File sujet = new Models.File();
+
+            //var file = Request.Files[0];
+
+            if (file != null && file.Length > 0)
+            {
+
+
+
+
+
+
+                //new file
+                sujet.Name = file.FileName;
+                sujet.id_tp = 6;
+                var memoryStream = new MemoryStream();
+                file.CopyTo(memoryStream);
+                sujet.Content = memoryStream.ToArray();
+                sujet.Type = Request.ContentType;
+                sujet.Length = (int)file.Length;
+                DateTime localDate = DateTime.Now;
+                sujet.date_disp = Convert.ToString(localDate);
+                sujet.groupe_Id = this.idgrp;
+            }
+            context.files.Add(sujet);
+           
+            context.SaveChanges();
+            ViewBag.soc = "telecharger avec succes ";
+            return View("erreur_stage");
+        }
+    } }

@@ -10,10 +10,10 @@
     ViewBag.Title = "Création de Groupe";
     Layout = "~/Views/Shared/_MonLayout.cshtml";
 }
-<<div style="height:800px;width:800px;border-color:black">
+<div style="height:800px;width:800px;border-color:black">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" asp-action="connexion" method="post">Espace Etudiant</a>
+            <a class="nav-link" asp-action="connexion" method="post">Espace Etudiant </a>
         </li>
 
         <li class="nav-item">
@@ -22,10 +22,12 @@
         <li class="nav-item">
             <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
         </li>
+     
         <li class="nav-item">
             <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
         </li>
     </ul>
+
     <div class="container border mb-2 p-3 border">
 
 
@@ -62,10 +64,12 @@
                 <form asp-action="AddToGroup" method="post">
                     <h5 align="center">Inviter des étudiants</h5>
                     <select class="selectpicker" name="invitedEtudiant">
-                        @foreach (var Etudiant in @ViewBag.e)
+                        @if (ViewBag.e != null)
                         {
-                            <option value="@Etudiant.cne">@Etudiant.nom</option>
-                        }
+                            @foreach (var Etudiant in @ViewBag.e)
+                            {
+                                <option value="@Etudiant.cne">@Etudiant.nom</option>
+                            }}
                     </select>
 
                     <br />
@@ -84,10 +88,12 @@
 
     </div><br /><br />
     <small>N.B: vous ne pouvez déposer un projet jusqu'à ce que tous les membres invités ont accepté leur demande d'invitation et seulement une fois .</small><br /><br />
-    <div align="center" style="border:double">
-        @Html.ActionLink("Archiver un projet", "Archiver", "etudiant")
-    </div>
+    <ul>
+        <li class="nav-item">
+            <a class="nav-link " asp-action="Rapport" method="get">inserer rapport d'avancement</a>
+        </li>
+         <li class="nav-item">
+            <a class="nav-link " asp-action="Rapport_final" method="get">inserer rapport final</a>
+        </li>
+    </ul>
 </div>
-
-
-        

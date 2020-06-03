@@ -195,7 +195,7 @@ namespace Projet2_Archivage.Controllers
 
         public PartialViewResult AfficherDetailsAdmin(string search,string rech)
         {
-            if (search == "")
+            if (search == null)
             {
                 search = "00000000000000";
             }
@@ -345,8 +345,80 @@ namespace Projet2_Archivage.Controllers
         [HttpGet]
         public IActionResult Affectation()
         {
+            int? id = HttpContext.Session.GetInt32("admin_id");
+            Admin admin = db.admins.Find(id);
             ViewBag.e = new SelectList(db.filieres, "Id_filiere", "Nom_filiere");
-            return View();
+            ViewBag.search = "";
+            ViewBag.deconnect = "";
+            ViewBag.edit = "";
+            ViewBag.import = "";
+            ViewBag.affect = "clicked";
+            return View(admin);
+        }
+
+        [HttpPost]
+        public PartialViewResult AfficherListeAffectation(int id)
+        {
+            var x = db.groupes.Where(g => g.id_filiere == id).ToList();
+            List<int> list_grp = new List<int>();
+            List<List<Etudiant>> list_etuds = new List<List<Etudiant>>();
+            List<string> list_societes = new List<string>();
+            List<SelectList> listsl = new List<SelectList>();
+            foreach (Groupe g in x)
+            {
+                list_grp.Add(g.id_grp);
+                Societe s = db.societes.Find(g.id_soc);
+                list_societes.Add(s.nom);
+                var y = (from m in db.groupeMembres
+                         join e in db.etudiants on m.id_et equals e.cne
+                         where m.grp_id==g.id_grp
+                         select new
+                         {
+                            et=e
+                         }).ToList();
+                List<Etudiant> list_e = new List<Etudiant>();
+                foreach(var i in y)
+                {
+                    Etudiant e = i.et;
+                    list_e.Add(e);
+                }
+                list_etuds.Add(list_e);
+                var z = db.enseignants.Where(es => es.fil_id == g.id_filiere);
+                SelectList sl;
+                if (g.id_ens != null)
+                {
+                    sl = new SelectList(z, "Id", "nom",g.id_ens);
+                }
+                else
+                {
+                    sl = new SelectList(z, "Id", "nom");
+                }
+                
+                listsl.Add(sl);
+            }
+            ViewBag.grps = list_grp;
+            ViewBag.names = list_etuds;
+            ViewBag.sos = list_societes;
+            ViewBag.sl = listsl;
+            return PartialView("_AfficherListeAffectation");
+        }
+
+        public IActionResult AffectEncadrants()
+        {
+            List<int> list = new List<int>();
+            var x = db.groupes.ToList();
+            foreach(Groupe g in x)
+            {
+                int id = g.id_grp;
+                if (Request.Form["y[" + id + "]"].Count()!=0)
+                {
+                    int val=Int32.Parse(Request.Form["y[" + id + "]"]);
+                    g.id_ens = val;
+                    db.SaveChanges();
+                }
+            }
+            
+            return RedirectToAction("Affectation");
         }
     }
 }

@@ -1,0 +1,48 @@
+﻿
+@using (Html.BeginForm("AffectEncadrants", "Admins", FormMethod.Post))
+{
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Groupe</th>
+                <th scope="col">Membres</th>
+                <th scope="col">Sujet</th>
+                <th scope="col">Encadrant</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @{
+                int i = 0;
+                foreach (var line in ViewBag.grps)
+                {
+                    <tr>
+                        <td>
+                            @line
+                        </td>
+                        <td>
+                            <ul>
+                                @foreach (var j in ViewBag.names[i])
+                                {
+                                    <li>@j.nom @j.prenom</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            @ViewBag.sos[i]
+                        </td>
+                        <td>
+                            @Html.DropDownList("y[" + line + "]", ViewBag.sl[i] as SelectList, null, new { @class = "custom-select", id = line })
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+
+    </table>
+    <input type="submit" value="admin" class="btn btn-primary">
+
+}

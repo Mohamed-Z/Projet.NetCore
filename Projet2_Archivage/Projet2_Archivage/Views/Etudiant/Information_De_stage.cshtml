@@ -1,16 +1,16 @@
-
+@model Projet2_Archivage.Models.Societe
 @{
     ViewData["Title"] = "Information_De_stage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Information_De_stage</h2>
-@model Societe
+
 
 <div style="height:800px;width:800px;border-color:black">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link " asp-action="connexion" method="post" >Espace Etudiant</a>
+            <a class="nav-link " asp-action="connexion" method="post">Espace Etudiant</a>
         </li>
 
         <li class="nav-item">
@@ -29,7 +29,7 @@
             <div class="alert alert-info" role="alert">
                 @ViewBag.soc
             </div>
-           
+
 
             <form asp-action="Information_De_stage" method="post" enctype="multipart/form-data">
                 <div class="form-group">
@@ -66,8 +66,9 @@
                 <div class="form-group">
                     <label class="control-label">Choisissez le fichier de votre projet</label>
                     <input type="file" name="file" id="file" /><br><br>
-                    @if(ViewBag.soc != "vous avez deja marquer ça") { 
-                    <input type="submit" class="form-control" value="valider" />}
+                    @if (ViewBag.soc != "vous avez deja marquer ça")
+                    {
+                        <input type="submit" class="form-control" value="valider" />}
                 </div>
             </form>
         </div>

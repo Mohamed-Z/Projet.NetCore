@@ -1,7 +1,40 @@
-﻿
-@{
-    ViewData["Title"] = "Affectation";
+﻿@{
+    ViewBag.Title = "Affectation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
 }
 
-<h2>Affectation</h2>
+    <div class="info d-flex justify-content-center wd" style="padding:15px;">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="section-title  col-lg-9">
+                    <h2>Affectation des encadrants</h2>
+
+                    <form>
+                        <label for="validationFil">Choisir une filière</label>
+                        @Html.DropDownList("x", ViewBag.e as SelectList, "Choisir une filière", new { @class = "custom-select", id = "validationFil" })
+                    </form>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div id="contenu" class="section-title  col-lg-12"></div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+<script>
+    $("#validationFil").change(function () {
+           $( "#validationFil option:first-child" ).attr("disabled","disabled");
+           $.ajax({
+               type: "POST",
+               url: "/Admins/AfficherListeAffectation",
+               data: "id="+$("#validationFil option:selected").val(),
+               success: function (result) {
+                   $("#contenu").html(result);
+               }
+           });
+       });
+</script>
 

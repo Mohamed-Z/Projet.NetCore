@@ -31,7 +31,8 @@ namespace Projet2_Archivage.Models
                          sos = t,
                          societe = t.nom,
                          grps = g.id_grp,
-                         enc = ed
+                         enc = ed,
+                         gp = g.Filiere.Nom_filiere
                      });
 
             foreach (var i in x)
@@ -39,20 +40,19 @@ namespace Projet2_Archivage.Models
                 listenc.Add(i.enc.nom + " " + i.enc.prenom);
                 listt.Add(i.societe);
                 listr.Add(i.grps);
-                File f = db.files.Where(p => p.groupe_Id == i.grps).SingleOrDefault();
+                listf.Add(i.gp);
+                File f = db.files.Where(p => p.groupe_Id == i.grps && p.id_tp==5).SingleOrDefault();
                 Societe sos = i.sos;
+                lists.Add(sos.sujet);
+                listd.Add(sos.description);
                 if (f != null)
                 {
-                    lists.Add(sos.sujet);
                     listdt.Add(f.date_disp);
-                    listd.Add(sos.description);
                     listbool.Add(true);
                 }
                 else
                 {
-                    lists.Add("");
                     listdt.Add("");
-                    listd.Add("");
                     listbool.Add(false);
                 }
                 List<Etudiant> listet = new List<Etudiant>();
@@ -68,7 +68,6 @@ namespace Projet2_Archivage.Models
                     listet.Add(j.etudiant);
                 }
                 liste.Add(listet);
-                listf.Add(listet[0].Filiere.Nom_filiere);
             }
         }
 
@@ -174,7 +173,7 @@ namespace Projet2_Archivage.Models
                     }
                 }
             }
-            else if (rech.Equals("filiere"))
+            else if (rech.Equals("enseignant"))
             {
                 for (int i = 0; i < lists.Count; i++)
                 {

@@ -1,0 +1,102 @@
+@model Projet2_Archivage.Models.ListeNotesViewModel
+@{
+    ViewData["Title"] = "InsererNotes";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+
+}
+
+
+@{
+    Enseignant enseign = ViewBag.enseign;
+    var liste = ViewBag.liste;
+    var note1 = ViewBag.note1;
+
+    var i = 0;
+}
+
+
+<br />
+<div class="container">
+    <div class="row">
+        <partial name="_EspaceEnseignant" model="enseign"/>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3">
+            <a class="btn btn-info" asp-action="GinfNotes">Liste étudiants GINF</a>
+        </div>
+        <div class="col-md-3">
+            <a class="btn btn-success" asp-action="GgtrNotes">Liste étudiants GTR</a>
+        </div>
+        <div class="col-md-3">
+            <a class="btn btn-info" asp-action="GindusNotes">Liste étudiants INDUS</a>
+        </div>
+        <div class="col-md-3">
+            <a class="btn btn-success" asp-action="GgpmcNotes">Liste étudiants GPMC</a>
+        </div>
+    </div>
+
+    <div class="row">
+
+        @{ if (liste != null && liste.Count != 0)
+            {
+                <form asp-controller="Enseignant" asp-action="Ajouter" method="post">
+                    <table class="table table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col" class="col-md-2">Groupe ID</th>
+                                <th scope="col" class="col-md-2">CNE</th>
+                                <th scope="col" class="col-md-2">NOM</th>
+                                <th scope="col" class="col-md-2">PRENOM</th>
+                                <th scope="col" class="col-md-3">EMAIL</th>
+                                <th scope="col" class="col-md-1">NOTE /20</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var et in liste)
+                            {
+                                <tr>
+                                    <td scope="row">@et.Id_groupe</td>
+                                    <td>@et.Cne</td>
+                                    <td>@et.Nom</td>
+                                    <td>@et.Prenom</td>
+                                    <td>@et.Email</td>
+                                    <td><input class="form-control" type="text" name="@et.Cne" value="@et.Note" /></td>
+
+                                </tr>
+
+                            }
+
+                        </tbody>
+                    </table>
+
+                    <button type="submit" class="btn btn-primary mb-2">Valider</button>
+
+                </form>
+            }
+            else
+            {
+                <div class="alert alert-primary" role="alert">
+                    Liste vide !!
+                </div>
+            }
+        }
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.table tr td').each(function (i, v) {
+            if (v.textContent == '1') {
+                $(v.parentElement).addClass('table-success');
+            } else if (v.textContent == '3') {
+                $(v.parentElement).addClass('table-danger');
+            }
+        })
+    })
+</script>
+
+

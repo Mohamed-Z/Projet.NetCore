@@ -8,574 +8,589 @@
     var mes = "n existe pas";
     var espace = " ";
     Enseignant enseign = ViewBag.enseign;
-    
+
 }
 
+    <div class="col-lg-12 col-md-12 content-item" style="text-align:left; background-color:#CAD0FF" data-aos="fade-up" data-aos-delay="10">
+        <div class="info d-flex justify-content-center wi" style="border-radius:20px ">
+            <div class="section-title  col-lg-12 flxs" style="padding-top:50px">
+                <div class="container">
+                    <br />
+                    <div class="row">
+                        <partial name="_EspaceEnseignant" model="enseign" />
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a class="btn btn-primary" asp-action="PageCalendrier" style="border-radius:10px; width:150px">Calendrier</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-primary" asp-action="PageListeInfo" style="border-radius: 10px; width: 150px">Liste PFE GINF</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-primary" asp-action="PageListeGtr" style="border-radius:10px; width:150px">Liste PFE GTR</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-primary" asp-action="PageListeIndus" style="border-radius:10px; width:150px">Liste PFE INDUS</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-primary" asp-action="PageListeGpmc" style="border-radius:10px; width:150px">Liste PFE GPMC</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-primary" asp-action="PagePlanning" style="border-radius:10px; width:150px">Planning</a>
+                        </div>
+                    </div>
+                    <br /><br />
 
-<br />
-<div class="container">
-<<<<<<< HEAD
-    
-        <br />
-=======
-    <div class="row">
-        <partial name="_EspaceEnseignant"  model="enseign"/>
+                    <div class="section-title" style="align-content:center">
+                        <h2>Calendrier</h2><br />
+                                           <p style="font-style:italic; font-weight:bold">
+                                               Vous trouverez dans ce le tableau ci-dessous les dates de dépôt de chaque rapport d’avancement (4 rapports) + rapport final
+                                               + dates de soutenance.
+                                           </p>
+                    </div>
+
+                    @if (liste != null && liste.Count > 0 && Type_page == "calendrier")
+                    {
+                        <div class="row" >
+                            <table class="table table-striped table-hover table-bordered">
+                                <thead class="thead-light" >
+                                    <tr>
+                                        <th scope="col" style="width:150px; border-top-left-radius:15px">Date | @DateTime.Now.Year</th>
+                                        <th scope="col" style="border-top-right-radius:15px" >Description</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[0].Date != null && liste[0].Date != "")
+                                                { @Convert.ToDateTime(liste[0].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            Ouverture de <strong>l'enregistrement en ligne </strong>des groupes PFE :
+                                            Les étudiants de la 5ème année doivent s'enregistrer soit en monôme ou en binôme (selon les PFE).
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[1].Date != null && liste[1].Date != "")
+                                                { @Convert.ToDateTime(liste[1].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            <strong>Dernier délai </strong>pour l'enregistrement des groupes PFE. Tout retard sera pénalisé lors de l'évaluation
+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[2].Date != null && liste[2].Date != "")
+                                                { @Convert.ToDateTime(liste[2].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            <strong>Attribution des encadrants pédagogiques :</strong> Chaque groupe PFE doit contacter son encadrant pédagogique
+                                                afin de bénéficier d'un suivi pédagogique de son PFE en collaboration avec l'encadrant industriel
+                                                au sein de l'entreprise. Des rapports d'avancement du projet doivent être régulièrement enregistrés
+                                                sur cette plateforme.
+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[3].Date != null && liste[3].Date != "")
+                                                { @Convert.ToDateTime(liste[3].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            Dernier délai pour<strong> l'insertion du sujet :</strong> Tous les groupes PFE doivent compléter
+                                            leur formulaire PFE en y insérant les données concernant le PFE et l'entreprise.
+                                            Tout retard sera pénalisé lors de l'évaluation.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[4].Date != null && liste[4].Date != "")
+                                                { @Convert.ToDateTime(liste[4].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                           <strong> Dernier délai pour l'enregistrement du 1er rapport d'avancement: </strong>Chaque groupe PFE doit enregistrer
+                                            son 1er rapport d'avancement en format pdf sur cette plateforme.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[5].Date != null && liste[5].Date != "")
+                                                { @Convert.ToDateTime(liste[5].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                             <strong>Dernier délai pour l'enregistrement du 2ème rapport d'avancement:</strong> Chaque groupe PFE doit enregistrer
+                                            son 2ème rapport d'avancement en format pdf sur cette plateforme.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[6].Date != null && liste[6].Date != "")
+                                                { @Convert.ToDateTime(liste[6].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            <strong>Dernier délai pour l'enregistrement du 3ème rapport d'avancement:</strong> Chaque groupe PFE doit enregistrer
+                                            son 3ème rapport d'avancement en format pdf sur cette plateforme.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[7].Date != null && liste[7].Date != "")
+                                                { @Convert.ToDateTime(liste[7].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            <strong>Dernier délai pour l'enregistrement du 4ème rapport d'avancement:</strong> Chaque groupe PFE doit enregistrer
+                                            son 4eme rapport d'avancement en format pdf sur cette plateforme.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[8].Date != null && liste[8].Date != "")
+                                                { @Convert.ToDateTime(liste[8].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            <strong>Dernier délai pour l'enregistrement du rapport final</strong>  : Chaque groupe PFE doit enregistrer
+                                            son rapport final en format pdf sur cette plateforme.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[9].Date != null && liste[9].Date != "")
+                                                { @Convert.ToDateTime(liste[9].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            <strong>Dernier délai pour le dépôt du rapport final :</strong>
+                                            Chaque groupe doit déposer 3 exemplaires du rapports final imprimé au secrétariat du département IRT.
+                                            Tout retard sera pénalisé lors de l'évaluation.
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[10].Date != null && liste[10].Date != "")
+                                                { @Convert.ToDateTime(liste[10].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            Dates des Planning des PFE.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[11].Date != null && liste[11].Date != "")
+                                                { @Convert.ToDateTime(liste[11].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            Date de début des soutenances.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @{ if (liste[12].Date != null && liste[12].Date != "")
+                                                { @Convert.ToDateTime(liste[12].Date).ToString("dd MMMM ") }
+                                            else
+                                            {<span class="badge badge-primary">Prochainement</span> }
+                                            }
+                                        </td>
+                                        <td>
+                                            <strong>Dernier delai pour le dépot du rapport final corrigé + CDROM :</strong>
+                                            Afin de valider le PFE, chaque groupe doit déposer, au secrétariat du département IRT,
+                                            la version papier finale du rapport corrigé selon les instructions du jury,
+                                            muni d'un CDROM contenant tous les éléments du projet
+                                            (Rapport, Présentation et Fichiers de démonstration...etc)
+                                            et ce dans un délai de deux jours après la soutenance.
+
+
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    @if (liste != null && liste.Count > 0 && Type_page == "Linfo")
+                    {
+
+                        <div class="alert alert-primary" role="alert">
+                            Linfo!
+                        </div>
+                        <table class="table table-striped table-hover table-bordered ">
+                            <thead class="thead-light">
+                                <tr>
+
+                                    <th scope="col" class="col"> Groupe ID </th>
+                                    <th scope="col" class="col"> Membres </th>
+                                    <th scope="col" class="col"> Encadrant Interne </th>
+                                    <th scope="col" class="col"> Encadrant Externe </th>
+                                    <th scope="col" class="col"> Société | Ville </th>
+                                    <th scope="col" class="col"> Sujet </th>
+                                    <th scope="col" class="col"> Rapports Avancements </th>
+                                    <th scope="col" class="col"> Rapport Final </th>
+                                    <th scope="col" class="col"> Date Soutenance </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var pfe in liste)
+                                {
+                                    <tr>
+                                        <td scope="row"> @pfe.Groupe_id </td>
+                                        <td>
+                                            @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
+                                                { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
+                                            }
+                                            <br />
+                                            @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
+                                                { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
+                                            }
+                                        </td>
+                                        <td> @pfe.Encadrant_interne</td>
+                                        <td> @pfe.Encadrant_externe</td>
+                                        <td> @pfe.Societe @pfe.Ville</td>
+                                        <td> @pfe.Sujet</td>
+                                        <td>
+                                            @{ if (pfe.Rapports_avancement.Count > 0)
+                                                {
+                                                    if (pfe.Rapports_avancement[0] != null)
+                                                    {@pfe.Rapports_avancement[0].Name}
+                                                else
+                                                {@mes}
+                                        } }<br>
+                                            @{ if (pfe.Rapports_avancement.Count > 1)
+                                                {
+                                                    if (pfe.Rapports_avancement[1] != null)
+                                                    {@pfe.Rapports_avancement[1].Name}
+                                                else
+                                                {@mes}
+                                        } }<br>
+                                            @{ if (pfe.Rapports_avancement.Count > 2)
+                                                {
+                                                    if (pfe.Rapports_avancement[2] != null)
+                                                    {@pfe.Rapports_avancement[2].Name}
+                                                else
+                                                {@mes}
+                                        } } <br>
+                                            @{ if (pfe.Rapports_avancement.Count > 3)
+                                                {
+                                                    if (pfe.Rapports_avancement[3] != null)
+                                                    {@pfe.Rapports_avancement[3].Name}
+                                                else
+                                                {@mes}
+                                        } }
+                                        </td>
+                                        <td>
+                                            @{ if (pfe.Rapport_final != null)
+                                                { @pfe.Rapport_final.Name }
+                                            else
+                                            { @mes } }
+                                        </td>
+                                        <td> @pfe.Date_soutenance</td>
+
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    @if (liste != null && liste.Count > 0 && Type_page == "Lgtr")
+                    {
+                        <div class="alert alert-primary" role="alert">
+                            Lgtr!
+                        </div>
+
+                        <table class="table table-striped table-hover table-bordered ">
+                            <thead class="thead-light">
+                                <tr>
+
+                                    <th scope="col" class="col"> Groupe ID </th>
+                                    <th scope="col" class="col"> Membres </th>
+                                    <th scope="col" class="col"> Encadrant Interne </th>
+                                    <th scope="col" class="col"> Encadrant Externe </th>
+                                    <th scope="col" class="col"> Société | Ville </th>
+                                    <th scope="col" class="col"> Sujet </th>
+                                    <th scope="col" class="col"> Rapports Avancements </th>
+                                    <th scope="col" class="col"> Rapport Final </th>
+                                    <th scope="col" class="col"> Date Soutenance </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var pfe in liste)
+                                {
+                                    <tr>
+                                        <td scope="row"> @pfe.Groupe_id </td>
+                                        <td>
+                                            @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
+                                                { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
+                                            } <br />
+                                            @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
+                                                { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
+                                            }
+                                        </td>
+                                        <td> @pfe.Encadrant_interne</td>
+                                        <td> @pfe.Encadrant_externe</td>
+                                        <td> @pfe.Societe @pfe.Ville</td>
+                                        <td> @pfe.Sujet</td>
+                                        <td>
+                                            @{ if (pfe.Rapports_avancement.Count > 0)
+                                                {
+                                                    if (pfe.Rapports_avancement[0] != null)
+                                                    {@pfe.Rapports_avancement[0].Name}
+                                                else
+                                                {@mes}
+                                        } }<br>
+                                            @{ if (pfe.Rapports_avancement.Count > 1)
+                                                {
+                                                    if (pfe.Rapports_avancement[1] != null)
+                                                    {@pfe.Rapports_avancement[1].Name}
+                                                else
+                                                {@mes}
+                                        } }<br>
+                                            @{ if (pfe.Rapports_avancement.Count > 2)
+                                                {
+                                                    if (pfe.Rapports_avancement[2] != null)
+                                                    {@pfe.Rapports_avancement[2].Name}
+                                                else
+                                                {@mes}
+                                        } } <br>
+                                            @{ if (pfe.Rapports_avancement.Count > 3)
+                                                {
+                                                    if (pfe.Rapports_avancement[3] != null)
+                                                    {@pfe.Rapports_avancement[3].Name}
+                                                else
+                                                {@mes}
+                                        } }
+                                        </td>
+                                        <td>
+                                            @{ if (pfe.Rapport_final != null)
+                                                { @pfe.Rapport_final.Name }
+                                            else
+                                            { @mes } }
+                                        </td>
+                                        <td> @pfe.Date_soutenance</td>
+
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    }
+
+                    @if (liste != null && liste.Count > 0 && Type_page == "Lindus")
+                    {
+                        <div class="alert alert-primary" role="alert">
+                            Lindus!
+                        </div>
+
+                        <table class="table table-striped table-hover table-bordered ">
+                            <thead class="thead-light">
+                                <tr>
+
+                                    <th scope="col" class="col"> Groupe ID </th>
+                                    <th scope="col" class="col"> Membres </th>
+                                    <th scope="col" class="col"> Encadrant Interne </th>
+                                    <th scope="col" class="col"> Encadrant Externe </th>
+                                    <th scope="col" class="col"> Société | Ville </th>
+                                    <th scope="col" class="col"> Sujet </th>
+                                    <th scope="col" class="col"> Rapports Avancements </th>
+                                    <th scope="col" class="col"> Rapport Final </th>
+                                    <th scope="col" class="col"> Date Soutenance </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var pfe in liste)
+                                {
+                                    <tr>
+                                        <td scope="row"> @pfe.Groupe_id </td>
+                                        <td>
+                                            @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
+                                                { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
+                                            } <br />
+                                            @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
+                                                { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
+                                            }
+                                        </td>
+                                        <td> @pfe.Encadrant_interne</td>
+                                        <td> @pfe.Encadrant_externe</td>
+                                        <td> @pfe.Societe @pfe.Ville</td>
+                                        <td> @pfe.Sujet</td>
+                                        <td>
+                                            @{ if (pfe.Rapports_avancement.Count > 0)
+                                                {
+                                                    if (pfe.Rapports_avancement[0] != null)
+                                                    {@pfe.Rapports_avancement[0].Name}
+                                                else
+                                                {@mes}
+                                        } }<br>
+                                            @{ if (pfe.Rapports_avancement.Count > 1)
+                                                {
+                                                    if (pfe.Rapports_avancement[1] != null)
+                                                    {@pfe.Rapports_avancement[1].Name}
+                                                else
+                                                {@mes}
+                                        } }<br>
+                                            @{ if (pfe.Rapports_avancement.Count > 2)
+                                                {
+                                                    if (pfe.Rapports_avancement[2] != null)
+                                                    {@pfe.Rapports_avancement[2].Name}
+                                                else
+                                                {@mes}
+                                        } } <br>
+                                            @{ if (pfe.Rapports_avancement.Count > 3)
+                                                {
+                                                    if (pfe.Rapports_avancement[3] != null)
+                                                    {@pfe.Rapports_avancement[3].Name}
+                                                else
+                                                {@mes}
+                                        } }
+                                        </td>
+                                        <td>
+                                            @{ if (pfe.Rapport_final != null)
+                                                { @pfe.Rapport_final.Name }
+                                            else
+                                            { @mes } }
+                                        </td>
+                                        <td> @pfe.Date_soutenance</td>
+
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    }
+
+                    @if (liste != null && liste.Count > 0 && Type_page == "Lgpmc")
+                    {
+                        <div class="alert alert-primary" role="alert">
+                            Lgpmc!
+                        </div>
+
+                        <table class="table table-striped table-hover table-bordered ">
+                            <thead class="thead-light">
+                                <tr>
+
+                                    <th scope="col" class="col"> Groupe ID </th>
+                                    <th scope="col" class="col"> Membres </th>
+                                    <th scope="col" class="col"> Encadrant Interne </th>
+                                    <th scope="col" class="col"> Encadrant Externe </th>
+                                    <th scope="col" class="col"> Société | Ville </th>
+                                    <th scope="col" class="col"> Sujet </th>
+                                    <th scope="col" class="col"> Rapports Avancements </th>
+                                    <th scope="col" class="col"> Rapport Final </th>
+                                    <th scope="col" class="col"> Date Soutenance </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var pfe in liste)
+                                {
+                                    <tr>
+                                        <td scope="row"> @pfe.Groupe_id </td>
+                                        <td>
+                                            @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
+                                                { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
+                                            } <br />
+                                            @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
+                                                { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
+                                            }
+                                        </td>
+                                        <td> @pfe.Encadrant_interne</td>
+                                        <td> @pfe.Encadrant_externe</td>
+                                        <td> @pfe.Societe @pfe.Ville</td>
+                                        <td> @pfe.Sujet</td>
+                                        <td>
+                                            @{ if (pfe.Rapports_avancement.Count > 0)
+                                                {
+                                                    if (pfe.Rapports_avancement[0] != null)
+                                                    {@pfe.Rapports_avancement[0].Name}
+                                                else
+                                                {@mes}
+                                        } }<br>
+                                            @{ if (pfe.Rapports_avancement.Count > 1)
+                                                {
+                                                    if (pfe.Rapports_avancement[1] != null)
+                                                    {@pfe.Rapports_avancement[1].Name}
+                                                else
+                                                {@mes}
+                                        } }<br>
+                                            @{ if (pfe.Rapports_avancement.Count > 2)
+                                                {
+                                                    if (pfe.Rapports_avancement[2] != null)
+                                                    {@pfe.Rapports_avancement[2].Name}
+                                                else
+                                                {@mes}
+                                        } } <br>
+                                            @{ if (pfe.Rapports_avancement.Count > 3)
+                                                {
+                                                    if (pfe.Rapports_avancement[3] != null)
+                                                    {@pfe.Rapports_avancement[3].Name}
+                                                else
+                                                {@mes}
+                                        } }
+                                        </td>
+                                        <td>
+                                            @{ if (pfe.Rapport_final != null)
+                                                { @pfe.Rapport_final.Name }
+                                            else
+                                            { @mes } }
+                                        </td>
+                                        <td> @pfe.Date_soutenance</td>
+
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
+                    }
+
+                    @if (liste != null && liste.Count > 0 && Type_page == "planning")
+                    {
+                        <div class="alert alert-primary" role="alert">
+                            Planning!
+                        </div>
+
+
+                    }
+                    <!--La fin du code c# razor-->
+                </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <br />
->>>>>>> 663f453e63489cf87697348e883680dd0873c899
-    <div class="row">
-        <div class="col-md-2">
-            <a class="btn btn-info" asp-action="PageCalendrier">Calendrier</a>
-        </div>
-        <div class="col-md-2">
-            <a class="btn btn-success" asp-action="PageListeInfo">Liste PFE GINF</a>
-        </div>
-        <div class="col-md-2">
-            <a class="btn btn-success" asp-action="PageListeGtr">Liste PFE GTR</a>
-        </div>
-        <div class="col-md-2">
-            <a class="btn btn-success" asp-action="PageListeIndus">Liste PFE INDUS</a>
-        </div>
-        <div class="col-md-2">
-            <a class="btn btn-success" asp-action="PageListeGpmc">Liste PFE GPMC</a>
-        </div>
-        <div class="col-md-2">
-            <a class="btn btn-info" asp-action="PagePlanning">Planning</a>
-        </div>
-    </div>
-    <br />
-
-    @if (liste != null && liste.Count > 0 && Type_page == "calendrier")
-    {
-        <div class="row">
-            
-            <table class="table table-striped table-hover table-bordered ">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col" class="col-md-3">Date | @DateTime.Now.Year</th>
-                        <th scope="col" class="col-md-9">Description</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            @{ if (liste[0].Date!= null && liste[0].Date != "")
-                                { @Convert.ToDateTime(liste[0].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Ouverture de l'enregistrement en ligne des groupes PFE :
-                            Les étudiants de la 5ème année doivent s'enregistrer soit en monôme ou en binôme (selon les PFE).
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[1].Date != null && liste[1].Date != "")
-                                { @Convert.ToDateTime(liste[1].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dernier délai pour l'enregistrement des groupes PFE. Tout retard sera pénalisé lors de l'évaluation
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[2].Date != null && liste[2].Date != "")
-                                { @Convert.ToDateTime(liste[2].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Attribution des encadrants pédagogiques : Chaque groupe PFE doit contacter son encadrant pédagogique
-                            afin de bénéficier d'un suivi pédagogique de son PFE en collaboration avec l'encadrant industriel
-                            au sein de l'entreprise. Des rapports d'avancement du projet doivent être régulièrement enregistrés
-                            sur cette plateforme.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[3].Date != null && liste[3].Date != "")
-                                { @Convert.ToDateTime(liste[3].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dernier délai pour l'insertion du sujet : Tous les groupes PFE doivent compléter
-                            leur formulaire PFE en y insérant les données concernant le PFE et l'entreprise.
-                            Tout retard sera pénalisé lors de l'évaluation.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[4].Date != null && liste[4].Date != "")
-                                { @Convert.ToDateTime(liste[4].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dernier délai pour l'enregistrement du 1er rapport d'avancement Chaque groupe PFE doit enregistrer
-                            son 1er rapport d'avancement en format pdf sur cette plateforme.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[5].Date != null && liste[5].Date != "")
-                                { @Convert.ToDateTime(liste[5].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dernier délai pour l'enregistrement du 1er rapport d'avancement Chaque groupe PFE doit enregistrer
-                            son 2eme rapport d'avancement en format pdf sur cette plateforme.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[6].Date != null && liste[6].Date != "")
-                                { @Convert.ToDateTime(liste[6].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dernier délai pour l'enregistrement du 1er rapport d'avancement Chaque groupe PFE doit enregistrer
-                            son 3eme rapport d'avancement en format pdf sur cette plateforme.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[7].Date != null && liste[7].Date != "")
-                                { @Convert.ToDateTime(liste[7].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dernier délai pour l'enregistrement du 1er rapport d'avancement Chaque groupe PFE doit enregistrer
-                            son 4eme rapport d'avancement en format pdf sur cette plateforme.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[8].Date != null && liste[8].Date != "")
-                                { @Convert.ToDateTime(liste[8].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dernier délai pour l'enregistrement du rapport final : Chaque groupe PFE doit enregistrer
-                            son rapport final en format pdf sur cette plateforme.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[9].Date != null && liste[9].Date != "")
-                                { @Convert.ToDateTime(liste[9].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dernier délai pour l'enregistrement du rapport final : Chaque groupe PFE doit enregistrer
-                            son rapport final en format pdf sur cette plateforme.Dernier délai pour le dépôt du rapport final :
-                            Chaque groupe doit déposer 3 exemplaires du rapports final imprimé au secrétariat du département IRT.
-                            Tout retard sera pénalisé lors de l'évaluation.
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[10].Date != null && liste[10].Date != "")
-                                { @Convert.ToDateTime(liste[10].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dates des Planning des PFE.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[11].Date != null && liste[11].Date != "")
-                                { @Convert.ToDateTime(liste[11].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                                                }
-                                            </td>
-                        <td>
-                            Date ddébut des soutenances.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            @{ if (liste[12].Date != null && liste[12].Date != "")
-                                { @Convert.ToDateTime(liste[12].Date).ToString("dd MMMM ") }
-                            else
-                            {<span class="badge badge-primary">Prochainement</span> }
-                            }
-                        </td>
-                        <td>
-                            Dernier delai pour le dépot du rapport final corrigé + CDROM :
-                            Afin de valider le PFE, chaque groupe doit déposer, au secrétariat du département IRT,
-                            la version papier finale du rapport corrigé selon les instructions du jury,
-                            muni d'un CDROM contenant tous les éléments du projet
-                            (Rapport, Présentation et Fichiers de démonstration...etc)
-                            et ce dans un délai de deux jours après la soutenance.
-
-
-                        </td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-    }
-    @if (liste != null && liste.Count > 0 && Type_page == "Linfo")
-    {
-
-        <div class="alert alert-primary" role="alert">
-            Linfo!
-        </div>
-        <table class="table table-striped table-hover table-bordered ">
-            <thead class="thead-light">
-                <tr>
-
-                    <th scope="col" class="col"> Groupe ID </th>
-                    <th scope="col" class="col"> Membres </th>
-                    <th scope="col" class="col"> Encadrant Interne </th>
-                    <th scope="col" class="col"> Encadrant Externe </th>
-                    <th scope="col" class="col"> Société | Ville </th>
-                    <th scope="col" class="col"> Sujet </th>
-                    <th scope="col" class="col"> Rapports Avancements </th>
-                    <th scope="col" class="col"> Rapport Final </th>
-                    <th scope="col" class="col"> Date Soutenance </th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var pfe in liste)
-                {
-                    <tr>
-                        <td scope="row"> @pfe.Groupe_id </td>
-                        <td>
-                            @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
-                                { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
-                            }
-                            <br />
-                            @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
-                                { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
-                            }
-                        </td>
-                        <td> @pfe.Encadrant_interne</td>
-                        <td> @pfe.Encadrant_externe</td>
-                        <td> @pfe.Societe @pfe.Ville</td>
-                        <td> @pfe.Sujet</td>
-                        <td>
-                            @{ if (pfe.Rapports_avancement.Count > 0)
-                                {
-                                    if (pfe.Rapports_avancement[0] != null)
-                                    {@pfe.Rapports_avancement[0].Name}
-                                else
-                                {@mes}
-                        } }<br>
-                            @{ if (pfe.Rapports_avancement.Count > 1)
-                                {
-                                    if (pfe.Rapports_avancement[1] != null)
-                                    {@pfe.Rapports_avancement[1].Name}
-                                else
-                                {@mes}
-                        } }<br>
-                            @{ if (pfe.Rapports_avancement.Count > 2)
-                                {
-                                    if (pfe.Rapports_avancement[2] != null)
-                                    {@pfe.Rapports_avancement[2].Name}
-                                else
-                                {@mes}
-                        } } <br>
-                            @{ if (pfe.Rapports_avancement.Count > 3)
-                                {
-                                    if (pfe.Rapports_avancement[3] != null)
-                                    {@pfe.Rapports_avancement[3].Name}
-                                else
-                                {@mes}
-                        } }
-                        </td>
-                        <td> @{ if (pfe.Rapport_final != null)
-                            { @pfe.Rapport_final.Name }
-                        else
-                        { @mes } }</td>
-                        <td> @pfe.Date_soutenance</td>
-
-                    </tr>
-
-                }
-            </tbody>
-        </table>
-    }
-    @if (liste != null && liste.Count > 0 && Type_page == "Lgtr")
-    {
-        <div class="alert alert-primary" role="alert">
-            Lgtr!
-        </div>
-
-        <table class="table table-striped table-hover table-bordered ">
-            <thead class="thead-light">
-                <tr>
-
-                    <th scope="col" class="col"> Groupe ID </th>
-                    <th scope="col" class="col"> Membres </th>
-                    <th scope="col" class="col"> Encadrant Interne </th>
-                    <th scope="col" class="col"> Encadrant Externe </th>
-                    <th scope="col" class="col"> Société | Ville </th>
-                    <th scope="col" class="col"> Sujet </th>
-                    <th scope="col" class="col"> Rapports Avancements </th>
-                    <th scope="col" class="col"> Rapport Final </th>
-                    <th scope="col" class="col"> Date Soutenance </th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var pfe in liste)
-                {
-                    <tr>
-                        <td scope="row"> @pfe.Groupe_id </td>
-                        <td>
-                            @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
-                                { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
-                            } <br />
-                            @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
-                                { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
-                            }
-                        </td>
-                        <td> @pfe.Encadrant_interne</td>
-                        <td> @pfe.Encadrant_externe</td>
-                        <td> @pfe.Societe @pfe.Ville</td>
-                        <td> @pfe.Sujet</td>
-                        <td>
-                            @{ if (pfe.Rapports_avancement.Count > 0)
-                                {
-                                    if (pfe.Rapports_avancement[0] != null)
-                                    {@pfe.Rapports_avancement[0].Name}
-                                else
-                                {@mes}
-                        } }<br>
-                            @{ if (pfe.Rapports_avancement.Count > 1)
-                                {
-                                    if (pfe.Rapports_avancement[1] != null)
-                                    {@pfe.Rapports_avancement[1].Name}
-                                else
-                                {@mes}
-                        } }<br>
-                            @{ if (pfe.Rapports_avancement.Count > 2)
-                                {
-                                    if (pfe.Rapports_avancement[2] != null)
-                                    {@pfe.Rapports_avancement[2].Name}
-                                else
-                                {@mes}
-                        } } <br>
-                            @{ if (pfe.Rapports_avancement.Count > 3)
-                                {
-                                    if (pfe.Rapports_avancement[3] != null)
-                                    {@pfe.Rapports_avancement[3].Name}
-                                else
-                                {@mes}
-                        } }
-                        </td>
-                        <td> @{ if (pfe.Rapport_final != null)
-                            { @pfe.Rapport_final.Name }
-                        else
-                        { @mes } }</td>
-                        <td> @pfe.Date_soutenance</td>
-
-                    </tr>
-
-                }
-            </tbody>
-        </table>
-    }
-
-    @if (liste != null && liste.Count > 0 && Type_page == "Lindus")
-    {
-        <div class="alert alert-primary" role="alert">
-            Lindus!
-        </div>
-
-        <table class="table table-striped table-hover table-bordered ">
-            <thead class="thead-light">
-                <tr>
-
-                    <th scope="col" class="col"> Groupe ID </th>
-                    <th scope="col" class="col"> Membres </th>
-                    <th scope="col" class="col"> Encadrant Interne </th>
-                    <th scope="col" class="col"> Encadrant Externe </th>
-                    <th scope="col" class="col"> Société | Ville </th>
-                    <th scope="col" class="col"> Sujet </th>
-                    <th scope="col" class="col"> Rapports Avancements </th>
-                    <th scope="col" class="col"> Rapport Final </th>
-                    <th scope="col" class="col"> Date Soutenance </th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var pfe in liste)
-                {
-                    <tr>
-                        <td scope="row"> @pfe.Groupe_id </td>
-                        <td>
-                            @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
-                                { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
-                             } <br />
-                            @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
-                                { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
-                             }
-                        </td>
-                        <td> @pfe.Encadrant_interne</td>
-                        <td> @pfe.Encadrant_externe</td>
-                        <td> @pfe.Societe @pfe.Ville</td>
-                        <td> @pfe.Sujet</td>
-                        <td>
-                            @{ if (pfe.Rapports_avancement.Count > 0)
-                                {
-                                    if (pfe.Rapports_avancement[0] != null)
-                                    {@pfe.Rapports_avancement[0].Name}
-                                else
-                                {@mes}
-                        } }<br>
-                            @{ if (pfe.Rapports_avancement.Count > 1)
-                                {
-                                    if (pfe.Rapports_avancement[1] != null)
-                                    {@pfe.Rapports_avancement[1].Name}
-                                else
-                                {@mes}
-                        } }<br>
-                            @{ if (pfe.Rapports_avancement.Count > 2)
-                                {
-                                    if (pfe.Rapports_avancement[2] != null)
-                                    {@pfe.Rapports_avancement[2].Name}
-                                else
-                                {@mes}
-                        } } <br>
-                            @{ if (pfe.Rapports_avancement.Count > 3)
-                                {
-                                    if (pfe.Rapports_avancement[3] != null)
-                                    {@pfe.Rapports_avancement[3].Name}
-                                else
-                                {@mes}
-                        } }
-                        </td>
-                        <td> @{ if (pfe.Rapport_final != null)
-                            { @pfe.Rapport_final.Name }
-                        else
-                        { @mes } }</td>
-                        <td> @pfe.Date_soutenance</td>
-
-                    </tr>
-
-                }
-            </tbody>
-        </table>
-    }
-
-    @if (liste != null && liste.Count > 0 && Type_page == "Lgpmc")
-    {
-        <div class="alert alert-primary" role="alert">
-            Lgpmc!
-        </div>
-
-        <table class="table table-striped table-hover table-bordered ">
-            <thead class="thead-light">
-                <tr>
-
-                    <th scope="col" class="col"> Groupe ID </th>
-                    <th scope="col" class="col"> Membres </th>
-                    <th scope="col" class="col"> Encadrant Interne </th>
-                    <th scope="col" class="col"> Encadrant Externe </th>
-                    <th scope="col" class="col"> Société | Ville </th>
-                    <th scope="col" class="col"> Sujet </th>
-                    <th scope="col" class="col"> Rapports Avancements </th>
-                    <th scope="col" class="col"> Rapport Final </th>
-                    <th scope="col" class="col"> Date Soutenance </th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var pfe in liste)
-                {
-                    <tr>
-                        <td scope="row"> @pfe.Groupe_id </td>
-                        <td>
-                            @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
-                                { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
-                             } <br />
-                            @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
-                                { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
-                             }
-                        </td>
-                        <td> @pfe.Encadrant_interne</td>
-                        <td> @pfe.Encadrant_externe</td>
-                        <td> @pfe.Societe @pfe.Ville</td>
-                        <td> @pfe.Sujet</td>
-                        <td>
-                            @{ if (pfe.Rapports_avancement.Count > 0)
-                                {
-                                    if (pfe.Rapports_avancement[0] != null)
-                                    {@pfe.Rapports_avancement[0].Name}
-                                else
-                                {@mes}
-                        } }<br>
-                            @{ if (pfe.Rapports_avancement.Count > 1)
-                                {
-                                    if (pfe.Rapports_avancement[1] != null)
-                                    {@pfe.Rapports_avancement[1].Name}
-                                else
-                                {@mes}
-                        } }<br>
-                            @{ if (pfe.Rapports_avancement.Count > 2)
-                                {
-                                    if (pfe.Rapports_avancement[2] != null)
-                                    {@pfe.Rapports_avancement[2].Name}
-                                else
-                                {@mes}
-                        } } <br>
-                            @{ if (pfe.Rapports_avancement.Count > 3)
-                                {
-                                    if (pfe.Rapports_avancement[3] != null)
-                                    {@pfe.Rapports_avancement[3].Name}
-                                else
-                                {@mes}
-                        } }
-                        </td>
-                        <td> @{ if (pfe.Rapport_final != null)
-                            { @pfe.Rapport_final.Name }
-                        else
-                        { @mes } }</td>
-                        <td> @pfe.Date_soutenance</td>
-
-                    </tr>
-
-                }
-            </tbody>
-        </table>
-    }
-
-    @if (liste != null && liste.Count > 0 && Type_page == "planning")
-    {
-        <div class="alert alert-primary" role="alert">
-            Planning!
-        </div>
-
-
-    }
-    <!--La fin du code c# razor-->
-</div>

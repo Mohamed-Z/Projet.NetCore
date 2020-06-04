@@ -22,7 +22,7 @@
             <th scope="row">@(i + 1)</th>
             <td>@Model.listenc[i]</td>
             <td>
-                <ul>
+                <ul style="padding-left:3px">
                     @foreach (var j in Model.liste[i])
                     {
                         <li>@j.nom @j.prenom</li>
@@ -39,7 +39,7 @@
                 @if (Model.listbool[i])
                 {
                     <button type="button" class="btn btn-success">
-                        <a href=@str title="Ouvrir fichier PDF" style="font-size:10px;color:white">Voir</a>
+                        <a href=@str title="Ouvrir fichier PDF" style="font-size:10px;color:white">Télécharger</a>
                     </button>
                 }
                 else

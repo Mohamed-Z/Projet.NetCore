@@ -100,7 +100,7 @@ namespace Projet2_Archivage.Controllers
                 {
                     HttpContext.Session.SetString("alerts", "true");
                     HttpContext.Session.SetInt32("admin_id", a.Id);
-                    return RedirectToAction("EspaceAdmin");
+                    return RedirectToAction("Importation");
                 }
             }
             ViewBag.erreur = "is-invalid";

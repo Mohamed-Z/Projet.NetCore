@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 
 @{
-    ViewBag.Title = "Admin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,11 +13,11 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
 <section id="contacto" class="contact blu" style="width:100%;">
-    <div class="container" data-aos="fade-up" style="padding-top:15px">
+    <div class="container"  style="padding-top:15px">
         @{ if (Context.Session.GetString("alerts").Equals("true"))
             {
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    Vous êtes connecté en tant que <strong>@Model.prenom @Model.nom</strong>.
+                    Bienvenue <strong>@Model.prenom @Model.nom</strong>.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -27,29 +26,33 @@
             }
         }
     </div>
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+    </a>
     <div class="row d-flex justify-content-center">
 
-        <div class="col-lg-3 wd" data-aos="fade-up">
-            <div class="sidenav">
-                <a href="~/Admins/Modifier" class="@ViewBag.edit">
+        <div class="col-lg-2 wd" data-aos="fade-up">
+            <div class="sidenav"  style="border-radius:20px ; height:400px; width:250px">
+                <a href="~/Admins/Modifier" class="@ViewBag.edit" style="font-family:'Arial Rounded MT'">
                     <i class="far fa-user-circle"></i>
                     @Model.prenom @Model.nom
                 </a>
-                <a href="~/Admins/Deconnexion" class="@ViewBag.deconnect">
-                    <i class="fas fa-sign-out-alt"></i>
-                    Déconnexion
-                </a>
-                <a href="~/Admins/Importation" class="@ViewBag.import">
+
+                <a href="~/Admins/Importation" class="@ViewBag.import" style="font-family:'Arial Rounded MT'">
                     <i class="fas fa-upload"></i>
                     Importation
                 </a>
-                <a href="~/SuperUser/EspaceSuperUser" class="@ViewBag.affect">
+                <a href="~/SuperUser/EspaceSuperUser" class="@ViewBag.affect" style="font-family:'Arial Rounded MT'">
                     <i class="fas fa-user-tie"></i>
-                    Affectation encadrants
+                    Affectation  des encadrants
                 </a>
-                <a href="~/Admins/EspaceAdmin" class="@ViewBag.search">
+                <a href="~/Admins/EspaceAdmin" class="@ViewBag.search" style="font-family:'Arial Rounded MT'">
                     <i class="fas fa-search"></i>
                     Chercher
+                </a>
+                <a href="~/Admins/Deconnexion" class="@ViewBag.deconnect" style="font-family:'Arial Rounded MT'">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Déconnexion
                 </a>
             </div>
         </div>

@@ -736,19 +736,6 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.AzureAppServicesIntegration.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Buffering/0.2.2": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Http.Abstractions": "1.1.2",
-          "NETStandard.Library": "1.6.1"
-        },
-        "compile": {
-          "lib/netstandard1.3/Microsoft.AspNetCore.Buffering.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard1.3/Microsoft.AspNetCore.Buffering.dll": {}
-        }
-      },
       "Microsoft.AspNetCore.Connections.Abstractions/2.1.3": {
         "type": "package",
         "dependencies": {
@@ -6241,21 +6228,6 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.AzureAppServicesIntegration.xml",
         "microsoft.aspnetcore.azureappservicesintegration.2.1.1.nupkg.sha512",
         "microsoft.aspnetcore.azureappservicesintegration.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Buffering/0.2.2": {
-      "sha512": "FWKLMEqRrrwXhJ/ln2SsgaUFB1YEvcEuZSj9bOqEipwxhkec0UytzvvAEXdeN7td/Z6+AQEEdBpVi6dxJnKJPA==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.buffering/0.2.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net451/Microsoft.AspNetCore.Buffering.dll",
-        "lib/net451/Microsoft.AspNetCore.Buffering.xml",
-        "lib/netstandard1.3/Microsoft.AspNetCore.Buffering.dll",
-        "lib/netstandard1.3/Microsoft.AspNetCore.Buffering.xml",
-        "microsoft.aspnetcore.buffering.0.2.2.nupkg.sha512",
-        "microsoft.aspnetcore.buffering.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Connections.Abstractions/2.1.3": {
@@ -15223,7 +15195,6 @@
       "Microsoft.AspNetCore.All >= 2.1.3",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 2.1.2",
-      "Microsoft.AspNetCore.Buffering >= 0.2.2",
       "Microsoft.AspNetCore.Hosting >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.AspNetCore.Session >= 2.1.1",
@@ -15243,23 +15214,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\moham\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\lenovo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
+      "projectUniqueName": "C:\\Users\\lenovo\\Desktop\\4eme\\.Net Projects\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
       "projectName": "Projet2_Archivage",
-      "projectPath": "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
-      "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\obj\\",
+      "projectPath": "C:\\Users\\lenovo\\Desktop\\4eme\\.Net Projects\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
+      "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lenovo\\Desktop\\4eme\\.Net Projects\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -15297,10 +15264,6 @@
             "target": "Package",
             "version": "[2.1.2, )"
           },
-          "Microsoft.AspNetCore.Buffering": {
-            "target": "Package",
-            "version": "[0.2.2, )"
-          },
           "Microsoft.AspNetCore.Hosting": {
             "target": "Package",
             "version": "[2.1.1, )"
@@ -15333,6 +15296,7 @@
             "version": "[6.6.0, )"
           },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -15371,10 +15335,16 @@
           }
         },
         "imports": [
-          "net461"
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
         ],
         "assetTargetFallback": true,
-        "warn": true
+        "warn": true,
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -15383,7 +15353,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Le package 'Microsoft.Office.Interop.Excel 15.0.4795.1000' a été restauré en utilisant '.NETFramework,Version=v4.6.1' au lieu du framework cible du projet '.NETCoreApp,Version=v2.1'. Ce package n'est peut-être pas totalement compatible avec votre projet.",
+      "message": "Package 'Microsoft.Office.Interop.Excel 15.0.4795.1000' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.Office.Interop.Excel",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"

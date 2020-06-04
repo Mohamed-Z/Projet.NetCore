@@ -8,11 +8,10 @@
 <link href="~/css/Style2.css" rel="stylesheet" />
 
 <section id="contacto" class="contact clu">
-    <div class="container "  style="margin-top:25px;" data-aos="fade-up">
-
+    <div class="container" style="margin-top:25px;" data-aos="fade-up">
         <div class="section-title">
             <h2>Connexion</h2>
-            <p>Pour vous connecter veuillez saisir vos données.</p>
+            <strong>Veuillez saisir vos données pour vous connecter.</strong>
         </div>
 
         <div class="row d-flex justify-content-center">
@@ -30,7 +29,7 @@
                             <label for="exampleInputPassword1">Mot de passe</label>
                             @Html.Password("password", null, new { @class = "form-control " + ViewBag.erreur, @placeholder = "Mot de passe" })
                         </div>
-                        <button type="submit" name="seconnecter" value="superuser" class="btn btn-primary">Valider</button>
+                        <button type="submit" name="seconnecter" value="superuser" class="btn btn-primary">S'authentifier</button>
                     }
                     <br />
 

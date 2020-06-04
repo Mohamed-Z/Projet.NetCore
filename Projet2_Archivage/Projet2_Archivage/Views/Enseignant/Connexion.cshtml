@@ -1,0 +1,118 @@
+
+@{
+    ViewData["Title"] = "Connexion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/Style2.css" rel="stylesheet" />
+
+
+<section id="contacto" class="contact clu">
+    <div class="container " style="margin-top:25px;" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Connexion</h2>
+            <p>Pour vous connecter veuillez saisir vos données.</p>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-lg-10 d-flex flex-column justify-content-center about-content">
+                <div class="info section-title">
+                    <form asp-controller="Enseignant" asp-action="Connexion" method="post">
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Username</label>
+                            <input class="form-control" type="text" name="username" />
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mot de passe</label>
+                            <input class="form-control" type="password" name="password" />
+                        </div>
+                        <button type="submit" name="seconnecter" class="btn btn-primary">Valider</button>
+                    </form>
+
+                    <br />
+
+                    <br />
+                    <span style="color:red">
+                        @ViewBag.msg
+                    </span>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer" style="position:relative ;left:0 ;right:0">
+
+
+
+    <div class="footer-newsletter">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>ENSAS Archive</h3>
+                    <p>
+                        Route Sidi Bouzid BP 63 Rue Sidi M'Barek <br>
+                        Safi 46000<br>
+                        Maroc <br><br>
+                        <strong>Phone:</strong> +212 645077445<br>
+                        <strong>Email:</strong> ensas@example.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Liens utiles</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">A propos</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Nos réseaux sociaux</h4><br />
+
+                    <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; Copyright <strong><span>ENSAS Archive</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer><!-- End Footer -->
+

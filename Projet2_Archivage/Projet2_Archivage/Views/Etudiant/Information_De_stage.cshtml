@@ -1,76 +1,82 @@
 @model Projet2_Archivage.Models.Societe
 @{
     ViewData["Title"] = "Information_De_stage";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_EtudiantLayout.cshtml";
 }
 
-<h2>Information_De_stage</h2>
-
-
-<div style="height:800px;width:800px;border-color:black">
+<div style="border-color:black">
     <ul class="nav nav-pills">
         <li class="nav-item">
             <a class="nav-link " asp-action="connexion" method="post">Espace Etudiant</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+            <a class="nav-link" asp-action="Creer_Groupe">Gestion du groupe</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
+            <a class="nav-link " asp-action="Information_De_stage">Information du stage</a>
         </li>
         <li class="nav-item">
             <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
         </li>
     </ul>
-    <div class="container border mb-2 p-3 border">
 
         <div style="height:600px;width:600px">
             <div class="alert alert-info" role="alert">
                 @ViewBag.soc
             </div>
 
+            <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="10">
+                <div class="info d-flex justify-content-center wi" style="border-radius:20px ; height:950px;width:800px">
+                    <div class="section-title  col-lg-10 flxs" style="padding-top:50px">
 
-            <form asp-action="Information_De_stage" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label class="control-label">nom societé</label>
-                    <input asp-for="@Model.nom" class="form-control" />
-                    <span asp-validation-for="nom" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">sujet </label>
-                    <input asp-for="@Model.sujet" class="form-control" />
-                    <span asp-validation-for="sujet" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">description</label>
-                    <textarea asp-for="@Model.description" class="form-control"></textarea>
-                    <span asp-validation-for="description" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">nom encadrant</label>
-                    <input asp-for="@Model.nom_enc" class="form-control" />
-                    <span asp-validation-for="nom_enc" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">numero de tele</label>
-                    <input asp-for="@Model.tel_enc" class="form-control" />
-                    <span asp-validation-for="tel_enc" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">email</label>
+                        <div class="section-title">
+                            <h2>Informations sur le projet</h2>
+                        </div>
 
-                    <input type="text" asp-for="@Model.email_enc" class="form-control" />
+                        <form asp-action="Information_De_stage" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Nom de la societé</label>
+                                <input asp-for="@Model.nom" class="form-control" />
+                                <span asp-validation-for="nom" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Sujet du projet</label>
+                                <input asp-for="@Model.sujet" class="form-control" />
+                                <span asp-validation-for="sujet" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Déscription du projet</label>
+                                <textarea asp-for="@Model.description" class="form-control"></textarea>
+                                <span asp-validation-for="description" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Nom de l'encadrant</label>
+                                <input asp-for="@Model.nom_enc" class="form-control" />
+                                <span asp-validation-for="nom_enc" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Numéro de téléphone</label>
+                                <input asp-for="@Model.tel_enc" class="form-control" />
+                                <span asp-validation-for="tel_enc" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Email</label>
 
+                                <input type="text" asp-for="@Model.email_enc" class="form-control" />
+
+                            </div><br />
+                            <div class="form-group">
+                                <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Choisissez le fichier de votre projet</label><br />
+                                <input type="file" name="file" id="file" /><br><br><br><br>
+                                @if (ViewBag.soc != "vous avez deja marquer ça")
+                                {
+                                    <input type="submit" class="form-control" value="Valider" style="font-family:'Arial Rounded MT'; border-radius:20px; background-color:dodgerblue" />}
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label class="control-label">Choisissez le fichier de votre projet</label>
-                    <input type="file" name="file" id="file" /><br><br>
-                    @if (ViewBag.soc != "vous avez deja marquer ça")
-                    {
-                        <input type="submit" class="form-control" value="valider" />}
-                </div>
-            </form>
-        </div>
-    </div>
+            </div>
+            </div>
+
 </div>

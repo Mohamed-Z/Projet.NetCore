@@ -1,23 +1,106 @@
-@model Projet2_Archivage.Models.Etudiant
+﻿@model Projet2_Archivage.Models.Etudiant
 @{
     ViewData["Title"] = "connexion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@ViewBag.nom
-<h2>connexion</h2>
-<div style="height:600px;width:600px" >
-    <form asp-action="connexion" method="post">
-        <div class="form-group">
-            <label value="username" class="control-label">username</label>
-            <input asp-for="cne" class="form-control" />
-            <span asp-validation-for="cne" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <label value="password" class="control-label">password</label>
 
-            <input type="password" name="password" class="form-control" />
-            <input type="submit" value="check" />
-        </div>
-    </form>
-</div>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<link href="~/css/Style2.css" rel="stylesheet" />
+<section id="contacto" class="contact clu">
+    <div class="container " style="margin-top:25px;" data-aos="fade-up">
 
+        <div class="section-title">
+            <h2>Authentification des etudiants</h2>
+            <strong>Veuillez saisir vos données pour vous connecter.</strong>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+
+            <div class="col-lg-10 d-flex flex-column justify-content-center about-content">
+                <div class="info section-title" style="border-radius:20px">
+
+                    <form asp-action="connexion" method="post">
+                        <label value="username" class="control-label" style="font-size:large">Username</label>
+                        <input asp-for="cne" class="form-control"  placeholder = "Username"/>
+                        <span asp-validation-for="cne" class="text-danger"></span><br />
+                
+                <div class="form-group">
+                    <label value="password" class="control-label" style="font-size:large">Mot de passe</label>
+
+                    <input type="password" name="password" class="form-control" placeholder = "Mot de passe" /><br />
+                    <input type="submit" value="S'authentifier" class="btn btn-primary" style="font-family:'Arial Rounded MT'; border-radius:20px"/>
+                </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+        </div>
+</section>
+
+<!-- ======= Footer ======= -->
+<footer id="footer" style="position:relative ;left:0 ;right:0">
+
+
+
+    <div class="footer-newsletter">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>ENSAS Archive</h3>
+                    <p>
+                        Route Sidi Bouzid BP 63 Rue Sidi M'Barek <br>
+                        Safi 46000<br>
+                        Maroc <br><br>
+                        <strong>Phone:</strong> +212 645077445<br>
+                        <strong>Email:</strong> ensas@example.com<br>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Liens utiles</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">A propos</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Nos services</h4>
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Nos réseaux sociaux</h4><br />
+
+                    <div class="social-links mt-3">
+                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+        <div class="copyright">
+            &copy; Copyright <strong><span>ENSAS Archive</span></strong>. All Rights Reserved
+        </div>
+
+    </div>
+</footer><!-- End Footer -->

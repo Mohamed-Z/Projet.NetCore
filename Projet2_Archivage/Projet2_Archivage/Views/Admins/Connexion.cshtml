@@ -6,31 +6,30 @@
 }
 
 <link href="~/css/Style2.css" rel="stylesheet" />
-
 <section id="contacto" class="contact clu">
     <div class="container "  style="margin-top:25px;" data-aos="fade-up">
 
         <div class="section-title">
-            <h2>Connexion</h2>
-            <p>Pour vous connecter veuillez saisir vos données.</p>
+            <h2>Authentification des administrateurs</h2>
+            <strong>Veuillez saisir vos données pour vous connecter.</strong>
         </div>
 
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center" >
 
-            <div class="col-lg-10 d-flex flex-column justify-content-center about-content">
-                <div class="info section-title">
+            <div class="col-lg-10 d-flex flex-column justify-content-center about-content" >
+                <div class="info section-title" style="border-radius:20px">
                     @using (Html.BeginForm())
                     {
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
+                            <label for="exampleInputEmail1" style="font-size:large">Email</label>
                             @Html.TextBox("email", null, new { @class = "form-control " + ViewBag.erreur, @placeholder = "Email" })
 
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Mot de passe</label>
+                            <label for="exampleInputPassword1" style="font-size:large">Mot de passe</label>
                             @Html.Password("password", null, new { @class = "form-control " + ViewBag.erreur, @placeholder = "Mot de passe" })
                         </div>
-                        <button type="submit" name="seconnecter" value="superuser" class="btn btn-primary">Valider</button>
+                        <button type="submit" name="seconnecter" value="superuser" class="btn btn-primary" style="font-family:'Arial Rounded MT'; border-radius:20px">S'authentifier</button>
                     }
                     <br />
 

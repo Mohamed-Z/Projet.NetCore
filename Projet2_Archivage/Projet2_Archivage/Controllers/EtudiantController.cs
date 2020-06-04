@@ -72,9 +72,6 @@ namespace Projet2_Archivage.Controllers
 
             Etudiant x = context.etudiants.SingleOrDefault(p => p.cne.Equals(a.cne) );
 
-           
-
-
             if (x != null)
             {
                 if (x.cne== Int32.Parse(Request.Form["password"]))
@@ -97,10 +94,7 @@ namespace Projet2_Archivage.Controllers
                 }
             }
             
-            
             return View();
-            
-
         }
 
 

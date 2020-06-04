@@ -6,9 +6,9 @@
 
 }
 
-    <div class="info d-flex justify-content-center wd" style="padding:15px;">
+    <div class="info d-flex justify-content-center wd" style="border-radius:20px; height:600px">
         <div class="section-title  col-lg-9">
-            <h2>Modifier</h2>
+            <h2>Modifier vos données</h2>
 
 
             @using (Html.BeginForm())
@@ -19,7 +19,7 @@
                     @Html.ValidationMessageFor(x => x.nom, "", new { @style = "color:red" })
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPrenom">Prenom</label>
+                    <label for="exampleInputPrenom">Prénom</label>
                     @Html.TextBoxFor(x => x.prenom, Model.prenom, new { @class = "form-control", @placeholder = "Entrer Prenom" })
                     @Html.ValidationMessageFor(x => x.prenom, "", new { @style = "color:red" })
                 </div>
@@ -42,7 +42,7 @@
                         @Html.ValidationMessageFor(x => x.confirmation, "", new { @style = "color:red" })
                     </div>
                 </div>
-                <button type="submit" name="modifier" value="admin" class="btn btn-primary">Valider les modifications</button>
+                <button type="submit" name="modifier" value="admin" class="btn btn-primary" style="font-family:'Arial Rounded MT'; border-radius:20px">Valider les modifications</button>
             }
             <br />
 

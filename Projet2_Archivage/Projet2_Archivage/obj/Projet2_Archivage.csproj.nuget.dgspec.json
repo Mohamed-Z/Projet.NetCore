@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj": {}
+    "C:\\Users\\lenovo\\Desktop\\4eme\\.Net Projects\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj": {
+    "C:\\Users\\lenovo\\Desktop\\4eme\\.Net Projects\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
+        "projectUniqueName": "C:\\Users\\lenovo\\Desktop\\4eme\\.Net Projects\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
         "projectName": "Projet2_Archivage",
-        "projectPath": "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moham\\Desktop\\My-Github\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\obj\\",
+        "projectPath": "C:\\Users\\lenovo\\Desktop\\4eme\\.Net Projects\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\Projet2_Archivage.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenovo\\Desktop\\4eme\\.Net Projects\\Projet.NetCore\\Projet2_Archivage\\Projet2_Archivage\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\moham\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,6 +88,7 @@
               "version": "[6.6.0, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
@@ -129,10 +127,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

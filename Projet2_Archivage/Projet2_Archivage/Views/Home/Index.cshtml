@@ -1,10 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container">
+<div>
     <main role="main" class="pb-3">
-        <div style="position:absolute ;left:0 ;right:0 ">
+        <div >
             <!-- ======= Hero Section ======= -->
             <section id="hero" class="d-flex align-items-center">
 
@@ -12,10 +13,17 @@
                     <div class="row">
                         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
                             <h1>Bienvenue à ENSAS Archive</h1>
-                            <h2>Archiver votre PFE n'a jamais été aussi simple</h2>
+                            <h2>Archiver votre PFE n'a jamais été aussi simple</h2><br />
+
+
+                            <h3 style="color:aliceblue">S'authentifier en tant que:</h3>
                             <div class="d-lg-flex">
-                                <a href="#about" class="btn-get-started scrollto">Commencer</a>
+
+                                <a href="~/Admins/Connexion" class="btn-get-started scrollto" style="margin-right:20px">Administrateur</a>
+                                <a href="~/Etudiant/connexion" class="btn-get-started scrollto">Etudiant</a>
                             </div>
+
+
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
                             <img src="~/img/hero-img.png" class="img-fluid animated" alt="">
@@ -498,7 +506,7 @@
                             </div>
 
                             <div class="col-lg-3 col-md-6 footer-links">
-                                <h4>Our Services</h4>
+                                <h4>Nos services</h4>
                                 <ul>
                                     <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
                                     <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>

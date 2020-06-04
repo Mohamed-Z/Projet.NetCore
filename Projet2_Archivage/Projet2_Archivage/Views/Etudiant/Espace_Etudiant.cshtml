@@ -1,74 +1,85 @@
 
 @{
     ViewData["Title"] = "Espace_Etudiant";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_EtudiantLayout.cshtml";
 }
 
-<h2>Espace_Etudiant</h2>
 @model Projet2_Archivage.Models.Etudiant
 
 
-<div style="height:800px;width:800px;border-color:black">
+<meta charset="UTF-8">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+<div class="container" data-aos="fade-up" style="padding-top:15px">
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Bienvenue <strong>@Model.prenom</strong>.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+</div>
+
+<div style="height:700px;width:800px;border-color:black">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" asp-action="connexion" method="post">Espace Etudiant</a>
+            <a class="nav-link" asp-action="connexion" method="post">Espace etudiant</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+            <a class="nav-link" asp-action="Creer_Groupe">Gestion du groupe</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
+            <a class="nav-link " asp-action="Information_De_stage">Information du stage</a>
         </li>
         <li class="nav-item">
             <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
         </li>
     </ul>
     <div class="container border mb-2 p-3 border">
+        <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="10">
+            <div class="info d-flex justify-content-center wi" style="border-radius:20px ; height:800px;width:800px">
+                <div class="section-title  col-lg-10 flxs" style="padding-top:50px">
 
-        <div style="height:600px;width:600px">
-
-
-            
-                <form>
-                    <div class="form-group">
-                        <label value="username" class="control-label">prenom</label>
-                        <input asp-for="@Model.prenom" class="form-control" readonly />
-                        <span asp-validation-for="prenom" class="text-danger"></span>
+                    <div class="section-title">
+                        <h2>Vos Informations personnelles</h2>
                     </div>
-                    <div class="form-group">
-                        <label value="username" class="control-label">nom</label>
-                        <input asp-for="@Model.nom" class="form-control" readonly />
-                        <span asp-validation-for="nom" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label value="username" class="control-label">email</label>
-                        <input asp-for="@Model.email" class="form-control" readonly />
-                        <span asp-validation-for="email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label value="username" class="control-label">tele</label>
-                        <input asp-for="@Model.tel" class="form-control" readonly />
-                        <span asp-validation-for="tel" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label value="username" class="control-label">cin</label>
-                        <input asp-for="@Model.cin" class="form-control" readonly />
-                        <span asp-validation-for="cin" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label value="username" class="control-label">filiere</label>
-                        <input type="text" placeholder="@ViewBag.filiere" class="form-control" readonly />
 
-
-
-
-
-
-
-
-                    </div>
-                </form>
+                    <form>
+                        <div class="form-group">
+                            <label value="username" class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Prenom</label>
+                            <input asp-for="@Model.prenom" class="form-control" readonly />
+                            <span asp-validation-for="prenom" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label value="username" class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Nom</label>
+                            <input asp-for="@Model.nom" class="form-control" readonly />
+                            <span asp-validation-for="nom" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label value="username" class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Email</label>
+                            <input asp-for="@Model.email" class="form-control" readonly />
+                            <span asp-validation-for="email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label value="username" class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Numero de telephone</label>
+                            <input asp-for="@Model.tel" class="form-control" readonly />
+                            <span asp-validation-for="tel" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label value="username" class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">CIN</label>
+                            <input asp-for="@Model.cin" class="form-control" readonly />
+                            <span asp-validation-for="cin" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label value="username" class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Filiere</label>
+                            <input type="text" placeholder="@ViewBag.filiere" class="form-control" readonly />
+                        </div>
+                    </form>
+                </div>
             </div>
+
         </div>
+    </div>
 </div>

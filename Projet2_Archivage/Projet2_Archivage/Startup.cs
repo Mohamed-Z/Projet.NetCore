@@ -98,7 +98,8 @@ namespace Projet2_Archivage
 
             app.Use(async (context, next) =>
             {
-                var JWToken = context.Session.GetString("JWToken");
+                //var JWToken = context.Session.GetString("JWToken");
+                var JWToken = context.Request.Cookies["JWToken"];
                 if (!string.IsNullOrEmpty(JWToken))
                 {
                     context.Request.Headers.Add("Authorization", "Bearer " + JWToken);

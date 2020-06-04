@@ -12,22 +12,25 @@
 
 <br />
 <div class="container">
-
+    <div class="row">
+           <partial name="_EspaceEnseignant"  model="enseign"/>
+    </div>
+        <br />
     <div class="row">
         <div class="col-md-2">
             <a class="btn btn-info" asp-action="PageCalendrier">Calendrier</a>
         </div>
         <div class="col-md-2">
-            <a class="btn btn-success" asp-action="PageListeInfo">Liste des PFE GINF</a>
+            <a class="btn btn-success" asp-action="PageListeInfo">Liste PFE GINF</a>
         </div>
         <div class="col-md-2">
-            <a class="btn btn-success" asp-action="PageListeGtr">Liste des PFE GTR</a>
+            <a class="btn btn-success" asp-action="PageListeGtr">Liste PFE GTR</a>
         </div>
         <div class="col-md-2">
-            <a class="btn btn-success" asp-action="PageListeIndus">Liste des PFE INDUS</a>
+            <a class="btn btn-success" asp-action="PageListeIndus">Liste PFE INDUS</a>
         </div>
         <div class="col-md-2">
-            <a class="btn btn-success" asp-action="PageListeGpmc">Liste des PFE GPMC</a>
+            <a class="btn btn-success" asp-action="PageListeGpmc">Liste PFE GPMC</a>
         </div>
         <div class="col-md-2">
             <a class="btn btn-info" asp-action="PagePlanning">Planning</a>

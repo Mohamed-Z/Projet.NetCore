@@ -1,0 +1,56 @@
+@model  Projet2_Archivage.Models.Enseignant
+@{
+    ViewData["Title"] = "_EspaceEnseignant";
+    Layout = "~/Views/Shared/_myLayout.cshtml";
+    
+}
+
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-sm-4">
+            <a class="btn btn-info" asp-action="InsererNotes">Notes</a>    
+        </div>
+        <div class="col-sm-4">
+            <a class="btn btn-info" asp-action="PageInformations">Informations</a>
+        </div>
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+            Profil    
+            </button>
+            
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Profil</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-controller="Enseignant" asp-action="ModifierProfil" method="post">
+                        <label asp-for="nom" class="control-label">Nom</label>
+                        <input class="form-control" type="text" name="nom" value="@Model.nom" placeholder="nom" />
+                        <label asp-for="prenom" class="control-label">Prenom</label>
+                        <input class="form-control" type="text" name="prenom" value="@Model.prenom" />
+                        <label asp-for="email" class="control-label">Email</label>
+                        <input class="form-control" type="email" name="email" value="@Model.email" />
+                        <br />
+                        <button type="submit" class="btn btn-success">Enregistrer</button>
+</form>
+</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button type="button" class="btn btn-info "><a asp-action="Deconnexion">Deconnexion</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

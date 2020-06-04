@@ -1,0 +1,109 @@
+@model Projet2_Archivage.Models.Calendrier
+
+@{
+    ViewData["Title"] = "InsertionDates";
+    var liste = (List<Calendrier>)ViewBag.liste;
+    var l1 = liste.FirstOrDefault(x => x.Description == "Ouverture_d'enregistrement");
+    var l2 = liste.FirstOrDefault(x => x.Description == "fermuture_d'enregistrement");
+    var l3 = liste.FirstOrDefault(x => x.Description == "Attribution_encadrants");
+    var l4 = liste.FirstOrDefault(x => x.Description == "Dernier_délai_sujet");
+    var l5 = liste.FirstOrDefault(x => x.Description == "Dernier_délai_rapport_avanc1");
+    var l6 = liste.FirstOrDefault(x => x.Description == "Dernier_délai_rapport_avanc2");
+    var l7 = liste.FirstOrDefault(x => x.Description == "Dernier_délai_rapport_avanc3");
+    var l8 = liste.FirstOrDefault(x => x.Description == "Dernier_délai_rapport_avanc4");
+    var l9 = liste.FirstOrDefault(x => x.Description == "Dernier_délai_rapport_final");
+    var l10 = liste.FirstOrDefault(x => x.Description == "Dernier_délai_depot_rapport_final");
+    var l11 = liste.FirstOrDefault(x => x.Description == "Dernier_délai_depot_rapport_final_corrigé");
+    var l12 = liste.FirstOrDefault(x => x.Description == "Affichage_planning");
+    var l13 = liste.FirstOrDefault(x => x.Description == "Dates_soutenances");
+
+
+}
+
+<div class="container">
+    <form asp-controller="Admins" asp-action="Inserer" method="post">
+
+        <fieldset class="form-group">
+            <legend>
+                <span class="badge badge-info">Partie Enregistrement :</span>
+            </legend>
+            <div class="form-row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success text-center">Ouverture d'enregistrement en ligne :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l1.Date != null && l1.Date != "") { @DateTime.Parse(l1.Date, null).ToString("yyyy-MM-dd") } }" name="ouv_enrg" id="ouv_enrg" />
+
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dérnier délai d'enregistrement en ligne :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l2.Date != null && l2.Date != "") { @DateTime.Parse(l2.Date, null).ToString("yyyy-MM-dd") } }" name="ferm_enrg" id="ferm_enrg" />
+                </div>
+                <div class="col-md-6 mb-3 text-center">
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Attribution des encadrants :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l3.Date != null && l3.Date != "") { @DateTime.Parse(l3.Date, null).ToString("yyyy-MM-dd") } }" name="attr_encd" id="attr_encd" />
+
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dérnier délai d'insertion du sujet :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l4.Date != null && l4.Date != "") { @DateTime.Parse(l4.Date, null).ToString("yyyy-MM-dd") } }" name="del_sujet" id="del_sujet" />
+                </div>
+
+            </div>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <legend>
+                <span class="badge badge-info">Partie rapports :</span>
+            </legend>
+            <div class="form-row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dérnier délai d'enregistrement du 2eme rapport d'avancement :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l5.Date != null && l5.Date != "") { @DateTime.Parse(l5.Date, null).ToString("yyyy-MM-dd") } }" name="del_rpavc1" id="del_rpavc1" />
+
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dérnier délai d'enregistrement du 2eme rapport d'avancement :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l6.Date != null && l6.Date != "") { @DateTime.Parse(l6.Date, null).ToString("yyyy-MM-dd") } }" name="del_rpavc2" id="del_rpavc2" />
+                </div>
+                <div class="col-md-6 mb-3 text-center">
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dérnier délai d'enregistrement du 3eme rapport d'avancement :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l7.Date != null && l7.Date != "") { @DateTime.Parse(l7.Date, null).ToString("yyyy-MM-dd") } }" name="del_rpavc3" id="del_rpavc3" />
+
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dérnier délai d'enregistrement du 4eme rapport d'avancement :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l8.Date != null && l8.Date != "") { @DateTime.Parse(l8.Date, null).ToString("yyyy-MM-dd") } }" name="del_rpavc4" id="del_rpavc4" />
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dérnier délai d'enregistrement du rapport final :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l9.Date != null && l9.Date != "") { @DateTime.Parse(l9.Date, null).ToString("yyyy-MM-dd") } }" name="del_rpfin" id="del_rpfin" />
+
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dérnier délai de dépot du rapport final :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l10.Date != null && l10.Date != "") { @DateTime.Parse(l10.Date, null).ToString("yyyy-MM-dd") } }" name="dep_rpfin" id="dep_rpfin" />
+                </div>
+                <div class="col-md-6 mb-3 text-center">
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dérnier délai de dépot du rapport final corrigé :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l11.Date != null && l11.Date != "") { @DateTime.Parse(l11.Date, null).ToString("yyyy-MM-dd") } }" name="dep_rpfincrg" id="dep_rpfincrg" />
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <legend>
+                <span class="badge badge-info">Partie Soutenances :</span>
+            </legend>
+            <div class="form-row">
+                <div class="col-md-6 mb-3 text-center">
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Affichage du planning :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l12.Date != null && l12.Date != "") { @DateTime.Parse(l12.Date, null).ToString("yyyy-MM-dd") } }" name="aff_plan" id="aff_plan" />
+                </div>
+                <div class="col-md-6 mb-3 text-center">
+                    <label asp-for="Description" class="control-label"><span class="badge badge-pill badge-success">Dates des soutenances :</span></label>
+                    <input asp-for="Date" class="form-control" type="date" value="@{ if (l13.Date != null && l13.Date != "") { @DateTime.Parse(l13.Date, null).ToString("yyyy-MM-dd") } }" name="dat_stnc" id="dat_stnc" />
+
+                </div>
+            </div>
+        </fieldset>
+
+
+        <div class="form-group text-center">
+            <input type="submit" value="Valider" class="btn btn-success " />
+        </div>
+
+    </form>
+
+</div>

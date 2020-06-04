@@ -23,7 +23,7 @@ namespace Projet2_Archivage.Controllers
             if (HttpContext.Session.GetInt32("enseignant") != null)
             {
                 
-                return View("Espace_Enseignant");
+                return View("PageInformations");
 
             }
             return View();
@@ -39,7 +39,8 @@ namespace Projet2_Archivage.Controllers
                 if (username == (e.nom + e.prenom) && password == (e.nom + e.prenom))
                 {
                     HttpContext.Session.SetInt32("enseignant", e.Id);
-                    return RedirectToAction("Espace_Enseignant");
+                    
+                    return RedirectToAction("PageInformations");
                 }
             }
             
@@ -54,13 +55,207 @@ namespace Projet2_Archivage.Controllers
              
         }
 
-        public IActionResult Espace_Enseignant()
+
+        [HttpPost]
+        public IActionResult ModifierProfil()
         {
-            return View(); 
+            // recuperer l'enseignant
+            Enseignant en = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            
+                en.nom = Request.Form["nom"];
+                en.prenom = Request.Form["prenom"];
+                en.email = Request.Form["email"];
+                _context.Update(en);
+                _context.SaveChanges();
+               ViewBag.enseign = en;
+            return View("PageInformations"); 
         }
 
         
-      
+
+        //La page principale
+        public IActionResult InsererNotes()
+        {
+            List<ListeNotesViewModel> liste_notes_info = new List<ListeNotesViewModel>();
+            List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 1).Select(g => g.id_grp).Cast<int>().ToList();
+
+            foreach (var i in liste_grp)
+            {
+                liste_grp_mbre = _context.groupeMembres.Where(m => m.grp_id == i).ToList();
+                foreach (var j in liste_grp_mbre)
+                {
+                    Etudiant et = _context.etudiants.Where(e => e.cne == j.id_et).Single();
+                    ListeNotesViewModel etudiantNote = new ListeNotesViewModel
+                    {
+                        Id_groupe = (int)j.grp_id,
+                        Cne = et.cne,
+                        Nom = et.nom,
+                        Prenom = et.prenom,
+                        Email = et.email,
+                        Note = et.note
+                    };
+                    liste_notes_info.Add(etudiantNote);
+                }
+            }
+            ViewBag.liste = liste_notes_info;
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
+            return View("InsererNotes");
+        }
+
+        //les listes des notes selon la filière
+        public IActionResult GinfNotes()
+        {
+            List<ListeNotesViewModel> liste_notes_info = new List<ListeNotesViewModel>();
+            List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 1).Select(g => g.id_grp).Cast<int>().ToList();
+
+            foreach (var i in liste_grp)
+            {
+                liste_grp_mbre = _context.groupeMembres.Where(m => m.grp_id == i).ToList();
+                foreach (var j in liste_grp_mbre)
+                {
+                    Etudiant et = _context.etudiants.Where(e => e.cne == j.id_et).Single();
+                    ListeNotesViewModel etudiantNote = new ListeNotesViewModel
+                    {
+                        Id_groupe = (int)j.grp_id,
+                        Cne = et.cne,
+                        Nom = et.nom,
+                        Prenom = et.prenom,
+                        Email = et.email,
+                        Note = et.note
+                    };
+                    liste_notes_info.Add(etudiantNote);
+                }
+            }
+            ViewBag.liste = liste_notes_info;
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
+            return View("InsererNotes");
+        }
+
+        public IActionResult GgtrNotes()
+        {
+            List<ListeNotesViewModel> liste_notes = new List<ListeNotesViewModel>();
+            List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 2).Select(g => g.id_grp).Cast<int>().ToList();
+
+            foreach (var i in liste_grp)
+            {
+                liste_grp_mbre = _context.groupeMembres.Where(m => m.grp_id == i).ToList();
+                foreach (var j in liste_grp_mbre)
+                {
+                    Etudiant et = _context.etudiants.Where(e => e.cne == j.id_et).Single();
+                    ListeNotesViewModel etudiantNote = new ListeNotesViewModel
+                    {
+                        Id_groupe = (int)j.grp_id,
+                        Cne = et.cne,
+                        Nom = et.nom,
+                        Prenom = et.prenom,
+                        Email = et.email,
+                        Note = et.note
+                    };
+                    liste_notes.Add(etudiantNote);
+                }
+            }
+            ViewBag.liste = liste_notes;
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
+            return View("InsererNotes");
+        }
+
+        public IActionResult GindusNotes()
+        {
+            List<ListeNotesViewModel> liste_notes = new List<ListeNotesViewModel>();
+            List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 3).Select(g => g.id_grp).Cast<int>().ToList();
+
+            foreach (var i in liste_grp)
+            {
+                liste_grp_mbre = _context.groupeMembres.Where(m => m.grp_id == i).ToList();
+                foreach (var j in liste_grp_mbre)
+                {
+                    Etudiant et = _context.etudiants.Where(e => e.cne == j.id_et).Single();
+                    ListeNotesViewModel etudiantNote = new ListeNotesViewModel
+                    {
+                        Id_groupe = (int)j.grp_id,
+                        Cne = et.cne,
+                        Nom = et.nom,
+                        Prenom = et.prenom,
+                        Email = et.email,
+                        Note = et.note
+                    };
+                    liste_notes.Add(etudiantNote);
+                }
+            }
+            ViewBag.liste = liste_notes;
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
+            return View("InsererNotes");
+        }
+
+        public IActionResult GgpmcNotes()
+        {
+            List<ListeNotesViewModel> liste_notes = new List<ListeNotesViewModel>();
+            List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 4).Select(g => g.id_grp).Cast<int>().ToList();
+
+            foreach (var i in liste_grp)
+            {
+                liste_grp_mbre = _context.groupeMembres.Where(m => m.grp_id == i).ToList();
+                foreach (var j in liste_grp_mbre)
+                {
+                    Etudiant et = _context.etudiants.Where(e => e.cne == j.id_et).Single();
+                    ListeNotesViewModel etudiantNote = new ListeNotesViewModel
+                    {
+                        Id_groupe = (int)j.grp_id,
+                        Cne = et.cne,
+                        Nom = et.nom,
+                        Prenom = et.prenom,
+                        Email = et.email,
+                        Note = et.note
+                    };
+                    liste_notes.Add(etudiantNote);
+                }
+            }
+            ViewBag.liste = liste_notes;
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
+            return View("InsererNotes");
+        }
+
+        //possibilité de modifier ou ajouter une note
+        [HttpPost]
+        public IActionResult Ajouter()
+        {
+
+            foreach (string key in Request.Form.Keys)
+            {
+                if (key.Length < 20)
+                {
+                    Etudiant et = _context.etudiants.Where(e => e.cne == Convert.ToInt32(key)).FirstOrDefault();
+                    if (Request.Form[key] != "")
+                    {
+                        et.note = Convert.ToDouble(Request.Form[key]);
+                        _context.Update(et);
+                        _context.SaveChanges();
+
+                        ViewBag.note1 = Convert.ToDouble(Request.Form[key]);
+                    }
+
+                }
+            }
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
+            return View("InsererNotes"); ;
+        }
 
         //methodes concernant la page de l'information
         public IActionResult PageInformations()
@@ -68,6 +263,9 @@ namespace Projet2_Archivage.Controllers
             var liste_calendrier = _context.calendriers.ToList();
             ViewBag.liste = liste_calendrier;
             ViewBag.Type_page = "calendrier";
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
             return View();
         }
 
@@ -76,6 +274,9 @@ namespace Projet2_Archivage.Controllers
             var liste_calendrier = _context.calendriers.ToList();
             ViewBag.liste = liste_calendrier;
             ViewBag.Type_page = "calendrier";
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
             return View("PageInformations");
         }
 
@@ -118,6 +319,9 @@ namespace Projet2_Archivage.Controllers
             }
             ViewBag.liste = liste_pfe_info;
             ViewBag.Type_page = "Linfo";
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
             return View("PageInformations");
         }
 
@@ -153,6 +357,9 @@ namespace Projet2_Archivage.Controllers
             }
             ViewBag.liste = liste_pfe_gtr;
             ViewBag.Type_page = "Lgtr";
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
             return View("PageInformations");
         }
 
@@ -188,6 +395,9 @@ namespace Projet2_Archivage.Controllers
             }
             ViewBag.liste = liste_pfe_indus;
             ViewBag.Type_page = "Lindus";
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
             return View("PageInformations");
         }
 
@@ -223,12 +433,18 @@ namespace Projet2_Archivage.Controllers
             }
             ViewBag.liste = liste_pfe_gpmc;
             ViewBag.Type_page = "Lgpmc";
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
             return View("PageInformations");
         }
 
         public IActionResult PagePlanning()
         {
             ViewBag.Type_page = "planning";
+            //recuperer l'enseignant
+            Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+            ViewBag.enseign = enseign;
             return View("PageInformations");
         }
     }

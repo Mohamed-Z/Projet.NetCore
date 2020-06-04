@@ -215,20 +215,6 @@ namespace Projet2_Archivage.Controllers
         {
             Models.File file = db.files.Find(id);
 
-            //If file exists....
-
-            /*MemoryStream ms = new MemoryStream(file.Content, 0, 0, true, true);
-            Response.ContentType = "application/pdf";
-            Response.Headers.Add("content-disposition", "inline;filename=" + file.Name);
-            Response.Clear();
-            using (var sw = new StreamWriter(Response.Body))
-            {
-                char[] chars = Encoding.ASCII.GetChars(ms.GetBuffer());
-                sw.Write(chars, 0, ms.GetBuffer().Length);
-                sw.Flush();
-            }
-            //Response.OutputStream.Write(ms.GetBuffer(), 0, ms.GetBuffer().Length);
-            //Response.OutputStream.Flush();*/
             return File(file.Content, "application/pdf",file.Name);
         }
         

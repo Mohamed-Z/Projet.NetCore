@@ -7,15 +7,17 @@
     var liste_groupes = ViewBag.liste_groupes;
     var mes = "n existe pas";
     var espace = " ";
+    Enseignant enseign = ViewBag.enseign;
+    
 }
 
 
 <br />
 <div class="container">
     <div class="row">
-           <partial name="_EspaceEnseignant"  model="enseign"/>
+        <partial name="_EspaceEnseignant"  model="enseign"/>
     </div>
-        <br />
+    <br />
     <div class="row">
         <div class="col-md-2">
             <a class="btn btn-info" asp-action="PageCalendrier">Calendrier</a>
@@ -41,10 +43,7 @@
     @if (liste != null && liste.Count > 0 && Type_page == "calendrier")
     {
         <div class="row">
-            <div class="alert alert-primary" role="alert">
-                Calendrier
-            </div>
-
+            
             <table class="table table-striped table-hover table-bordered ">
                 <thead class="thead-light">
                     <tr>

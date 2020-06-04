@@ -1,0 +1,468 @@
+/*
+            Tache Insertion des dates + Notes
+        */
+        //creation des objets calendriers
+        Calendrier cad1 = new Calendrier();
+        Calendrier cad2 = new Calendrier();
+        Calendrier cad3 = new Calendrier();
+        Calendrier cad4 = new Calendrier();
+        Calendrier cad5 = new Calendrier();
+        Calendrier cad6 = new Calendrier();
+        Calendrier cad7 = new Calendrier();
+        Calendrier cad8 = new Calendrier();
+        Calendrier cad9 = new Calendrier();
+        Calendrier cad10 = new Calendrier();
+        Calendrier cad11 = new Calendrier();
+        Calendrier cad12 = new Calendrier();
+        Calendrier cad13 = new Calendrier();
+        //date pour tester sur l input (null==date ou pas)
+        DateTime date = new DateTime(0001, 01, 01);
+
+        public IActionResult InsertionDates()
+        {
+            var list = db.calendriers.ToList();
+            ViewBag.liste = list;
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        public IActionResult Inserer(DateTime ouv_enrg, DateTime ferm_enrg, DateTime attr_encd, DateTime del_sujet, DateTime del_rpavc1,
+            DateTime del_rpavc2, DateTime del_rpavc3, DateTime del_rpavc4, DateTime del_rpfin, DateTime dep_rpfin, DateTime dep_rpfincrg,
+            DateTime aff_plan, DateTime dat_stnc)
+
+        {
+            var list = db.calendriers.ToList();
+            ViewBag.liste = list;
+
+            /*if (ModelState.IsValid)
+            {*/
+            //date 1
+
+            cad1.Description = "Ouverture_d'enregistrement";
+            cad1.Date = ouv_enrg.ToString();
+            if (ouv_enrg.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Ouverture_d'enregistrement"))
+                {
+                    db.Add(cad1);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Ouverture_d'enregistrement").FirstOrDefault();
+                    cal.Date = ouv_enrg.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+
+            }
+            //date 2
+
+            cad2.Description = "fermuture_d'enregistrement";
+            cad2.Date = ferm_enrg.ToString();
+            if (ferm_enrg.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "fermuture_d'enregistrement"))
+                {
+                    db.Add(cad2);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "fermuture_d'enregistrement").FirstOrDefault();
+                    cal.Date = ferm_enrg.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 3
+
+            cad3.Description = "Attribution_encadrants";
+            cad3.Date = attr_encd.ToString();
+            if (attr_encd.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Attribution_encadrants"))
+                {
+                    db.Add(cad3);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Attribution_encadrants").FirstOrDefault();
+                    cal.Date = attr_encd.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 4
+
+            cad4.Description = "Dernier_délai_sujet";
+            cad4.Date = del_sujet.ToString();
+            if (del_sujet.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Dernier_délai_sujet"))
+                {
+                    db.Add(cad4);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Dernier_délai_sujet").FirstOrDefault();
+                    cal.Date = del_sujet.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 5
+
+            cad5.Description = "Dernier_délai_rapport_avanc1";
+            cad5.Date = del_rpavc1.ToString();
+            if (del_rpavc1.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Dernier_délai_rapport_avanc1"))
+                {
+                    db.Add(cad5);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Dernier_délai_rapport_avanc1").FirstOrDefault();
+                    cal.Date = del_rpavc1.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 6
+
+            cad6.Description = "Dernier_délai_rapport_avanc2";
+            cad6.Date = del_rpavc2.ToString();
+            if (del_rpavc2.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Dernier_délai_rapport_avanc2"))
+                {
+                    db.Add(cad6);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Dernier_délai_rapport_avanc2").FirstOrDefault();
+                    cal.Date = del_rpavc2.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 7
+
+            cad7.Description = "Dernier_délai_rapport_avanc3";
+            cad7.Date = del_rpavc3.ToString();
+            if (del_rpavc3.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Dernier_délai_rapport_avanc3"))
+                {
+                    db.Add(cad7);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Dernier_délai_rapport_avanc3").FirstOrDefault();
+                    cal.Date = del_rpavc3.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 8
+
+            cad8.Description = "Dernier_délai_rapport_avanc4";
+            cad8.Date = del_rpavc4.ToString();
+            if (del_rpavc4.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Dernier_délai_rapport_avanc4"))
+                {
+                    db.Add(cad8);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Dernier_délai_rapport_avanc4").FirstOrDefault();
+                    cal.Date = del_rpavc4.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 9
+
+            cad9.Description = "Dernier_délai_rapport_final";
+            cad9.Date = del_rpfin.ToString();
+            if (del_rpfin.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Dernier_délai_rapport_final"))
+                {
+                    db.Add(cad9);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Dernier_délai_rapport_final").FirstOrDefault();
+                    cal.Date = del_rpfin.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 10
+
+            cad10.Description = "Dernier_délai_depot_rapport_final";
+            cad10.Date = dep_rpfin.ToString();
+            if (dep_rpfin.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Dernier_délai_depot_rapport_final"))
+                {
+                    db.Add(cad10);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Dernier_délai_depot_rapport_final").FirstOrDefault();
+                    cal.Date = dep_rpfin.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 11
+
+            cad11.Description = "Dernier_délai_depot_rapport_final_corrigé";
+            cad11.Date = dep_rpfincrg.ToString();
+            if (dep_rpfincrg.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Dernier_délai_depot_rapport_final_corrigé"))
+                {
+                    db.Add(cad11);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Dernier_délai_depot_rapport_final_corrigé").FirstOrDefault();
+                    cal.Date = dep_rpfincrg.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 12
+
+            cad12.Description = "Affichage_planning";
+            cad12.Date = aff_plan.ToString();
+            if (aff_plan.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Affichage_planning"))
+                {
+                    db.Add(cad12);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Affichage_planning").FirstOrDefault();
+                    cal.Date = aff_plan.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //date 13
+
+            cad13.Description = "Dates_soutenances";
+            cad13.Date = dat_stnc.ToString();
+            if (dat_stnc.Date.CompareTo(date) != 0)
+            {
+                if (!list.Exists(x => x.Description == "Dates_soutenances"))
+                {
+                    db.Add(cad13);
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var cal = db.calendriers.Where(x => x.Description == "Dates_soutenances").FirstOrDefault();
+                    cal.Date = dat_stnc.Date.ToString();
+                    db.Update(cal);
+                    db.SaveChanges();
+                }
+            }
+            //return RedirectToAction(nameof(InsertionDates));
+            /* }*/
+            return View("InsertionDates");
+        }
+
+        //liste des notes
+        public IActionResult Notes()
+        {
+            var liste = db.etudiants.Where(x => x.id_fil == 1).ToList();
+            ViewBag.liste = liste;
+            return View();
+        }
+
+        public IActionResult Ginf()
+        {
+            var liste = db.etudiants.Where(x => x.id_fil == 1).ToList();
+            ViewBag.liste = liste;
+            return View("Notes");
+        }
+
+        public IActionResult Ggtr()
+        {
+            var liste = db.etudiants.Where(x => x.id_fil == 2).ToList();
+            ViewBag.liste = liste;
+            return View("Notes");
+        }
+
+        public IActionResult Gindus()
+        {
+            var liste = db.etudiants.Where(x => x.id_fil == 3).ToList();
+            ViewBag.liste = liste;
+            return View("Notes");
+        }
+
+        public IActionResult Ggpmc()
+        {
+            var liste = db.etudiants.Where(x => x.id_fil == 4).ToList();
+            ViewBag.liste = liste;
+            return View("Notes");
+        }
+
+        public IActionResult GinfExcel()
+        {
+            var liste = db.etudiants.Where(x => x.id_fil == 1).ToList();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("NotesINFO");
+                var currentRow = 1;
+                worksheet.Cell(currentRow, 1).Value = "CNE";
+                worksheet.Cell(currentRow, 2).Value = "NOM";
+                worksheet.Cell(currentRow, 3).Value = "PRENOM";
+                worksheet.Cell(currentRow, 4).Value = "NOTE";
+                foreach (var etud in liste)
+                {
+                    currentRow++;
+                    worksheet.Cell(currentRow, 1).Value = etud.cne;
+                    worksheet.Cell(currentRow, 2).Value = etud.nom;
+                    worksheet.Cell(currentRow, 3).Value = etud.prenom;
+                    worksheet.Cell(currentRow, 4).Value = etud.note;
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+
+                    return File(
+                        content,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "NotesINFO.xlsx");
+                }
+            }
+
+        }
+
+        public IActionResult GgtrExcel()
+        {
+            var liste = db.etudiants.Where(x => x.id_fil == 2).ToList();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("NotesGTR");
+                var currentRow = 1;
+                worksheet.Cell(currentRow, 1).Value = "CNE";
+                worksheet.Cell(currentRow, 2).Value = "NOM";
+                worksheet.Cell(currentRow, 3).Value = "PRENOM";
+                worksheet.Cell(currentRow, 4).Value = "NOTE";
+                foreach (var etud in liste)
+                {
+                    currentRow++;
+                    worksheet.Cell(currentRow, 1).Value = etud.cne;
+                    worksheet.Cell(currentRow, 2).Value = etud.nom;
+                    worksheet.Cell(currentRow, 3).Value = etud.prenom;
+                    worksheet.Cell(currentRow, 4).Value = etud.note;
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+
+                    return File(
+                        content,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "NotesGTR.xlsx");
+                }
+            }
+
+        }
+
+        public IActionResult GindusExcel()
+        {
+            var liste = db.etudiants.Where(x => x.id_fil == 3).ToList();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("NotesINDUS");
+                var currentRow = 1;
+                worksheet.Cell(currentRow, 1).Value = "CNE";
+                worksheet.Cell(currentRow, 2).Value = "NOM";
+                worksheet.Cell(currentRow, 3).Value = "PRENOM";
+                worksheet.Cell(currentRow, 4).Value = "NOTE";
+                foreach (var etud in liste)
+                {
+                    currentRow++;
+                    worksheet.Cell(currentRow, 1).Value = etud.cne;
+                    worksheet.Cell(currentRow, 2).Value = etud.nom;
+                    worksheet.Cell(currentRow, 3).Value = etud.prenom;
+                    worksheet.Cell(currentRow, 4).Value = etud.note;
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+
+                    return File(
+                        content,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "NotesINDUS.xlsx");
+                }
+            }
+
+        }
+
+        public IActionResult GgpmcExcel()
+        {
+            var liste = db.etudiants.Where(x => x.id_fil == 4).ToList();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("NotesGPMC");
+                var currentRow = 1;
+                worksheet.Cell(currentRow, 1).Value = "CNE";
+                worksheet.Cell(currentRow, 2).Value = "NOM";
+                worksheet.Cell(currentRow, 3).Value = "PRENOM";
+                worksheet.Cell(currentRow, 4).Value = "NOTE";
+                foreach (var etud in liste)
+                {
+                    currentRow++;
+                    worksheet.Cell(currentRow, 1).Value = etud.cne;
+                    worksheet.Cell(currentRow, 2).Value = etud.nom;
+                    worksheet.Cell(currentRow, 3).Value = etud.prenom;
+                    worksheet.Cell(currentRow, 4).Value = etud.note;
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+
+                    return File(
+                        content,
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        "NotesGPMC.xlsx");
+                }
+            }
+
+        }

@@ -106,8 +106,8 @@ namespace Projet2_Archivage.Controllers
                     Ville = _context.societes.Where(s => s.Id == i.id_soc).Select(s => s.ville).FirstOrDefault(),
                     Sujet = _context.societes.Where(s => s.Id == i.id_soc).Select(s => s.sujet).FirstOrDefault(),
                     Descriptif = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 7).FirstOrDefault(),
-                    Rapports_avancement = _context.files.Where(s => s.groupe_Id == i.id_grp && (s.id_tp == 1 || s.id_tp == 2 || s.id_tp == 3 || s.id_tp == 4)).ToList(),
-                    Rapport_final = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 5).FirstOrDefault(),
+                    Rapports_avancement = _context.files.Where(s => s.groupe_Id == i.id_grp && (s.id_tp == 2 || s.id_tp == 3 || s.id_tp == 4 || s.id_tp == 5)).ToList(),
+                    Rapport_final = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 6).FirstOrDefault(),
                     Date_soutenance = i.date_stnc
                 };
                 liste_pfe_info.Add(pfe);
@@ -145,8 +145,8 @@ namespace Projet2_Archivage.Controllers
                     Ville = _context.societes.Where(s => s.Id == i.id_soc).Select(s => s.ville).FirstOrDefault(),
                     Sujet = _context.societes.Where(s => s.Id == i.id_soc).Select(s => s.sujet).FirstOrDefault(),
                     Descriptif = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 7).FirstOrDefault(),
-                    Rapports_avancement = _context.files.Where(s => s.groupe_Id == i.id_grp && (s.id_tp == 1 || s.id_tp == 2 || s.id_tp == 3 || s.id_tp == 4)).ToList(),
-                    Rapport_final = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 5).FirstOrDefault(),
+                    Rapports_avancement = _context.files.Where(s => s.groupe_Id == i.id_grp && (s.id_tp == 2 || s.id_tp == 3 || s.id_tp == 4 || s.id_tp == 5)).ToList(),
+                    Rapport_final = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 6).FirstOrDefault(),
                     Date_soutenance = i.date_stnc
                 };
                 liste_pfe_gtr.Add(pfe);
@@ -180,8 +180,8 @@ namespace Projet2_Archivage.Controllers
                     Ville = _context.societes.Where(s => s.Id == i.id_soc).Select(s => s.ville).FirstOrDefault(),
                     Sujet = _context.societes.Where(s => s.Id == i.id_soc).Select(s => s.sujet).FirstOrDefault(),
                     Descriptif = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 7).FirstOrDefault(),
-                    Rapports_avancement = _context.files.Where(s => s.groupe_Id == i.id_grp && (s.id_tp == 1 || s.id_tp == 2 || s.id_tp == 3 || s.id_tp == 4)).ToList(),
-                    Rapport_final = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 5).FirstOrDefault(),
+                    Rapports_avancement = _context.files.Where(s => s.groupe_Id == i.id_grp && (s.id_tp == 2 || s.id_tp == 3 || s.id_tp == 4 || s.id_tp == 5)).ToList(),
+                    Rapport_final = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 6).FirstOrDefault(),
                     Date_soutenance = i.date_stnc
                 };
                 liste_pfe_indus.Add(pfe);
@@ -215,8 +215,8 @@ namespace Projet2_Archivage.Controllers
                     Ville = _context.societes.Where(s => s.Id == i.id_soc).Select(s => s.ville).FirstOrDefault(),
                     Sujet = _context.societes.Where(s => s.Id == i.id_soc).Select(s => s.sujet).FirstOrDefault(),
                     Descriptif = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 7).FirstOrDefault(),
-                    Rapports_avancement = _context.files.Where(s => s.groupe_Id == i.id_grp && (s.id_tp == 1 || s.id_tp == 2 || s.id_tp == 3 || s.id_tp == 4)).ToList(),
-                    Rapport_final = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 5).FirstOrDefault(),
+                    Rapports_avancement = _context.files.Where(s => s.groupe_Id == i.id_grp && (s.id_tp == 2 || s.id_tp == 3 || s.id_tp == 4 || s.id_tp == 5)).ToList(),
+                    Rapport_final = _context.files.Where(s => s.groupe_Id == i.id_grp && s.id_tp == 6).FirstOrDefault(),
                     Date_soutenance = i.date_stnc
                 };
                 liste_pfe_gpmc.Add(pfe);

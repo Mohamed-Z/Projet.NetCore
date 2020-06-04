@@ -211,13 +211,13 @@ namespace Projet2_Archivage.Controllers
             return PartialView("_AfficherDetailsAdmin", sm);
         }
         
-        public IActionResult Get(int id)
+        public FileResult Get(int id)
         {
             Models.File file = db.files.Find(id);
 
             //If file exists....
 
-            MemoryStream ms = new MemoryStream(file.Content, 0, 0, true, true);
+            /*MemoryStream ms = new MemoryStream(file.Content, 0, 0, true, true);
             Response.ContentType = "application/pdf";
             Response.Headers.Add("content-disposition", "inline;filename=" + file.Name);
             Response.Clear();
@@ -228,8 +228,8 @@ namespace Projet2_Archivage.Controllers
                 sw.Flush();
             }
             //Response.OutputStream.Write(ms.GetBuffer(), 0, ms.GetBuffer().Length);
-            //Response.OutputStream.Flush();
-            return new FileStreamResult(ms, "application/pdf");
+            //Response.OutputStream.Flush();*/
+            return File(file.Content, "application/pdf",file.Name);
         }
         
 
@@ -364,6 +364,8 @@ namespace Projet2_Archivage.Controllers
             List<List<Etudiant>> list_etuds = new List<List<Etudiant>>();
             List<string> list_societes = new List<string>();
             List<SelectList> listsl = new List<SelectList>();
+            List<string> list_valid = new List<string>();
+
             foreach (Groupe g in x)
             {
                 list_grp.Add(g.id_grp);
@@ -388,10 +390,12 @@ namespace Projet2_Archivage.Controllers
                 if (g.id_ens != null)
                 {
                     sl = new SelectList(z, "Id", "nom",g.id_ens);
+                    list_valid.Add("is-valid");
                 }
                 else
                 {
                     sl = new SelectList(z, "Id", "nom");
+                    list_valid.Add("");
                 }
                 
                 listsl.Add(sl);
@@ -400,6 +404,7 @@ namespace Projet2_Archivage.Controllers
             ViewBag.names = list_etuds;
             ViewBag.sos = list_societes;
             ViewBag.sl = listsl;
+            ViewBag.valid = list_valid;
             return PartialView("_AfficherListeAffectation");
         }
 

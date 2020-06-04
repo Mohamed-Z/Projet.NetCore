@@ -34,7 +34,7 @@
                             @ViewBag.sos[i]
                         </td>
                         <td>
-                            @Html.DropDownList("y[" + line + "]", ViewBag.sl[i] as SelectList, null, new { @class = "custom-select", id = line })
+                            @Html.DropDownList("y[" + line + "]", ViewBag.sl[i] as SelectList, null, new { @class = "custom-select "+ViewBag.valid[i], id = line })
                         </td>
                     </tr>
                     i++;

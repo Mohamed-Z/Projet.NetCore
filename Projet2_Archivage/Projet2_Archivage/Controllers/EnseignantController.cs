@@ -78,7 +78,7 @@ namespace Projet2_Archivage.Controllers
         {
             List<ListeNotesViewModel> liste_notes_info = new List<ListeNotesViewModel>();
             List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
-            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 1).Select(g => g.id_grp).Cast<int>().ToList();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == HttpContext.Session.GetInt32("enseignant") && g.id_filiere == 1).Select(g => g.id_grp).Cast<int>().ToList();
 
             foreach (var i in liste_grp)
             {
@@ -110,7 +110,7 @@ namespace Projet2_Archivage.Controllers
         {
             List<ListeNotesViewModel> liste_notes_info = new List<ListeNotesViewModel>();
             List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
-            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 1).Select(g => g.id_grp).Cast<int>().ToList();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == HttpContext.Session.GetInt32("enseignant") && g.id_filiere == 1).Select(g => g.id_grp).Cast<int>().ToList();
 
             foreach (var i in liste_grp)
             {
@@ -141,7 +141,7 @@ namespace Projet2_Archivage.Controllers
         {
             List<ListeNotesViewModel> liste_notes = new List<ListeNotesViewModel>();
             List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
-            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 2).Select(g => g.id_grp).Cast<int>().ToList();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == HttpContext.Session.GetInt32("enseignant") && g.id_filiere == 2).Select(g => g.id_grp).Cast<int>().ToList();
 
             foreach (var i in liste_grp)
             {
@@ -172,7 +172,7 @@ namespace Projet2_Archivage.Controllers
         {
             List<ListeNotesViewModel> liste_notes = new List<ListeNotesViewModel>();
             List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
-            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 3).Select(g => g.id_grp).Cast<int>().ToList();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == HttpContext.Session.GetInt32("enseignant") && g.id_filiere == 3).Select(g => g.id_grp).Cast<int>().ToList();
 
             foreach (var i in liste_grp)
             {
@@ -203,7 +203,7 @@ namespace Projet2_Archivage.Controllers
         {
             List<ListeNotesViewModel> liste_notes = new List<ListeNotesViewModel>();
             List<GroupeMembre> liste_grp_mbre = new List<GroupeMembre>();
-            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == 1 && g.id_filiere == 4).Select(g => g.id_grp).Cast<int>().ToList();
+            List<int> liste_grp = _context.groupes.Where(g => g.id_ens == HttpContext.Session.GetInt32("enseignant") && g.id_filiere == 4).Select(g => g.id_grp).Cast<int>().ToList();
 
             foreach (var i in liste_grp)
             {

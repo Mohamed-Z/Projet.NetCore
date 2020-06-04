@@ -269,3 +269,9 @@ C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Proj
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EtudiantLayout.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\InsererNotes.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EspaceEnseignant.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\Connexion.g.cshtml.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\InsererNotes.g.cshtml.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\PageInformations.g.cshtml.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EspaceEnseignant.g.cshtml.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EtudiantLayout.g.cshtml.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_myLayout.g.cshtml.cs

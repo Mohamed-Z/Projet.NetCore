@@ -726,7 +726,7 @@ namespace Projet2_Archivage.Controllers
             }
             //return RedirectToAction(nameof(InsertionDates));
             /* }*/
-            return View("InsertionDates");
+            return RedirectToAction("InsertionDates");
         }
 
         //liste des notes

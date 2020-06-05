@@ -16,10 +16,18 @@
         <div class="section-title  col-lg-12 flxs" style="padding-top:50px">
             <div class="container">
                 <br />
+                <div class="alert alert-light alert-dismissible fade show" role="alert" style="border-radius:20px">
+                    Bienvenue <strong>@enseign.nom  @enseign.prenom</strong>.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 <div class="row">
                     <partial name="_EspaceEnseignant" model="enseign" />
                 </div>
                 <br />
+
+
                 <div class="row">
                     <div class="col-md-2">
                         <a class="btn btn-primary" asp-action="PageCalendrier" style="border-radius:10px; width:150px">Calendrier</a>
@@ -40,18 +48,22 @@
                         <a class="btn btn-primary" asp-action="PagePlanning" style="border-radius:10px; width:150px">Planning</a>
                     </div>
                 </div>
-                <br /><br />
 
-                <div class="section-title" style="align-content:center">
-                    <h2>Calendrier</h2><br />
-                    <p style="font-style:italic; font-weight:bold">
-                        Vous trouverez dans le tableau ci-dessous les dates de dépôt de chaque rapport d’avancement (4 rapports) + rapport final
-                        + dates de soutenance.
-                    </p>
-                </div>
+                <br />
+
+
+
 
                 @if (liste != null && liste.Count > 0 && Type_page == "calendrier")
                 {
+                    <div class="section-title" style="align-content:center">
+                        <h2>Calendrier</h2><br />
+                        <p style="font-style:italic; font-weight:bold">
+                            Vous trouverez dans le tableau ci-dessous les dates de dépôt de chaque rapport d’avancement (4 rapports) + rapport final
+                            + dates de soutenance.
+                        </p>
+                    </div>
+
                     <div class="row">
                         <table class="table table-striped table-hover table-bordered">
                             <thead class="thead-light">

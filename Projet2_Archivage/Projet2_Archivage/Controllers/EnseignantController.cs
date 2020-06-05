@@ -22,7 +22,9 @@ namespace Projet2_Archivage.Controllers
         {
             if (HttpContext.Session.GetInt32("enseignant") != null)
             {
-                
+                /recuperer l'enseignant
+                Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+                ViewBag.enseign = enseign;
                 return View("PageInformations");
 
             }
@@ -446,6 +448,32 @@ namespace Projet2_Archivage.Controllers
             Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
             ViewBag.enseign = enseign;
             return View("PageInformations");
+        }
+
+        //Gestions files
+        //Action pour recuperer le rapport de le BD
+        [HttpGet]
+        public ActionResult GetFile(int ID)
+        {
+            Models.File file = _context.files.Find(ID);
+            return File(file.Content, "application/pdf", file.Name);
+        }
+
+        [HttpGet]
+        public ActionResult GetFilePlanning()
+        {
+            Models.File file = _context.files.Where(f=> f.id_tp==7).FirstOrDefault();
+            if (file != null)
+            { return File(file.Content, "application/pdf", file.Name); }
+            else
+            {
+                //recuperer l'enseignant
+                Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
+                ViewBag.enseign = enseign;
+                ViewBag.messagePlanning = "Aucun planning n'a été trouvé";
+                ViewBag.Type_page = "planning";
+                return View("PageInformations");
+            }
         }
     }
 }

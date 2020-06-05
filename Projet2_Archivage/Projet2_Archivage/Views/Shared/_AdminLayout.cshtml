@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 
 @{
-    ViewBag.Title = "Admin";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,10 +13,14 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
 <section id="contacto" class="contact blu" style="width:100%;">
-    <div class="container" data-aos="fade-up" style="padding-top:15px">
+    <div class="container"  style="padding-top:15px">
         @{ if (Context.Session.GetString("alerts").Equals("true"))
             {
+<<<<<<< HEAD
                 <div class="alert alert-light alert-dismissible fade show" role="alert" style="border-radius:20px">
+=======
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+>>>>>>> 5f418ddaae9dbc8c6b3f5d27036f84f9fa1ca16e
                     Bienvenue <strong>@Model.prenom @Model.nom</strong>.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -27,8 +30,12 @@
             }
         }
     </div>
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+    </a>
     <div class="row d-flex justify-content-center">
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         <div class="col-lg-3 wd" data-aos="fade-up" style="padding-top:50px">
             <div class="sidenav" style="border-radius: 20px; height:350px">
@@ -36,11 +43,16 @@
         <div class="col-lg-3 wd" data-aos="fade-up">
             <div class="sidenav" style="border-radius: 20px;">
 >>>>>>> 1dd7147a08f7b432b00b234d04c1405207092c43
+=======
+        <div class="col-lg-2 wd" data-aos="fade-up">
+            <div class="sidenav"  style="border-radius:20px ; height:400px; width:250px">
+>>>>>>> 5f418ddaae9dbc8c6b3f5d27036f84f9fa1ca16e
                 <a href="~/Admins/Modifier" class="@ViewBag.edit" style="font-family:'Arial Rounded MT'">
                     <i class="far fa-user-circle"></i>
                     @Model.prenom @Model.nom
                 </a>
 
+<<<<<<< HEAD
                 <a href="~/Admins/Importation" class="@ViewBag.import"  style="font-family:'Arial Rounded MT'">
                     <i class="fas fa-upload"></i>
                     Importation
@@ -50,10 +62,25 @@
                     Affectation  des encadrants
                 </a>
                 <a href="~/Admins/EspaceAdmin" class="@ViewBag.search"  style="font-family:'Arial Rounded MT'">
+=======
+                <a href="~/Admins/Importation" class="@ViewBag.import" style="font-family:'Arial Rounded MT'">
+                    <i class="fas fa-upload"></i>
+                    Importation
+                </a>
+                <a href="~/SuperUser/EspaceSuperUser" class="@ViewBag.affect" style="font-family:'Arial Rounded MT'">
+                    <i class="fas fa-user-tie"></i>
+                    Affectation  des encadrants
+                </a>
+                <a href="~/Admins/EspaceAdmin" class="@ViewBag.search" style="font-family:'Arial Rounded MT'">
+>>>>>>> 5f418ddaae9dbc8c6b3f5d27036f84f9fa1ca16e
                     <i class="fas fa-search"></i>
                     Recherche
                 </a>
                 <a href="~/Admins/Deconnexion" class="@ViewBag.deconnect"  style="font-family:'Arial Rounded MT'">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Déconnexion
+                </a>
+                <a href="~/Admins/Deconnexion" class="@ViewBag.deconnect" style="font-family:'Arial Rounded MT'">
                     <i class="fas fa-sign-out-alt"></i>
                     Déconnexion
                 </a>

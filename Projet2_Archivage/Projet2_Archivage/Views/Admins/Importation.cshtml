@@ -6,8 +6,13 @@
 }
 
 <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="10">
+<<<<<<< HEAD
     <div class="info d-flex justify-content-center wi" style="padding:15px;border-radius:20px">
         <div class="section-title  col-lg-10 flxs">
+=======
+    <div class="info d-flex justify-content-center wi" style="border-radius:20px">
+        <div class="section-title  col-lg-10 flxs" >
+>>>>>>> 5f418ddaae9dbc8c6b3f5d27036f84f9fa1ca16e
             <h2>Importation des enseignants</h2>
             @using (Html.BeginForm("ImportEnseignantAsyn", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
@@ -19,13 +24,21 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <input type="submit" class="btn btn-primary" value="Importer les enseignants" style="border-radius:15px;font-family:'Arial Rounded MT'"  />
+=======
+                <input type="submit" class="btn btn-primary" value="Importer les enseignants" style="border-radius:15px" />
+>>>>>>> 5f418ddaae9dbc8c6b3f5d27036f84f9fa1ca16e
 
                 <br />
                 <br />
                 if (Context.Session.GetString("succes").Equals("enseignant"))
                 {
+<<<<<<< HEAD
                     <p style="color:green"><i class="fas fa-check-circle"></i> La liste des enseignants a été importée avec succés.</p>
+=======
+                    <p style="color:green; border-radius:15px"><i class="fas fa-check-circle"></i> La liste des enseignants a été importée avec succés.</p>
+>>>>>>> 5f418ddaae9dbc8c6b3f5d27036f84f9fa1ca16e
                     Context.Session.SetString("succes", "null");
                 }
             }
@@ -34,7 +47,11 @@
 </div>
 <br />
 <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="15">
+<<<<<<< HEAD
     <div class="info d-flex justify-content-center wi" style="padding:15px;border-radius:20px">
+=======
+    <div class="info d-flex justify-content-center wi" style="border-radius:20px">
+>>>>>>> 5f418ddaae9dbc8c6b3f5d27036f84f9fa1ca16e
         <div class="section-title  col-lg-10 flxs">
             <h2>Importation des etudiants</h2>
             @using (Html.BeginForm("ImportEtudiantAsyn", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
@@ -46,13 +63,21 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <input type="submit" class="btn btn-primary" value="Importer les étudiants" style="border-radius:15px;font-family:'Arial Rounded MT'"/>
+=======
+                <input type="submit" class="btn btn-primary" value="Importer les étudiants" style="border-radius:15px"/>
+>>>>>>> 5f418ddaae9dbc8c6b3f5d27036f84f9fa1ca16e
 
                 <br />
                 <br />
                 if (Context.Session.GetString("succes").Equals("etudiant"))
                 {
+<<<<<<< HEAD
                     <p style="color:green"><i class="fas fa-check-circle"></i> La liste des étudiants a été importée avec succés</p>
+=======
+                    <p style="color:green"><i class="fas fa-check-circle"></i>  La liste des étudiants a été importée avec succés.</p>
+>>>>>>> 5f418ddaae9dbc8c6b3f5d27036f84f9fa1ca16e
                     Context.Session.SetString("succes", "null");
                 }
             }
@@ -62,8 +87,6 @@
     </div>
 
 
-
-            
             <script>
                 $("input[type=file]").change(function () {
                     var fieldVal = $(this).val();

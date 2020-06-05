@@ -22,7 +22,7 @@ namespace Projet2_Archivage.Controllers
         {
             if (HttpContext.Session.GetInt32("enseignant") != null)
             {
-                /recuperer l'enseignant
+                //recuperer l'enseignant
                 Enseignant enseign = _context.enseignants.Where(z => z.Id == HttpContext.Session.GetInt32("enseignant")).FirstOrDefault();
                 ViewBag.enseign = enseign;
                 return View("PageInformations");

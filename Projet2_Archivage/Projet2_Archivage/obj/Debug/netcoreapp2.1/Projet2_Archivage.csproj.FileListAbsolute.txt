@@ -279,3 +279,7 @@ C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archiv
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Notes.g.cshtml.cs
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherNotes.g.cshtml.cs
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Planning.g.cshtml.cs
+C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\InsertionDates.cshtml.g.cs
+C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Notes.cshtml.g.cs
+C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Planning.cshtml.g.cs
+C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherNotes.cshtml.g.cs

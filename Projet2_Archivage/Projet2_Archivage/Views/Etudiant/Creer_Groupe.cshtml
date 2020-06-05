@@ -4,27 +4,34 @@
     Layout = "~/Views/Shared/_EtudiantLayout.cshtml";
 }
 
+<meta charset="iso-8859-1">
 
 @model Projet2_Archivage.Models.Groupe
-<h2>Gestion_Des_Groupes @ViewBag.l</h2>
-<div style="height:800px;width:800px;border-color:black">
+<h2> @ViewBag.l</h2>
+<div style="height:800px;width:800px;border-color:black; margin-top:80px">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" asp-action="connexion" method="post">Espace Etudiant</a>
+            <a class="btn btn-primary" asp-action="connexion" method="post" style="border-radius:20px; width:180px; margin-right:15px">Espace etudiant</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+            <a class="btn btn-primary" asp-action="Creer_Groupe" style="border-radius:20px; width:180px; margin-right:15px">Gestion du groupe</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
+            <a class="btn btn-primary " asp-action="Information_De_stage" style="border-radius:20px; width:210px; margin-right:20px">Information du stage</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
+            <a class="btn btn-primary" asp-action="Deconnexion" style="border-radius:20px; width:180px">Deconnexion</a>
         </li>
     </ul>
+    <br />
+
     <div class="container border mb-2 p-3 border">
 
+        <p class="alert alert-light alert-dismissible fade show" style="border-radius:20px; font-style:italic; font-weight:bold">
+            Vous trouverez ci-dessous la liste de tous les etudiants de votre niveau avec la possibilite de creer un groupe en cochant les
+            membres de votre groupe.
+        </p>
 
         <div class="alert alert-primary" role="alert">
             @ViewBag.alert
@@ -54,7 +61,7 @@
                             <input type="submit" value="check" />
                         </div>
             -->
-            <input type="submit" class="btn btn-secondary btn-lg btn-block" value="@ViewBag.Gestion" />
+            <input type="submit" class="btn btn-outline-warning btn-lg btn-block" value="@ViewBag.Gestion" style="border-radius:20px" />
         </form>
     </div>
 </div>

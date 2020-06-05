@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Notes";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+  
+
+}
+
+<div class="info d-flex justify-content-center wd" style="padding:15px;border-radius:20px;height: auto !important;min-height: 850px;">
+    <div class="section-title  col-lg-9">
+        <h2>Affichage des notes</h2>
+
+        <div class="container">
+            <div class="row">
+                @foreach (var f in ViewBag.listf)
+                {
+                    <div class="col-md-3">
+                        <button class="btn btn-info" id="@f.Id_filiere"  style="width:120px;height:120px;font-size:16px">Liste étudiants @f.Nom_filiere </button>
+                    </div>
+                }
+
+            </div>
+            <br />
+            <div id="div2">
+
+               
+            </div>
+        </div>
+
+
+        <br />
+
+    </div>
+</div>
+
+
+
+<script>
+    $("button").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/Admins/AfficherNotes",
+            data: "id=" + (this.id),
+            success: function (result) {
+                $("#div2").html(result);
+            }
+        });
+    });
+</script>

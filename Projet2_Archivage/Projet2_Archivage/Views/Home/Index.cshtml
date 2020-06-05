@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http
+
+@{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -15,15 +17,20 @@
                             <h1>Bienvenue à ENSAS Archive</h1>
                             <h2>Archiver votre PFE n'a jamais été aussi simple</h2><br />
 
+                            @{
+                                if (Context.Session.GetInt32("admin_id") == null && Context.Session.GetInt32("enseignant") == null && Context.Session.GetInt32("etudiant") == null)
+                                {
+                                    <h3 style="color:aliceblue">S'authentifier en tant que:</h3>
+                                    <div class="d-lg-flex">
 
-                            <h3 style="color:aliceblue">S'authentifier en tant que:</h3>
-                            <div class="d-lg-flex">
+                                        <a href="~/Admins/Connexion" class="btn-get-started scrollto" style="margin-right:20px">Administrateur</a>
+                                        <a href="~/Enseignant/connexion" class="btn-get-started scrollto" style="margin-right:20px">Enseignant</a>
+                                        <a href="~/Etudiant/Connexion" class="btn-get-started scrollto">Etudiant</a>
 
-                                <a href="~/Admins/Connexion" class="btn-get-started scrollto" style="margin-right:20px">Administrateur</a>
-                                <a href="~/Enseignant/connexion" class="btn-get-started scrollto" style="margin-right:20px">Enseignant</a>
-                                <a href="~/Etudiant/Connexion" class="btn-get-started scrollto">Etudiant</a>
-                            </div>
 
+                                    </div>
+                                }
+                            }
 
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">

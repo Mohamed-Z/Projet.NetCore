@@ -53,31 +53,35 @@
                             <span asp-validation-for="description" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Nom de l'encadrant</label>
-                            <input asp-for="@Model.nom_enc" class="form-control" />
-                            <span asp-validation-for="nom_enc" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Numéro de téléphone</label>
-                            <input asp-for="@Model.tel_enc" class="form-control" />
-                            <span asp-validation-for="tel_enc" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Email</label>
-
-                            <input type="text" asp-for="@Model.email_enc" class="form-control" />
-
-                        </div><br />
-                        <div class="form-group">
-                            <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Choisissez le fichier de votre projet</label><br />
-                            <input type="file" name="file" id="file" /><br><br><br><br>
-                            @if (ViewBag.soc != "vous avez deja marquer ça")
-                            {
-                                <input type="submit" class="form-control" value="Valider" style="font-family:'Arial Rounded MT'; border-radius:20px; background-color:gold" />}
-                        </div>
-                    </form>
-                    <br />
+                        <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Ville</label>
+                        <input asp-for="@Model.ville" class="form-control" />
                 </div>
+                <div class="form-group">
+                    <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Nom de l'encadrant</label>
+                    <input asp-for="@Model.nom_enc" class="form-control" />
+                    <span asp-validation-for="nom_enc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Numéro de téléphone</label>
+                    <input asp-for="@Model.tel_enc" class="form-control" />
+                    <span asp-validation-for="tel_enc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Email</label>
+
+                    <input type="text" asp-for="@Model.email_enc" class="form-control" />
+
+                </div><br />
+                <div class="form-group">
+                    <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Choisissez le fichier de votre projet</label><br />
+                    <input type="file" name="file" id="file" /><br><br><br><br>
+                    @if (ViewBag.soc != "vous avez deja marquer ça")
+                    {
+                        <input type="submit" class="form-control" value="Valider" style="font-family:'Arial Rounded MT'; border-radius:20px; background-color:gold" />}
+                </div>
+                </form>
+                <br />
+            </div>
             </div>
         </div>
     </div>

@@ -202,7 +202,7 @@ namespace Projet2_Archivage.Migrations
 
                     b.Property<string>("email_enc");
 
-                    b.Property<int>("id_f");
+                    b.Property<int?>("id_f");
 
                     b.Property<string>("nom");
 
@@ -217,8 +217,6 @@ namespace Projet2_Archivage.Migrations
                     b.Property<string>("ville");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("id_f");
 
                     b.ToTable("societes");
                 });
@@ -287,14 +285,6 @@ namespace Projet2_Archivage.Migrations
                     b.HasOne("Projet2_Archivage.Models.Etudiant", "Etudiant")
                         .WithMany("GroupeMembres")
                         .HasForeignKey("id_et");
-                });
-
-            modelBuilder.Entity("Projet2_Archivage.Models.Societe", b =>
-                {
-                    b.HasOne("Projet2_Archivage.Models.File", "File")
-                        .WithMany()
-                        .HasForeignKey("id_f")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

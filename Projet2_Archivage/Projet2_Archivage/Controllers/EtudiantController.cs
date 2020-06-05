@@ -246,7 +246,7 @@ namespace Projet2_Archivage.Controllers
             var currentGroupMembers = context.groupeMembres.Where(g => g.grp_id == this.idgrp);
             ViewBag.groupp = this.idgrp;
           
-            if (currentGroupMembers.Count() > 4)
+            if (currentGroupMembers.Count() >= 2)
             {
 
            

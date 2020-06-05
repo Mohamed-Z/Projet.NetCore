@@ -296,11 +296,14 @@ namespace Projet2_Archivage.Controllers
 
             var cne = HttpContext.Session.GetInt32("etudiant");
             GroupeMembre membre = context.groupeMembres.SingleOrDefault(x => x.id_et == cne);
-            if (membre != null)
+            if (membre == null)
             {
-                this.idgrp = membre.grp_id;
+                ViewBag.soc = "vous devez êtres membre d'un groupe pour réaliser cette tache !";
+                return View("erreur_stage");
             }
 
+            this.idgrp = membre.grp_id;
+            /*
             var groupe = context.files.Where(x => x.groupe_Id == this.idgrp );
             foreach(Models.File f in groupe){
                 if (f.id_tp == 1) {
@@ -309,13 +312,19 @@ namespace Projet2_Archivage.Controllers
             }
             
                 ViewBag.soc = "vous avez pas encore charger vos information";
-                return View("Information_De_stage");
-            
-           
+                */
 
+            Groupe groupe = context.groupes.Find(idgrp);
 
+            Societe societe = context.societes.Find(groupe.id_soc);
+            if (societe != null)
+            {
+                ViewBag.soc = "vous avez deja marquer ça";
+                return View("erreur_stage");
+            }
 
-            
+            ViewBag.societe = null;
+            return View("Information_De_stage");
         }
 
         public ActionResult erreur_stage()
@@ -334,12 +343,22 @@ namespace Projet2_Archivage.Controllers
                 this.idgrp = membre.grp_id;
             }
 
+            Groupe groupe = context.groupes.Find(idgrp);
+
+            context.societes.Add(entreprise);
+            context.SaveChanges();
+
+            groupe.id_soc = entreprise.Id;
+            context.SaveChanges();
+            /*
            var groupe = context.files.Where(x => x.groupe_Id ==this.idgrp && x.id_tp == 1);
             if(groupe != null)
             {
                 ViewBag.soc = "vous avez deja marquer ça";
                 return View("erreur_stage");
             }
+            */
+
 
             Models.File sujet = new Models.File();
 
@@ -347,12 +366,6 @@ namespace Projet2_Archivage.Controllers
 
             if (file != null && file.Length > 0)
             {
-
-
-
-
-
-
                 //new file
                 sujet.Name = file.FileName;
                 sujet.id_tp = 1;
@@ -364,16 +377,15 @@ namespace Projet2_Archivage.Controllers
                 DateTime localDate = DateTime.Now;
                 sujet.date_disp = Convert.ToString(localDate);
                 sujet.groupe_Id = this.idgrp;
+                context.files.Add(sujet);
+                context.SaveChanges();
+
+                entreprise.id_f = sujet.Id;
+                context.SaveChanges();
             }
-            context.files.Add(sujet);
-            entreprise.id_f = sujet.Id;
 
-
-
-
-            context.societes.Add(entreprise);
-            context.SaveChanges();
-            return View(entreprise);
+            ViewBag.societe = entreprise;
+            return View();
         }
 
 

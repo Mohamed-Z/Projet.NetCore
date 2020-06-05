@@ -31,24 +31,45 @@
 
         <div class="col-lg-3 wd" data-aos="fade-up">
             <div class="sidenav" style="border-radius: 20px;">
-                <a href="~/Admins/Modifier" class="@ViewBag.edit" style="font-family:'Arial Rounded MT'">
+                <a href="~/Admins/Modifier" class="@ViewBag.edit">
                     <i class="far fa-user-circle"></i>
                     @Model.prenom @Model.nom
                 </a>
 
-                <a href="~/Admins/Importation" class="@ViewBag.import"  style="font-family:'Arial Rounded MT'">
+                <a href="~/Admins/Importation" class="@ViewBag.import">
                     <i class="fas fa-upload"></i>
                     Importation
                 </a>
-                <a href="~/Admins/Affectation" class="@ViewBag.affect" style="font-family:'Arial Rounded MT'">
-                    <i class="fas fa-user-tie"></i>
-                    Affectation  des encadrants
+                <a href="~/Admins/Affectation" class="@ViewBag.affect">
+                    <table>
+                        <tr>
+                            <td style="width:10px">
+                                <i class="fas fa-user-tie"></i>
+                            </td>
+                            <td>
+                                Affectation  des encadrants
+                            </td>
+                        </tr>
+                    </table>
                 </a>
-                <a href="~/Admins/EspaceAdmin" class="@ViewBag.search"  style="font-family:'Arial Rounded MT'">
+                <a href="~/Admins/EspaceAdmin" class="@ViewBag.search">
                     <i class="fas fa-search"></i>
                     Recherche
                 </a>
-                <a href="~/Admins/Deconnexion" class="@ViewBag.deconnect"  style="font-family:'Arial Rounded MT'">
+                <a href="~/Admins/InsertionDates" class="@ViewBag.date">
+                    <i class="far fa-calendar-alt"></i>
+                    Insertion des dates
+                </a>
+                <a href="~/Admins/Notes" class="@ViewBag.note">
+                    <i class="fas fa-edit"></i>
+                    Notes
+                </a>
+
+                <a href="~/Admins/Planning" class="@ViewBag.pln">
+                    <i class="far fa-file-alt"></i>
+                    Planning
+                </a>
+                <a href="~/Admins/Deconnexion" class="@ViewBag.deconnect">
                     <i class="fas fa-sign-out-alt"></i>
                     Déconnexion
                 </a>

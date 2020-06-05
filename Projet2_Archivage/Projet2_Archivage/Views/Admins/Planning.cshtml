@@ -1,0 +1,51 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    ViewBag.Title = "Planning";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+<div class="info d-flex justify-content-center wd" style="padding:15px;border-radius:20px; height:600px">
+    <div class="section-title  col-lg-9 flxs">
+        <h2>Importer le planning</h2>
+
+
+        @using (Html.BeginForm("Planning", "Admins", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                    <input type="file" name="file" class="custom-file-input" id="inputGroupFile05" aria-describedby="inputGroupFileAddon03" required />
+                    <label class="custom-file-label" for="inputGroupFile05"><i class="fas fa-paperclip"></i> Choisir un fichier PDF</label>
+                </div>
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Importer le planning" style="border-radius:15px;font-family:'Arial Rounded MT'" />
+
+            <br />
+            <br />
+            if (Context.Session.GetString("succes_pln").Equals("yes"))
+            {
+                <p style="color:green"><i class="fas fa-check-circle"></i> Le planning a été importée avec succés.</p>
+                Context.Session.SetString("succes_pln", "no");
+            }
+        }
+        <br />
+
+    </div>
+</div>
+
+<script>
+                $("input[type=file]").change(function () {
+                    var fieldVal = $(this).val();
+
+                    // Change the node's value by removing the fake path (Chrome)
+                    fieldVal = fieldVal.replace("C:\\fakepath\\", "");
+
+                    if (fieldVal != undefined || fieldVal != "") {
+                        $(this).next(".custom-file-label").attr('data-content', fieldVal);
+                        $(this).next(".custom-file-label").text(fieldVal);
+                    }
+                });
+</script>

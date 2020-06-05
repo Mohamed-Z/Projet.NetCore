@@ -1,0 +1,46 @@
+﻿
+@{ if (ViewBag.liste != null && ViewBag.liste.Count > 0)
+    {
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-md-1">#</th>
+                    <th scope="col" class="col-md-3">CNE</th>
+                    <th scope="col" class="col-md-3">NOM</th>
+                    <th scope="col" class="col-md-3">PRENOM</th>
+                    <th scope="col" class="col-md-2">NOTE</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @{
+    int i = 1;
+    foreach (var et in ViewBag.liste)
+    {
+                    <tr>
+                        <th scope="row">@i</th>
+                        <td>@et.cne</td>
+                        <td>@et.nom</td>
+                        <td>@et.prenom</td>
+                        <td>@et.note</td>
+                    </tr>
+        i++;
+    }
+                }
+
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col text-center">
+                
+                @Html.ActionLink("Exportez la liste vers Excel", "NoteExcel", "Admins", new {@class="btn btn-info",id=ViewBag.ide})
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-primary" role="alert">
+            La liste est vide !
+        </div>
+    }
+}

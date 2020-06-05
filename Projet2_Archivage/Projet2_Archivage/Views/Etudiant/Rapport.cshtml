@@ -14,23 +14,23 @@
         <div class="form-group">
             <label class="control-label">Date Depot premier rapport </label>
 
-            <span class="text-danger">2020/6/2</span>
+            <span class="text-danger">@{if (ViewBag.liste_dates[0] != null) {@ViewBag.liste_dates[0]} else {<span class="badge badge-primary">pochainement</span>}}</span>
         </div>
         <div class="form-group">
             <label class="control-label">Date Depot deuxieme rapport</label>
 
-            <span class="text-danger">2020/ 6/15</span>
+            <span class="text-danger">@{if (ViewBag.liste_dates[0] != null) {@ViewBag.liste_dates[0]} else {<span class="badge badge-primary">prochainement</span>}}</span>
         </div>
         <div class="form-group">
             <label class="control-label">Date Depot troisieme rapport</label>
 
-            <span class="text-danger">2020/ 7/ 1</span>
+            <span class="text-danger">@{if (ViewBag.liste_dates[0] != null) {@ViewBag.liste_dates[0]} else {<span class="badge badge-primary">prochainement</span>}}</span>
         </div>
 
         <div class="form-group">
             <label class="control-label">Date Depot quatrieme rapport</label>
 
-            <span class="text-danger">2020/ 7/ 15</span>
+            <span class="text-danger">@{if (ViewBag.liste_dates[0] != null) {@ViewBag.liste_dates[0]} else {<span class="badge badge-primary">prochainement</span>}}</span>
         </div>
 
     </div>

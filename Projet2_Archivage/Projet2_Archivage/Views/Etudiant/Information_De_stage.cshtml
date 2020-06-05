@@ -4,25 +4,26 @@
     Layout = "~/Views/Shared/_EtudiantLayout.cshtml";
 }
 
+<br /><br />
 <div style="border-color:black">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link " asp-action="connexion" method="post">Espace Etudiant</a>
+            <a class="btn btn-primary " asp-action="connexion" method="post" style="border-radius:15px; margin-right:15px; width:190px">Espace Etudiant</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" asp-action="Creer_Groupe">Gestion du groupe</a>
+            <a class="btn btn-primary" asp-action="Creer_Groupe" style="border-radius:15px; margin-right:15px; width:190px">Gestion du groupe</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Information_De_stage">Information du stage</a>
+            <a class="btn btn-primary" asp-action="Information_De_stage" style="border-radius:15px; margin-right:15px; width:200px">Information du stage</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
+            <a class="btn btn-primary" asp-action="Deconnexion" style="border-radius:15px; width:180px">Deconnexion</a>
         </li>
     </ul>
-
-        <div style="height:600px;width:600px">
-            <div class="alert alert-info" role="alert">
+    <br />
+        <div style="height:1000px;width:600px ">
+            <div class="alert alert-info" role="alert" style="border-radius:15px; margin-left:210px">
                 @ViewBag.soc
             </div>
 
@@ -41,7 +42,7 @@
                                 <span asp-validation-for="nom" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" style="font-size:large; font-family:'Arial Rounded MT'">Sujet du projet</label>
+                                <label class="control-label" style="large; font-family: 'Arial Rounded MT'">Sujet du projet</label>
                                 <input asp-for="@Model.sujet" class="form-control" />
                                 <span asp-validation-for="sujet" class="text-danger"></span>
                             </div>
@@ -71,7 +72,7 @@
                                 <input type="file" name="file" id="file" /><br><br><br><br>
                                 @if (ViewBag.soc != "vous avez deja marquer ça")
                                 {
-                                    <input type="submit" class="form-control" value="Valider" style="font-family:'Arial Rounded MT'; border-radius:20px; background-color:dodgerblue" />}
+                                    <input type="submit" class="form-control" value="Valider" style="font-family:'Arial Rounded MT'; border-radius:20px; background-color:gold" />}
                             </div>
                         </form>
                     </div>

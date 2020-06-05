@@ -1,4 +1,4 @@
-
+﻿
 @{
     ViewData["Title"] = "Creer_Groupe";
     Layout = "~/Views/Shared/_EtudiantLayout.cshtml";
@@ -6,23 +6,33 @@
 
 
 @model Projet2_Archivage.Models.Groupe
-<h2>Gestion_Des_Groupes @ViewBag.l</h2>
+
+
+    <meta charset="iso-8859-1">
+<br />
+<br />
 <div style="height:800px;width:800px;border-color:black">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" asp-action="connexion" method="post">Espace Etudiant</a>
+            <a class="btn btn-primary" asp-action="connexion" method="post" style="border-radius:15px; margin-right:15px; width:180px">Espace Etudiant</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+            <a class="btn btn-primary" asp-action="Creer_Groupe" style="border-radius:15px; margin-right:15px; width:180px">Groupe Gestion</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
+            <a class="btn btn-primary " asp-action="Information_De_stage" style="border-radius:15px; margin-right:15px; width:200px">Information de stage</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
+            <a class="btn btn-primary " asp-action="Deconnexion" style="border-radius:15px; margin-right:15px; width:180px">Deconnexion</a>
         </li>
-    </ul>
+    </ul><br />
+    <div class="alert alert-light alert-dismissible fade show" style="border-radius:15px">
+        <p style="font-weight:bold; font-style:italic">
+            Vous trouverez ci-dessous une liste des étudiants de votre niveau. Vous avez la possibilité de créer un groupe en cochant les
+            membres de votre groupe.
+        </p>
+    </div>
     <div class="container border mb-2 p-3 border">
 
 
@@ -30,6 +40,9 @@
             @ViewBag.alert
         </div>
         <br />@ViewBag.kh
+
+
+
         <form asp-action="Creer_Groupe" method="post">
 
             <!--  <div class="form-group">
@@ -54,7 +67,7 @@
                             <input type="submit" value="check" />
                         </div>
             -->
-            <input type="submit" class="btn btn-secondary btn-lg btn-block" value="@ViewBag.Gestion" />
+            <input type="submit" class="btn btn-outline-warning btn-lg btn-block" value="@ViewBag.Gestion" style="border-radius:20px" />
         </form>
     </div>
 </div>

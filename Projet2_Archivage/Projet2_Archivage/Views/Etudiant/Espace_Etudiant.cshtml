@@ -1,4 +1,4 @@
-
+﻿
 @{
     ViewData["Title"] = "Espace_Etudiant";
     Layout = "~/Views/Shared/_EtudiantLayout.cshtml";
@@ -12,36 +12,35 @@
 
 <div class="container" data-aos="fade-up" style="padding-top:15px">
 
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <div class="alert alert-light alert-dismissible fade show" role="alert" style="border-radius:20px">
         Bienvenue <strong>@Model.prenom</strong>.
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
 
-</div>
+</div><br />
 
-<div style="height:700px;width:800px;border-color:black">
+<div style="height:1000px;width:800px;border-color:black">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" asp-action="connexion" method="post">Espace etudiant</a>
+            <a class=" btn btn-primary" asp-action="connexion" method="post" style="border-radius:15px; margin-right:15px; width:170px">Espace etudiant</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" asp-action="Creer_Groupe">Gestion du groupe</a>
+            <a class="btn btn-primary" asp-action="Creer_Groupe" style="border-radius:15px; margin-right:15px; width:190px">Gestion du groupe</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Information_De_stage">Information du stage</a>
+            <a class="btn btn-primary " asp-action="Information_De_stage" style="border-radius:15px; margin-right:15px; width:220px">Information du stage</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
+            <a class="btn btn-primary " asp-action="Deconnexion" style="border-radius:15px; width:170px">Deconnexion</a>
         </li>
-    </ul>
+    </ul><br />
     <div class="container border mb-2 p-3 border">
         <div class="col-lg-12 col-md-12 content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="10">
             <div class="info d-flex justify-content-center wi" style="border-radius:20px ; height:800px;width:800px">
-                <div class="section-title  col-lg-10 flxs" style="padding-top:50px">
-
+                <div class="section-title  col-lg-10 flxs">
                     <div class="section-title">
                         <h2>Vos Informations personnelles</h2>
                     </div>

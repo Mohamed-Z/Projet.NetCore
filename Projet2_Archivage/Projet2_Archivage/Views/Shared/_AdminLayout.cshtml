@@ -17,7 +17,7 @@
     <div class="container" data-aos="fade-up" style="padding-top:15px">
         @{ if (Context.Session.GetString("alerts").Equals("true"))
             {
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="alert alert-light alert-dismissible fade show" role="alert" style="border-radius:20px">
                     Bienvenue <strong>@Model.prenom @Model.nom</strong>.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -29,8 +29,8 @@
     </div>
     <div class="row d-flex justify-content-center">
 
-        <div class="col-lg-3 wd" data-aos="fade-up" style="padding-top:10px; padding-left:50px">
-            <div class="sidenav" style="border-radius:20px ; height:350px; width:340px">
+        <div class="col-lg-3 wd" data-aos="fade-up" style="padding-top:50px">
+            <div class="sidenav" style="border-radius: 20px; height:350px">
                 <a href="~/Admins/Modifier" class="@ViewBag.edit" style="font-family:'Arial Rounded MT'">
                     <i class="far fa-user-circle"></i>
                     @Model.prenom @Model.nom

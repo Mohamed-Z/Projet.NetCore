@@ -5,48 +5,48 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-    <div class="we" style="border-radius:20px;height: auto !important;min-height: 850px;">
-        <form>
+<div class="we" style="border-radius:20px;height: auto !important;min-height: 850px;">
+    <form>
 
-            <nav class="navbar navbar-dark bg-dark navbar-expand justify-content-between" style="border-top-left-radius: 10px;border-top-right-radius: 10px;">
+        <nav class="navbar navbar-dark bg-dark navbar-expand justify-content-between" style="border-top-left-radius: 10px;border-top-right-radius: 10px;">
 
-                <div class="justify-content-between d-inline-flex col-6">
-                    <input name="search" id="search" class="form-control mr-sm-2" type="search" placeholder="Taper votre recherche ici" aria-label="Chercher">
-                    <input type="button" value="Chercher" class="btn btn-outline-success my-2 my-sm-0" id="ajax">
-                </div>
-                <div class="d-inline-flex justify-content-between col-4">
-                    <select id="rech" name="rech" class="custom-select col-12">
-                        <option selected disabled value="">Rechercher par</option>
-                        <option value="etudiant">Etudiant</option>
-                        <option value="enseignant">Enseignant</option>
-                        <option value="sujet">Sujet</option>
-                        <option value="description">Description</option>
-                        <option value="filiere">Filière</option>
-                        <option value="type">Société</option>
-                    </select>
-                </div>
-            </nav>
-            <div id="espace_search">
-                <div id="div1">
-                    <p><i class="fas fa-search"></i></p>
-                </div>
+            <div class="justify-content-between d-inline-flex col-6">
+                <input name="search" id="search" class="form-control mr-sm-2" type="search" placeholder="Taper votre recherche ici" aria-label="Chercher">
+                <input type="button" value="Chercher" class="btn btn-outline-success my-2 my-sm-0" id="ajax">
             </div>
-        </form>
-    </div>
-       
-   
+            <div class="d-inline-flex justify-content-between col-4">
+                <select id="rech" name="rech" class="custom-select col-12">
+                    <option selected disabled value="">Rechercher par</option>
+                    <option value="etudiant">Etudiant</option>
+                    <option value="enseignant">Enseignant</option>
+                    <option value="sujet">Sujet</option>
+                    <option value="description">Description</option>
+                    <option value="filiere">Filière</option>
+                    <option value="type">Société</option>
+                </select>
+            </div>
+        </nav>
+        <div id="espace_search">
+            <div id="div1">
+                <p><i class="fas fa-search"></i></p>
+            </div>
+        </div>
+    </form>
+</div>
 
-   <script>
-       $("#ajax").click(function () {
-           $.ajax({
-               type: "POST",
-               url: "/Admins/AfficherDetailsAdmin",
-               data: "search="+$("#search").val()+"&rech="+$("#rech option:selected").val(),
-               success: function (result) {
-                   $("#espace_search").html(result);
-               }
-           });
-       });
-   </script>
+
+
+<script>
+    $("#ajax").click(function () {
+        $.ajax({
+            type: "POST",
+            url: "/Admins/AfficherDetailsAdmin",
+            data: "search=" + $("#search").val() + "&rech=" + $("#rech option:selected").val(),
+            success: function (result) {
+                $("#espace_search").html(result);
+            }
+        });
+    });
+</script>
 
 

@@ -19,7 +19,7 @@
                     </div>
                 </div>
 
-                <input type="submit" class="btn btn-primary" value="Importer les enseignants" style="border-radius:15px;font-family:'Arial Rounded MT'"  />
+                <input type="submit" class="btn btn-primary" value="Importer les enseignants" style="border-radius:15px;font-family:'Arial Rounded MT'" />
 
                 <br />
                 <br />
@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <input type="submit" class="btn btn-primary" value="Importer les étudiants" style="border-radius:15px;font-family:'Arial Rounded MT'"/>
+                <input type="submit" class="btn btn-primary" value="Importer les étudiants" style="border-radius:15px;font-family:'Arial Rounded MT'" />
 
                 <br />
                 <br />
@@ -57,23 +57,23 @@
                 }
             }
 
-            </div>
         </div>
     </div>
+</div>
 
 
 
-            
-            <script>
-                $("input[type=file]").change(function () {
-                    var fieldVal = $(this).val();
 
-                    // Change the node's value by removing the fake path (Chrome)
-                    fieldVal = fieldVal.replace("C:\\fakepath\\", "");
+<script>
+    $("input[type=file]").change(function () {
+        var fieldVal = $(this).val();
 
-                    if (fieldVal != undefined || fieldVal != "") {
-                        $(this).next(".custom-file-label").attr('data-content', fieldVal);
-                        $(this).next(".custom-file-label").text(fieldVal);
-                    }
-                });
-            </script>
+        // Change the node's value by removing the fake path (Chrome)
+        fieldVal = fieldVal.replace("C:\\fakepath\\", "");
+
+        if (fieldVal != undefined || fieldVal != "") {
+            $(this).next(".custom-file-label").attr('data-content', fieldVal);
+            $(this).next(".custom-file-label").text(fieldVal);
+        }
+    });
+</script>

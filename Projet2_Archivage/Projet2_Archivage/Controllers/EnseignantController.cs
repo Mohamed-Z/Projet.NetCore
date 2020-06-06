@@ -475,5 +475,24 @@ namespace Projet2_Archivage.Controllers
                 return View("PageInformations");
             }
         }
+        
+        //moteur de recherche
+        public PartialViewResult AfficherDetails(string search, string rech)
+        {
+            if (search == null)
+            {
+                search = "00000000000000";
+            }
+            if (rech == null)
+            {
+                rech = "description";
+            }
+
+            SearchModelAdmin sm = new SearchModelAdmin(_context);
+
+            sm.searchBy(rech, search);
+
+            return PartialView("AfficherDetails", sm);
+        }
     }
 }

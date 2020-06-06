@@ -36,9 +36,7 @@ namespace Projet2_Archivage.Models
         public string description { get; set; }
 
 
-        [ForeignKey("File")]
-        public int id_f { get; set; }
-        public virtual File File { get; set; }
+        public Nullable<int> id_f { get; set; }
         
     }
 }

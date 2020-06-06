@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -46,17 +48,38 @@
                     <li><a href="#about">A Propos</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#team">Equipe</a></li>
-                    <li class="drop-down">
-                        <a href="">Espace intranet</a>
-                        <ul>
-                            <li class="drop-down">
-                                <a href="#">Administrateur</a>
-                                <ul>
-                                    <li><a href="~/Admins/Inscription">Inscription</a></li>
-                                </ul>
 
-                        </ul>
-                    </li>
+                    @{
+                        if (Context.Session.GetInt32("admin_id") != null)
+                        {
+                            <li><a href="~/Admins/EspaceAdmin">Espace Admin</a></li>
+                        }
+                        else if (Context.Session.GetInt32("enseignant") != null)
+                        {
+                            <li><a href="~/Enseignant/PageInformations">Espace Enseignant</a></li>
+                        }
+                        else if (Context.Session.GetInt32("etudiant") != null)
+                        {
+                            <li><a href="~/Etudiant/Espace_Etudiant">Espace Etudiant</a></li>
+                        }
+                        else
+                        {
+                            <li class="drop-down">
+                                <a href="">Espace intranet</a>
+                                <ul>
+                                    <li class="drop-down">
+                                        <a href="#">Administrateur</a>
+                                        <ul>
+                                            <li><a href="~/Admins/Inscription">Inscription</a></li>
+                                        </ul>
+
+                                </ul>
+                            </li>
+                        }
+                    }
+
+
+
                     <li><a href="#contact">Contact</a></li>
 
                 </ul>

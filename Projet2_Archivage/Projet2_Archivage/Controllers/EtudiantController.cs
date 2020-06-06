@@ -168,7 +168,7 @@ namespace Projet2_Archivage.Controllers
             Groupe grp = new Groupe();
             var cne = HttpContext.Session.GetInt32("etudiant");
             Etudiant e = context.etudiants.SingleOrDefault(p => p.cne == cne);
-
+            grp.id_filiere = e.id_fil;
             context.groupes.Add(grp);
             context.SaveChanges();
             this.idgrp = grp.id_grp;

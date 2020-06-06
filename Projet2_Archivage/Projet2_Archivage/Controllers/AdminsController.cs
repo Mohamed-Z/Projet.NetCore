@@ -390,7 +390,14 @@ namespace Projet2_Archivage.Controllers
             {
                 list_grp.Add(g.id_grp);
                 Societe s = db.societes.Find(g.id_soc);
-                list_societes.Add(s.nom);
+                if (s != null)
+                {
+                    list_societes.Add(s.nom);
+                }
+                else
+                {
+                    list_societes.Add("");
+                }
                 var y = (from m in db.groupeMembres
                          join e in db.etudiants on m.id_et equals e.cne
                          where m.grp_id==g.id_grp

@@ -30,18 +30,18 @@
 </div>
 
 
-<div class="container border mb-2 p-3 border" style="width:900px">
+<div class="container" style="width:900px">
     <div class="content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="100">
         <div class="info d-flex justify-content wi" style="border-radius:20px ;height:400px;width:900px">
             <div class="float-right" style="border-color:black;height:400px;width:400px;">
                 <div style="border:dashed; border-radius:10px;width:800px; height:200px;margin-top:50px">
                     <form asp-action="Rapport_final" method="post" enctype="multipart/form-data" style="padding:5%">
-                        <div class="form-group">
+                        <div class="input-group mb-3">
                             <div class="custom-file">
-                                <input type="file" name="file" id="file" class="custom-file-input" /><br><br>
-                                <label class="control-label custom-file-label" style="width:500px;margin-left:150px"><i class="far fa-file-pdf"></i> Choisissez le rapport final  de votre projet</label>
+                                 <input type="file" name="file" class="custom-file-input" id="file" aria-describedby="inputGroupFileAddon03" required />
+                                <label class="custom-file-label" for="file" style="width:500px;margin-left:150px"><i class="far fa-file-pdf"></i> Choisissez le rapport final  de votre projet</label>
 
-                            </div>   
+                            </div>
                         </div>
                         <input type="submit" class="form-control btn btn-primary" value="Deposer" style="border-radius:20px; " />
                     </form>
@@ -50,3 +50,17 @@
         </div>
     </div>
 </div>
+
+<script>
+                $("input[type=file]").change(function () {
+                    var fieldVal = $(this).val();
+
+                    // Change the node's value by removing the fake path (Chrome)
+                    fieldVal = fieldVal.replace("C:\\fakepath\\", "");
+
+                    if (fieldVal != undefined || fieldVal != "") {
+                        $(this).next(".custom-file-label").attr('data-content', fieldVal);
+                        $(this).next(".custom-file-label").text(fieldVal);
+                    }
+                });
+</script>

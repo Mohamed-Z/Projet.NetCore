@@ -39,19 +39,21 @@ namespace Projet2_Archivage.Models
             {
                 listenc.Add(i.enc.nom + " " + i.enc.prenom);
                 listt.Add(i.societe);
-                listr.Add(i.grps);
+                
                 listf.Add(i.gp);
-                File f = db.files.Where(p => p.groupe_Id == i.grps && p.id_tp==5).SingleOrDefault();
+                File f = db.files.Where(p => p.groupe_Id == i.grps && p.id_tp==6).SingleOrDefault();
                 Societe sos = i.sos;
                 lists.Add(sos.sujet);
                 listd.Add(sos.description);
                 if (f != null)
                 {
+                    listr.Add(f.Id);
                     listdt.Add(f.date_disp);
                     listbool.Add(true);
                 }
                 else
                 {
+                    listr.Add(0);
                     listdt.Add("");
                     listbool.Add(false);
                 }

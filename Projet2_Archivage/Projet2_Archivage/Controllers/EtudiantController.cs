@@ -537,6 +537,19 @@ namespace Projet2_Archivage.Controllers
                 numeroderapport = numeroderapport - 1;
                 ViewBag.nbr = numeroderapport+"eme upload";
             }
+            
+            //recuperation des dates de depot
+            List<String> liste_dates = new List<String>();
+            DateTime date_rap1 = Convert.ToDateTime(context.calendriers.Where(c => c.Description == "Dernier_délai_rapport_avanc1").Select(s=> s.Date).FirstOrDefault());
+            DateTime date_rap2 = Convert.ToDateTime(context.calendriers.Where(c => c.Description == "Dernier_délai_rapport_avanc2").Select(s => s.Date).FirstOrDefault());
+            DateTime date_rap3 = Convert.ToDateTime(context.calendriers.Where(c => c.Description == "Dernier_délai_rapport_avanc3").Select(s => s.Date).FirstOrDefault());
+            DateTime date_rap4 = Convert.ToDateTime(context.calendriers.Where(c => c.Description == "Dernier_délai_rapport_avanc4").Select(s => s.Date).FirstOrDefault());
+            liste_dates.Add(date_rap1.ToString("MM-dd-yyyy"));
+            liste_dates.Add(date_rap2.ToString("MM-dd-yyyy"));
+            liste_dates.Add(date_rap3.ToString("MM-dd-yyyy"));
+            liste_dates.Add(date_rap4.ToString("MM-dd-yyyy"));
+            ViewBag.liste_dates = liste_dates;
+            
             return View();
         }
 

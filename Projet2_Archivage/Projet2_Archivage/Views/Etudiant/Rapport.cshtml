@@ -55,7 +55,7 @@
                     
                     <div class="form-group">
                         <label>Date de depot du premier rapport: </label>
-                        <span class="text-danger">@{if (ViewBag.liste_dates[0] != null)
+                        <span class="text-danger">@{if (ViewBag.liste_dates[0] != null && ViewBag.liste_dates[0] != "01-01-0001")
                             {@ViewBag.liste_dates[0]}
                         else
                         {<span class="badge badge-primary">prochainement</span>}}</span>
@@ -63,7 +63,7 @@
 
                     <div class="form-group">
                         <label class="control-label">Date de depot du deuxieme rapport: </label>
-                        <span class="text-danger">@{if (ViewBag.liste_dates[0] != null)
+                        <span class="text-danger">@{if (ViewBag.liste_dates[0] != null && ViewBag.liste_dates[0] != "01-01-0001")
                             {@ViewBag.liste_dates[0]}
                         else
                         {<span class="badge badge-primary">prochainement</span>}}</span>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label">Date de depot du troisieme rapport: </label>
-                        <span class="text-danger">@{if (ViewBag.liste_dates[0] != null)
+                        <span class="text-danger">@{if (ViewBag.liste_dates[0] != null && ViewBag.liste_dates[0] != "01-01-0001")
                             {@ViewBag.liste_dates[0]}
                         else
                         {<span class="badge badge-primary">prochainement</span>}}</span>
@@ -82,7 +82,7 @@
 
                     <div class="form-group">
                         <label class="control-label">Date de depot du quatrieme rapport: </label>
-                        <span class="text-danger">@{if (ViewBag.liste_dates[0] != null)
+                        <span class="text-danger">@{if (ViewBag.liste_dates[0] != null && ViewBag.liste_dates[0] != "01-01-0001")
                             {@ViewBag.liste_dates[0]}
                         else
                         {<span class="badge badge-primary">prochainement</span>}}</span>

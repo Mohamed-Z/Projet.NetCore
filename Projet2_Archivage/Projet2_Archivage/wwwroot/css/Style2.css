@@ -118,3 +118,43 @@ div.cntr{
 .clu {
     background: #e5e5e5;
 }
+
+.button_valider {
+    padding: 20px 40px;
+    background: none;
+    border: none;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    cursor: pointer;
+}
+
+    button_valider:after, button_valider:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border: 2px solid #000;
+        -webkit-transition: -webkit-transform 0.2s;
+        transition: -webkit-transform 0.2s;
+        transition: transform 0.2s;
+        transition: transform 0.2s, -webkit-transform 0.2s;
+    }
+
+    button_valider:after {
+        -webkit-transform: translate(3px, 3px);
+        transform: translate(3px, 3px);
+    }
+
+    button_valider:before {
+        -webkit-transform: translate(-3px, -3px);
+        transform: translate(-3px, -3px);
+    }
+
+    button_valider:hover:after, button_valider:hover:before {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }

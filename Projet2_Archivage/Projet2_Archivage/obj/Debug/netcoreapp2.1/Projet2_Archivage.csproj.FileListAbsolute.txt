@@ -223,7 +223,6 @@ C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Proj
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Projet2_Archivage.pdb
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Projet2_Archivage.Views.dll
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Projet2_Archivage.Views.pdb
-C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.csprojAssemblyReference.cache
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.RazorAssemblyInfo.cache
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.RazorAssemblyInfo.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
@@ -283,3 +282,5 @@ C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Proj
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Notes.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Planning.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherNotes.cshtml.g.cs
+C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.csprojAssemblyReference.cache
+C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EtudiantLayout2.cshtml.g.cs

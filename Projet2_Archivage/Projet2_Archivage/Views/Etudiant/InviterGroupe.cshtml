@@ -1,98 +1,107 @@
 
 @{
     ViewData["Title"] = "InviterGroupe";
+
 }
 
-<h2>InviterGroupe</h2>
 
 @model IEnumerable<Projet2_Archivage.Models.GroupeMembre>
 @{
     ViewBag.Title = "Création de Groupe";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_EtudiantLayout2.cshtml";
 }
-<div style="height:800px;width:800px;border-color:black">
+<div style="width:800px;border-color:black; margin-top:80px">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" asp-action="connexion" method="post">Espace Etudiant </a>
+            <a class="btn btn-primary" asp-action="connexion" method="post" style="border-radius:20px; width:180px; margin-right:15px">Espace Etudiant </a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+            <a class="btn btn-primary" asp-action="Creer_Groupe" style="border-radius:20px; width:180px; margin-right:15px">Gestion du groupe</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
+            <a class="btn btn-primary" asp-action="Information_De_stage" style="border-radius:20px; width:210px; margin-right:20px">Information du stage</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
+            <a class="btn btn-primary" asp-action="Deconnexion" style="border-radius:20px; width:180px">Deconnexion</a>
         </li>
     </ul>
+    <br />
 
-    <div class="container border mb-2 p-3 border">
-
-
-
-
-    </div><br />
-
-    <h2 align="center">Créer votre groupe</h2><br />
-    <div class="container p-3 m-2">
-
-        <div class="row">
-            <div class="col-md-6">
-                <h5 align="center">Etudiants de ce groupe</h5>
-                <table class="table table-striped">
-                    <tr>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Etat</th>
-                    </tr>
-
-                    @foreach (var mm in Model)
-                    {
-                        <tr>
-                            <td>@mm.Etudiant.nom</td>
-                            <td>@mm.Etudiant.prenom</td>
-                            <td>@mm.Etudiant.tel</td>
-
-                        </tr>
-                    }
-                </table>
-            </div>
-            <div class="col-md-6">
-
-                <form asp-action="AddToGroup" method="post">
-                    <h5 align="center">Inviter des étudiants</h5>
-                    <select class="selectpicker" name="invitedEtudiant">
-                        @if (ViewBag.e != null)
-                        {
-                            @foreach (var Etudiant in @ViewBag.e)
-                            {
-                                <option value="@Etudiant.cne">@Etudiant.nom</option>
-                            }}
-                    </select>
-
-                    <br />
-                    <div align="center">
-                        @ViewBag.etat
-                        @ViewBag.groupp
-                        @ViewBag.cne
-                        <button class="btn btn-primary" name="x" value="ajouter">Ajouter Etudiant</button>
+    <div class="container border mb-2 p-3 border" style="width:900px">
+        <div class="content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="100">
+            <div class="info d-flex justify-content wi" style="border-radius:20px ;height:700px;width:900px">
+                <div class="section-title  col-lg-12 flxs" style="padding-top:50px">
+                    <div class="section-title">
+                        <h2>Créer votre groupe</h2>
                     </div>
+                    <label class="alert alert-danger alert-dismissible fade show" style="border-radius:20px; font-style:italic; font-weight:bold">
+                        Vous trouverez ci-dessous la liste de tous les étudiants de votre niveau. Vous avez la possibilité de créer un groupe de PFE en séléctionnant les
+                        membres de votre groupe.
+                    </label><br />
 
+                    <div class="container p-3 m-2">
 
-                </form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 align="center" style="font-weight:bold; font-family:Century">Etudiants de ce groupe</h5><br />
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Prénom</th>
+                                        <th>Etat</th>
+                                    </tr>
+
+                                    @foreach (var mm in Model)
+                                    {
+                                        <tr>
+                                            <td>@mm.Etudiant.nom</td>
+                                            <td>@mm.Etudiant.prenom</td>
+                                            <td>@mm.Etudiant.tel</td>
+
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+
+                                <form asp-action="AddToGroup" method="post" style="border:dotted; border-radius:10px">
+                                    <br />
+                                    <h5 align="center" style="font-weight:bold; font-family:Century">Inviter des étudiants</h5>
+                                    <select class="selectpicker" name="invitedEtudiant" style="width:150px">
+                                        @if (ViewBag.e != null)
+                                        {
+                                            @foreach (var Etudiant in @ViewBag.e)
+                                            {
+                                                <option value="@Etudiant.cne">@Etudiant.nom</option>
+                                            }}
+                                    </select>
+
+                                    <br />
+                                    <div align="center">
+                                        @ViewBag.etat
+                                        @ViewBag.groupp
+                                        @ViewBag.cne
+                                    </div>
+
+                                    <div style="margin-top:60px; margin-right:10px">
+                                        <button class="btn btn-primary" name="x" value="ajouter" style="font-family:'Arial Rounded MT'; border-radius:20px; width:200px">Ajouter cet étudiant</button>
+                                    </div><br />
+                                </form>
+
+                            </div>
+
+                        </div>
+
+                    </div><br /><br />
+
+                    <div class="">
+                        <a class="btn btn-outline-warning " asp-action="Rapport" method="get" style="border-radius:20px; width:300px">Déposer le rapport d'avancement</a><br /><br />
+                        <a class="btn btn-outline-danger" asp-action="Rapport_final" method="get" style="border-radius:20px; width:300px">Déposer le rapport final</a>
+                    </div>
+                </div>
             </div>
-
         </div>
-
-    </div><br /><br />
-    <ul>
-        <li class="nav-item">
-            <a class="nav-link " asp-action="Rapport" method="get">inserer rapport d'avancement</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link " asp-action="Rapport_final" method="get">inserer rapport final</a>
-        </li>
-    </ul>
-</div>
+    </div>
+    </div>

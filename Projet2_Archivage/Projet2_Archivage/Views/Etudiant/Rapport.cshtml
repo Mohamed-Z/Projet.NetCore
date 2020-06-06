@@ -1,71 +1,105 @@
 
 @{
     ViewData["Title"] = "Rapport";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_EtudiantLayout2.cshtml";
 }
 
-<h2>Rapport</h2>
+<link href="~/css/Style2.css" rel="stylesheet" />
 
 
+@model Projet2_Archivage.Models.Etudiant
 
-<div class="float-right" style="border-color:black;height:400px;width:400px;">
-
-    <div class="alert alert-info" role="alert">
-        <div class="form-group">
-            <label class="control-label">Date Depot premier rapport </label>
-
-            <span class="text-danger">2020/6/2</span>
-        </div>
-        <div class="form-group">
-            <label class="control-label">Date Depot deuxieme rapport</label>
-
-            <span class="text-danger">2020/ 6/15</span>
-        </div>
-        <div class="form-group">
-            <label class="control-label">Date Depot troisieme rapport</label>
-
-            <span class="text-danger">2020/ 7/ 1</span>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label">Date Depot quatrieme rapport</label>
-
-            <span class="text-danger">2020/ 7/ 15</span>
-        </div>
-
-    </div>
-
-</div>
-
-<div style="height:800px;width:800px;border-color:black">
+<br />
+<div style="width:800px;border-color:black">
 
     <ul class="nav nav-pills">
 
         <li class="nav-item">
-            <a class="nav-link " asp-action="connexion" method="post">Espace Etudiant</a>
+            <a class="btn btn-primary" asp-action="connexion" method="post" style="border-radius:20px; width:180px; margin-right:15px">Espace Etudiant</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" asp-action="Creer_Groupe">Groupe Gestion</a>
+            <a class="btn btn-primary" asp-action="Creer_Groupe" style="border-radius:20px; width:180px; margin-right:15px">Gestion du groupe</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Information_De_stage">information de stage</a>
+            <a class="btn btn-primary" asp-action="Information_De_stage" style="border-radius:20px; width:210px; margin-right:20px">Information du stage</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link " asp-action="Deconnexion">Deconnexion</a>
+            <a class="btn btn-primary" asp-action="Deconnexion" style="border-radius:20px; width:180px">Deconnexion</a>
         </li>
-    </ul>
-    <div class="alert alert-danger" role="alert">
-        @ViewBag.nbr
-    </div>
-    <div class="alert alert-danger" role="alert">
-        @ViewBag.temps
-    </div>
-    <form asp-action="Rapport" method="post" enctype="multipart/form-data">
-        <div class="form-group">
-            <label class="control-label">Choisissez le fichier de votre projet</label>
-            <input type="file" name="file" id="file" /><br><br>
-            <input type="submit" class="form-control" value="valider" />
+    </ul><br />
+
+    @if (ViewBag.nbr != null)
+    {
+        <div class="alert alert-danger" role="alert" style="border-radius:15px; width:250px; margin-left:300px">
+            @ViewBag.nbr
         </div>
-    </form>
+    }
+
+    @if (ViewBag.temps != null)
+    {
+        <div class="alert alert-danger" role="alert" style="border-radius:15px; width:250px; margin-left:300px">
+            @ViewBag.temps
+        </div>
+    }
 </div>
+
+
+<div class="container border mb-2 p-3 border" style="width:900px">
+    <div class="content-item" style="text-align:left" data-aos="fade-up" data-aos-delay="100">
+        <div class="info d-flex justify-content wi" style="border-radius:20px ;height:700px;width:900px">
+            <div class="float-right" style="border-color:black;height:400px;width:400px;">
+                <h3 style="font-weight:bold">N.B:</h3>
+                <div class="alert alert-danger" role="alert" style="width:800px; font-weight:bold; text-align-last:center; border-radius:20px">
+                    <div class="form-group">
+                        <label>Date limite de depot du premier rapport: </label>
+                        <span class="text-danger">2020/6/2</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Date limite de depot du deuxieme rapport: </label>
+
+                        <span class="text-danger">2020/ 6/15</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Date limite de depot du troisieme rapport: </label>
+
+                        <span class="text-danger">2020/ 7/ 1</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Date limite de depot du quatrieme rapport: </label>
+
+                        <span class="text-danger">2020/ 7/ 15</span>
+                    </div>
+
+                </div>
+
+
+                <div style="border:dashed; border-radius:10px;width:800px; height:200px;margin-top:100px">
+
+                    <form asp-action="Rapport" method="post" enctype="multipart/form-data">
+                        <div class="custom-file" style="text-align-last:center">
+                            <br />
+                            <label style="font-family:'Arial Rounded MT';font-size:large">Choisissez le fichier de votre projet</label><br />
+
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" name="file" class="custom-file-input" id="file" aria-describedby="inputGroupFileAddon03" required />
+                                    <label class="custom-file-label" for="inputGroupFile03" style="width:500px;margin-left:150px"><i class="far fa-file-pdf"></i> Choisir votre projet</label>
+                                </div>
+                            </div><br />
+                            <input type="submit" class="btn btn-primary" value="Deposer" style="border-radius:20px; width:200px" />
+                                <a class="btn btn-dark" href="~/Etudiant/InviterGroupe" style="border-radius:20px; margin-left:100px; width:200px">Retour</a>
+                        </div>
+
+                    </form>
+                    
+                </div>
+
+            </div>
+
+        </div>
+        
+    </div>
+</div>
+

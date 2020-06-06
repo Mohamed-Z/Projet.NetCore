@@ -269,15 +269,15 @@
                         <thead class="thead-light">
                             <tr>
 
-                                <th scope="col" class="col"><i class="fas fa-italic"></i> Groupe ID </th>
-                                <th scope="col" class="col"><i class="fas fa-users"></i> Membres </th>
-                                <th scope="col" class="col"><i class="fas fa-user-tie"></i> Encadrant Interne </th>
-                                <th scope="col" class="col"><i class="fas fa-chalkboard-teacher"></i> Encadrant Externe </th>
-                                <th scope="col" class="col"><i class="fas fa-building"></i> Société | Ville </th>
-                                <th scope="col" class="col"><i class="fas fa-pen-square"></i> Sujet </th>
-                                <th scope="col" class="col"><i class="fas fa-file-pdf"></i> Rapports Avancements </th>
-                                <th scope="col" class="col"><i class="fas fa-file-pdf"></i> Rapport Final </th>
-                                <th scope="col" class="col"><i class="fas fa-calendar-alt"></i> Date Soutenance </th>
+                                <th scope="col" ><i class="fas fa-angle-right"></i> ID </th>
+                                <th scope="col" ><i class="fas fa-users"></i> Membres Groupes</th>
+                                <th scope="col" ><i class="fas fa-user-tie"></i> Encadrant Interne </th>
+                                <th scope="col" ><i class="fas fa-chalkboard-teacher"></i> Encadrant Externe </th>
+                                <th scope="col" ><i class="fas fa-building"></i> Société et Ville</th>
+                                <th scope="col" ><i class="fas fa-pen-square"></i> Sujet du PFE</th>
+                                <th scope="col" ><i class="fas fa-file-pdf"></i> Rapports Avancements </th>
+                                <th scope="col" ><i class="fas fa-file-pdf"></i> Rapport Final </th>
+                                <th scope="col" ><i class="fas fa-calendar-alt"></i> Date Soutenance </th>
 
                             </tr>
                         </thead>
@@ -288,11 +288,11 @@
                                     <td scope="row"> @pfe.Groupe_id </td>
                                     <td>
                                         @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
-                                            { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
+                                            {<span>.</span> @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
                                         }
                                         <br />
                                         @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
-                                            { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
+                                            {<span>.</span> @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
                                         }
                                     </td>
                                     <td> @pfe.Encadrant_interne</td>
@@ -363,15 +363,15 @@
                         <thead class="thead-light">
                             <tr>
 
-                                <th scope="col" class="col"><i class="fas fa-italic"></i> Groupe ID </th>
-                                <th scope="col" class="col"><i class="fas fa-users"></i> Membres </th>
-                                <th scope="col" class="col"><i class="fas fa-user-tie"></i> Encadrant Interne </th>
-                                <th scope="col" class="col"><i class="fas fa-chalkboard-teacher"></i> Encadrant Externe </th>
-                                <th scope="col" class="col"><i class="fas fa-building"></i> Société | Ville </th>
-                                <th scope="col" class="col"><i class="fas fa-pen-square"></i> Sujet </th>
-                                <th scope="col" class="col"><i class="fas fa-file-pdf"></i> Rapports Avancements </th>
-                                <th scope="col" class="col"><i class="fas fa-file-pdf"></i> Rapport Final </th>
-                                <th scope="col" class="col"><i class="fas fa-calendar-alt"></i> Date Soutenance </th>
+                                <th scope="col"><i class="fas fa-angle-right"></i> ID </th>
+                                <th scope="col"><i class="fas fa-users"></i> Membres Groupes</th>
+                                <th scope="col"><i class="fas fa-user-tie"></i> Encadrant Interne </th>
+                                <th scope="col"><i class="fas fa-chalkboard-teacher"></i> Encadrant Externe </th>
+                                <th scope="col"><i class="fas fa-building"></i> Société et Ville</th>
+                                <th scope="col"><i class="fas fa-pen-square"></i> Sujet du PFE</th>
+                                <th scope="col"><i class="fas fa-file-pdf"></i> Rapports Avancements </th>
+                                <th scope="col"><i class="fas fa-file-pdf"></i> Rapport Final </th>
+                                <th scope="col"><i class="fas fa-calendar-alt"></i> Date Soutenance </th>
 
                             </tr>
                         </thead>
@@ -382,10 +382,10 @@
                                     <td scope="row"> @pfe.Groupe_id </td>
                                     <td>
                                         @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
-                                            { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
+                                            { <span>.</span> @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
                                         } <br />
                                         @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
-                                            { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
+                                            { <span>.</span> @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
                                         }
                                     </td>
                                     <td> @pfe.Encadrant_interne</td>
@@ -455,15 +455,15 @@
                         <thead class="thead-light">
                             <tr>
 
-                                <th scope="col" class="col"><i class="fas fa-italic"></i> Groupe ID </th>
-                                <th scope="col" class="col"><i class="fas fa-users"></i> Membres </th>
-                                <th scope="col" class="col"><i class="fas fa-user-tie"></i> Encadrant Interne </th>
-                                <th scope="col" class="col"><i class="fas fa-chalkboard-teacher"></i> Encadrant Externe </th>
-                                <th scope="col" class="col"><i class="fas fa-building"></i> Société | Ville </th>
-                                <th scope="col" class="col"><i class="fas fa-pen-square"></i> Sujet </th>
-                                <th scope="col" class="col"><i class="fas fa-file-pdf"></i> Rapports Avancements </th>
-                                <th scope="col" class="col"><i class="fas fa-file-pdf"></i> Rapport Final </th>
-                                <th scope="col" class="col"><i class="fas fa-calendar-alt"></i> Date Soutenance </th>
+                                <th scope="col"><i class="fas fa-angle-right"></i> ID </th>
+                                <th scope="col"><i class="fas fa-users"></i> Membres Groupes</th>
+                                <th scope="col"><i class="fas fa-user-tie"></i> Encadrant Interne </th>
+                                <th scope="col"><i class="fas fa-chalkboard-teacher"></i> Encadrant Externe </th>
+                                <th scope="col"><i class="fas fa-building"></i> Société et Ville</th>
+                                <th scope="col"><i class="fas fa-pen-square"></i> Sujet du PFE</th>
+                                <th scope="col"><i class="fas fa-file-pdf"></i> Rapports Avancements </th>
+                                <th scope="col"><i class="fas fa-file-pdf"></i> Rapport Final </th>
+                                <th scope="col"><i class="fas fa-calendar-alt"></i> Date Soutenance </th>
 
                             </tr>
                         </thead>
@@ -474,10 +474,10 @@
                                     <td scope="row"> @pfe.Groupe_id </td>
                                     <td>
                                         @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
-                                            { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
+                                            { <span>.</span> @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
                                         } <br />
                                         @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
-                                            { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
+                                            { <span>.</span> @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
                                         }
                                     </td>
                                     <td> @pfe.Encadrant_interne</td>
@@ -547,15 +547,15 @@
                         <thead class="thead-light">
                             <tr>
 
-                                <th scope="col" class="col"><i class="fas fa-italic"></i> Groupe ID </th>
-                                <th scope="col" class="col"><i class="fas fa-users"></i> Membres </th>
-                                <th scope="col" class="col"><i class="fas fa-user-tie"></i> Encadrant Interne </th>
-                                <th scope="col" class="col"><i class="fas fa-chalkboard-teacher"></i> Encadrant Externe </th>
-                                <th scope="col" class="col"><i class="fas fa-building"></i> Société | Ville </th>
-                                <th scope="col" class="col"><i class="fas fa-pen-square"></i> Sujet </th>
-                                <th scope="col" class="col"><i class="fas fa-file-pdf"></i> Rapports Avancements </th>
-                                <th scope="col" class="col"><i class="fas fa-file-pdf"></i> Rapport Final </th>
-                                <th scope="col" class="col"><i class="fas fa-calendar-alt"></i> Date Soutenance </th>
+                                <th scope="col"><i class="fas fa-angle-right"></i> ID </th>
+                                <th scope="col"><i class="fas fa-users"></i> Membres Groupes</th>
+                                <th scope="col"><i class="fas fa-user-tie"></i> Encadrant Interne </th>
+                                <th scope="col"><i class="fas fa-chalkboard-teacher"></i> Encadrant Externe </th>
+                                <th scope="col"><i class="fas fa-building"></i> Société et Ville</th>
+                                <th scope="col"><i class="fas fa-pen-square"></i> Sujet du PFE</th>
+                                <th scope="col"><i class="fas fa-file-pdf"></i> Rapports Avancements </th>
+                                <th scope="col"><i class="fas fa-file-pdf"></i> Rapport Final </th>
+                                <th scope="col"><i class="fas fa-calendar-alt"></i> Date Soutenance </th>
 
                             </tr>
                         </thead>
@@ -566,10 +566,10 @@
                                     <td scope="row"> @pfe.Groupe_id </td>
                                     <td>
                                         @{ if (pfe.Membres.Count > 0 && pfe.Membres != null)
-                                            { @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
+                                            { <span>.</span> @pfe.Membres[0].nom @espace @pfe.Membres[0].prenom }
                                         } <br />
                                         @{ if (pfe.Membres.Count > 1 && pfe.Membres != null)
-                                            { @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
+                                            { <span>.</span> @pfe.Membres[1].nom @espace @pfe.Membres[1].prenom }
                                         }
                                     </td>
                                     <td> @pfe.Encadrant_interne</td>

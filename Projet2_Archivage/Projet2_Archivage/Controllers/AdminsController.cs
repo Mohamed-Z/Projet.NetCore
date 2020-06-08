@@ -276,8 +276,16 @@ namespace Projet2_Archivage.Controllers
             {
                 await file.CopyToAsync(stream);
             }
-            InsertExcelData(filepath, filename);
-            HttpContext.Session.SetString("succes", "enseignant");
+
+            try
+            {
+                InsertExcelData(filepath, filename);
+                HttpContext.Session.SetString("succes", "enseignant");
+            }
+            catch{
+                HttpContext.Session.SetString("succes", "enseignant_error");
+            }
+          
             return RedirectToAction("Importation");
         }
 
@@ -291,8 +299,15 @@ namespace Projet2_Archivage.Controllers
             {
                 await file.CopyToAsync(stream);
             }
-            InsertExcelData2(filepath, filename);
-            HttpContext.Session.SetString("succes", "etudiant");
+            try
+            {
+                InsertExcelData2(filepath, filename);
+                HttpContext.Session.SetString("succes", "etudiant");
+            }catch(Exception e)
+            {
+                HttpContext.Session.SetString("succes", "etudiant_error");
+            }
+            
             return RedirectToAction("Importation");
         }
 

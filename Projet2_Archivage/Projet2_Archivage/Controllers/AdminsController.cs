@@ -282,7 +282,7 @@ namespace Projet2_Archivage.Controllers
                 InsertExcelData(filepath, filename);
                 HttpContext.Session.SetString("succes", "enseignant");
             }
-            catch{
+            catch(Exception e){
                 HttpContext.Session.SetString("succes", "enseignant_error");
             }
           

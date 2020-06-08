@@ -19,13 +19,18 @@
                     </div>
                 </div>
 
-                <input type="submit" class="btn btn-primary" value="Importer les enseignants" style="border-radius:15px;font-family:'Arial Rounded MT'"  />
+                <input type="submit" class="btn btn-primary" value="Importer les enseignants" style="border-radius:15px;font-family:'Arial Rounded MT'" />
 
                 <br />
                 <br />
                 if (Context.Session.GetString("succes").Equals("enseignant"))
                 {
-                    <p style="color:green"><i class="fas fa-check-circle"></i> La liste des enseignants a été importée avec succés.</p>
+                    <span style="color:green"><i class="fas fa-check-circle"></i> La liste des enseignants a été importée avec succés.</span>
+                    Context.Session.SetString("succes", "null");
+                }
+                else if (Context.Session.GetString("succes").Equals("enseignant_error"))
+                {
+                    <span style="color:red"><i class="fas fa-exclamation-circle"></i> Il y a un erreur !!</span>
                     Context.Session.SetString("succes", "null");
                 }
             }
@@ -46,18 +51,23 @@
                     </div>
                 </div>
 
-                <input type="submit" class="btn btn-primary" value="Importer les étudiants" style="border-radius:15px;font-family:'Arial Rounded MT'"/>
+                <input type="submit" class="btn btn-primary" value="Importer les étudiants" style="border-radius:15px;font-family:'Arial Rounded MT'" />
 
                 <br />
                 <br />
                 if (Context.Session.GetString("succes").Equals("etudiant"))
                 {
-                    <p style="color:green"><i class="fas fa-check-circle"></i> La liste des étudiants a été importée avec succés</p>
+                    <span style="color:green"><i class="fas fa-check-circle"></i> La liste des étudiants a été importée avec succés</span>
+                    Context.Session.SetString("succes", "null");
+                }
+                else if (Context.Session.GetString("succes").Equals("etudiant_error"))
+                {
+                    <span style="color:red"><i class="fas fa-exclamation-circle"></i> Il y a un erreur !!</span>
                     Context.Session.SetString("succes", "null");
                 }
             }
 
-            </div>
+        </div>
         </div>
     </div>
 

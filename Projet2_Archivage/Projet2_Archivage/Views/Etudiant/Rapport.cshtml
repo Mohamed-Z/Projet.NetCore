@@ -66,8 +66,8 @@
                 <div class="form-group">
                     <label class="control-label">Date de depot du deuxieme rapport: </label>
                     <span class="text-danger">
-                        @{if (ViewBag.liste_dates[0] != null && ViewBag.liste_dates[0] != "01-01-0001")
-                            {@ViewBag.liste_dates[0]}
+                        @{if (ViewBag.liste_dates[1] != null && ViewBag.liste_dates[1] != "01-01-0001")
+                            {@ViewBag.liste_dates[1]}
                         else
                         {<span class="badge badge-primary">prochainement</span>}}
                 </span>
@@ -77,8 +77,8 @@
             <div class="form-group">
                 <label class="control-label">Date de depot du troisieme rapport: </label>
                 <span class="text-danger">
-                    @{if (ViewBag.liste_dates[0] != null && ViewBag.liste_dates[0] != "01-01-0001")
-                        {@ViewBag.liste_dates[0]}
+                    @{if (ViewBag.liste_dates[2] != null && ViewBag.liste_dates[2] != "01-01-0001")
+                        {@ViewBag.liste_dates[2]}
                     else
                     {<span class="badge badge-primary">prochainement</span>}}
             </span>
@@ -89,8 +89,8 @@
         <div class="form-group">
             <label class="control-label">Date de depot du quatrieme rapport: </label>
             <span class="text-danger">
-                @{if (ViewBag.liste_dates[0] != null && ViewBag.liste_dates[0] != "01-01-0001")
-                    {@ViewBag.liste_dates[0]}
+                @{if (ViewBag.liste_dates[3] != null && ViewBag.liste_dates[3] != "01-01-0001")
+                    {@ViewBag.liste_dates[3]}
                 else
                 {<span class="badge badge-primary">prochainement</span>}}
         </span>

@@ -32,7 +32,13 @@ INSERT INTO type_Files(nom_type)
 
 INSERT INTO filieres(Nom_filiere)
  VALUES
- ('Ginfo'),
- ('Gtr'),
- ('Indus'),
- ('Gpmc');
+ ('Génie Informatique'),
+ ('Génie Telecom'),
+ ('Génie Industriel'),
+ ('Génie Procedes');
+
+/*remplissage de la table admins*/
+
+INSERT INTO admins(nom,prenom,email,password,confirmation)
+ VALUES
+ ('OUARRACHI','Maryem','maryam.ouarrachi@gmail.com','codedepasse1','codedepasse1');

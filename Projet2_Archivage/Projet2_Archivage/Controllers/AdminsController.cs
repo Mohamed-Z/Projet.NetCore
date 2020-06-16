@@ -407,7 +407,7 @@ namespace Projet2_Archivage.Controllers
                 Societe s = db.societes.Find(g.id_soc);
                 if (s != null)
                 {
-                    list_societes.Add(s.nom);
+                    list_societes.Add(s.sujet);
                 }
                 else
                 {

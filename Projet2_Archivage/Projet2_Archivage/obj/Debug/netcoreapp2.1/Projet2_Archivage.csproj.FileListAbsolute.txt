@@ -51,26 +51,12 @@ C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archiv
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.TagHelpers.input.cache
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.TagHelpers.output.cache
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.RazorCoreGenerate.cache
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.g.cshtml.cs
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.RazorTargetAssemblyInfo.cache
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.RazorTargetAssemblyInfo.cs
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.Views.pdb
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.dll
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.pdb
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.csproj.CopyComplete
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Connexion.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\EspaceAdmin.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Inscription.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Modifier.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_AdminLayout.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherDetailsAdmin.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Importation.g.cshtml.cs
 C:\Users\PC\Desktop\adminpr\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Projet2_Archivage.deps.json
 C:\Users\PC\Desktop\adminpr\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Projet2_Archivage.runtimeconfig.json
 C:\Users\PC\Desktop\adminpr\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Projet2_Archivage.runtimeconfig.dev.json
@@ -117,11 +103,6 @@ C:\Users\PC\Desktop\adminpr\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\o
 C:\Users\PC\Desktop\adminpr\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Espace_Etudiant.g.cshtml.cs
 C:\Users\PC\Desktop\adminpr\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Information_De_stage.g.cshtml.cs
 C:\Users\PC\Desktop\adminpr\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\InviterGroupe.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\connexion.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Creer_Groupe.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Espace_Etudiant.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Information_De_stage.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\InviterGroupe.g.cshtml.cs
 C:\Users\lenovo\Desktop\4eme\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.dll
 C:\Users\lenovo\Desktop\4eme\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.pdb
 C:\Users\lenovo\Desktop\4eme\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\appsettings.Development.json
@@ -207,11 +188,6 @@ C:\Users\dell\Desktop\Archivage_Core\Projet.NetCore\Projet2_Archivage\Projet2_Ar
 C:\Users\dell\Desktop\Archivage_Core\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.dll
 C:\Users\dell\Desktop\Archivage_Core\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.pdb
 C:\Users\dell\Desktop\Archivage_Core\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.csproj.CopyComplete
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\erreur_stage.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Rapport.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Rapport_final.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Affectation.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherListeAffectation.g.cshtml.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\appsettings.Development.json
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\appsettings.json
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
@@ -266,21 +242,50 @@ C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Proj
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EtudiantLayout.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\InsererNotes.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EspaceEnseignant.cshtml.g.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\Connexion.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\InsererNotes.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\PageInformations.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EspaceEnseignant.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EtudiantLayout.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_myLayout.g.cshtml.cs
 C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\InsertionDates.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Notes.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherNotes.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Planning.g.cshtml.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\InsertionDates.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Notes.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Planning.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherNotes.cshtml.g.cs
 C:\Users\lenovo\Desktop\4eme\.Net Projects\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EtudiantLayout2.cshtml.g.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\AfficherDetails.g.cshtml.cs
-C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EtudiantLayout2.g.cshtml.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.csprojAssemblyReference.cache
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Affectation.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Connexion.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\EspaceAdmin.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Importation.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Inscription.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\InsertionDates.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Modifier.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Notes.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\Planning.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherDetailsAdmin.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherListeAffectation.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Admins\_AfficherNotes.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\AfficherDetails.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\Connexion.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\InsererNotes.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Enseignant\PageInformations.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\connexion.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Creer_Groupe.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\erreur_stage.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Espace_Etudiant.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Information_De_stage.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\InviterGroupe.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Rapport.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Etudiant\Rapport_final.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EspaceEnseignant.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EtudiantLayout.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_EtudiantLayout2.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_myLayout.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\moham\Desktop\My-Github\Projet.NetCore\Projet2_Archivage\Projet2_Archivage\obj\Debug\netcoreapp2.1\Projet2_Archivage.genruntimeconfig.cache
